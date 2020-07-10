@@ -67,9 +67,9 @@ const citiesAtoJ = (arr) => {
   let regex = /^[A-J]\w+/g;
   let newArray = [];
   arr.forEach((city) => {
-    city.match(regex) ? newArray.push(city) : console.log('no') ;
+    city.match(regex) ? newArray.push(city) : false ;
   });
-  return newArray || [];
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -85,7 +85,8 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  // Solution code here...
+  let regex = /^[Oo]\w+/g;
+  return regex.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
