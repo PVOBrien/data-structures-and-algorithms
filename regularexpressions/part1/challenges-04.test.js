@@ -23,8 +23,9 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const generateSubmitButton = () => {
-  // Solution code here...
-}
+  let buttonLocation = $("form");
+  buttonLocation.append("<button>submit</button>");
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -39,7 +40,8 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  // Solution code here...
+  let regex = /\d/g;
+  return regex.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -51,7 +53,8 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  // Solution code here...
+  let regex = /[A-Z]\w+/g;
+  return str.match(regex) || []; // https://stackoverflow.com/questions/56724492/returning-an-empty-array-instead-of-null/56724530 for the solution.
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -61,7 +64,12 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  let regex = /^[A-J]\w+/g;
+  let newArray = [];
+  arr.forEach((city) => {
+    city.match(regex) ? newArray.push(city) : console.log('no') ;
+  });
+  return newArray || [];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -140,7 +148,7 @@ describe('Testing challenge 1', () => {
   test('It should add a submit button to the DOM', () => {
     generateSubmitButton();
     expect($('button').text()).toStrictEqual('submit');
-  })
+  });
 });
 
 describe('Testing challenge 2', () => {
@@ -240,4 +248,4 @@ describe('Testing challenge 8', () => {
 
 function createSnippetWithJQuery(html){
   return cheerio.load(html);
-};
+}
