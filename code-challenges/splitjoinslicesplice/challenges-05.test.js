@@ -34,11 +34,20 @@ let $ = createSnippetWithJQuery(`
     <p></p>
   </section>
 </main>
-`);
+`); // TODO: How do I get to this?
 
 const templateWithJQuery = () => {
-  // Solution code here...
-}
+  const swTemplate = $("#template").html(); //TODO: Find out how to target the ID.
+  // let target = $('main').html; // TODO: Irrelevant now (?)
+  starWarsPeople.forEach((character) => {
+    const $newSwCharacter = $(`<section>${swTemplate}</section>`);// using a $ symbol at front of a new var/let/const is helpful to designate it used jQuery.
+    $newSwCharacter.find("h2").text(character.name);
+    $newSwCharacter.find("h3").text(character.height);
+    $newSwCharacter.find("p").text(character.eye_color);
+    $("main").append($newSwCharacter); // TODO: how to target "main"?
+    // return $newSwCharacter;
+  });
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -58,7 +67,7 @@ const howMuchPencil = (str) => {
   for (let i = 0; i < str.length+1; i++){
     result.push(str.slice(i,str.length));
   }
-  return result || [];
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -256,7 +265,7 @@ describe('Testing challenge 1', () => {
     expect($('section:nth-child(2) h2').text()).toStrictEqual('Luke Skywalker');
     expect($('section:nth-child(3) h3').text()).toStrictEqual('167');
     expect($('section:nth-child(4) p').text()).toStrictEqual('red');
-  })
+  });
 });
 
 describe('Testing challenge 2', () => {
@@ -354,4 +363,4 @@ xdescribe('Testing challenge 11', () => {
 
 function createSnippetWithJQuery(html){
   return cheerio.load(html);
-};
+}
