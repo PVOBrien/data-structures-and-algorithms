@@ -167,7 +167,7 @@ function getCurrentEvents (request, response) {
   response.status(200).send('hello');
 }
 
-const mapCurrentEvents = () => {
+const mapCurrentEvents = () => { // I know this is right, just don't know how to access/invoke it yet.
   currentEvents.news.map(news => {
     return new Event(news);
   });
