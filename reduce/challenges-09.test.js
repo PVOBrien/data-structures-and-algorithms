@@ -1,40 +1,7 @@
 /* eslint-disable quotes */
 'use strict';
 
-/* ------------------------------------------------------------------------------------------------
-CHALLENGE 1 - Review
-
-First, write a function called mapCurrentEvents that maps over the current events object, runs it through a constructor function and returns the resulting array.
-
-The constructor function should be a stand alone function named Events and should have the following keys:
-* author
-* categories
-* summary
-* img_url
-* date
-* title
-
-Then, write an `/events` route with a callback function called getCurrentEvents.
-
-Next, write a function named getCurrentEvents that takes in the request and response as parameters. This function should call the
-mapCurrentEvents function and send the result to the front-end.
-
------------------------------------------------------------------------------------------------- */
-
-// Express server here
-const createServer = () => {
-  const express=require('express');
-  const app=express();
-
-  // Routes go here // Solution code here...
-  app.get('/events', getCurrentEvents);
-
-  var server = app.listen(3301, function () {
-    var port = server.address().port;
-    console.log('Example app listening at port', port);
-  });
-  return server;
-};
+const { request, response } = require('express');
 
 const currentEvents = {
   news: [
@@ -160,9 +127,44 @@ const currentEvents = {
   ]
 }
 
-function getCurrentEvents(request, response){ // don't know what goes here just yet.
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 1 - Review
 
-  response.send(theEvents);
+First, write a function called mapCurrentEvents that maps over the current events object, runs it through a constructor function and returns the resulting array. // DONE
+
+The constructor function should be a stand alone function named Events and should have the following keys:
+* author
+* categories
+* summary
+* img_url
+* date
+* title
+
+Then, write an `/events` route with a callback function called getCurrentEvents. DONE
+
+Next, write a function named getCurrentEvents that takes in the request and response as parameters. This function should call the
+mapCurrentEvents function and send the result to the front-end.
+
+------------------------------------------------------------------------------------------------ */
+
+// Express server here
+const createServer = () => {
+  const express=require('express');
+  const app=express();
+
+  // Routes go here // Solution code here...
+  app.get('/events', (getCurrentEvents));
+
+  var server = app.listen(3301, function () {
+    var port = server.address().port;
+    console.log('Example app listening at port', port);
+  });
+  return server;
+};
+
+function getCurrentEvents (request, response) {
+  console.log(currentEvents.news);
+  response.status(200).send('hello');
 }
 
 const mapCurrentEvents = () => {
@@ -189,10 +191,11 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  arr.reduce((answerSoFar, value) => {
-    answerSoFar + value;
-  }, 0 );
-  return arr.slice(-1).pop(); // Solution found here https://stackoverflow.com/questions/3216013/get-the-last-item-in-an-array, but is this not using array's built-in length property, as in, you can't just use .length(), correct?
+  arr.reduce((total, num) => {
+    return total + num;
+  }, 0);
+  return arr.slice(-1).pop();
+  // ; // Solution found here https://stackoverflow.com/questions/3216013/get-the-last-item-in-an-array, TODO: but is this  using array's built-in length property?
 };
 
 /* ------------------------------------------------------------------------------------------------
