@@ -153,7 +153,7 @@ const createServer = () => {
   const app=express();
 
   // Routes go here // Solution code here...
-  app.get('/events', (getCurrentEvents));
+  app.get('/events', getCurrentEvents);
 
   var server = app.listen(3301, function () {
     var port = server.address().port;
@@ -162,15 +162,16 @@ const createServer = () => {
   return server;
 };
 
-function getCurrentEvents (request, response) {
-  console.log(currentEvents.news);
-  response.status(200).send('hello');
+function getCurrentEvents (request, response){
+  // console.log(currentEvents.news);
+  response.status(200).send(currentEvents.news);
 }
 
 const mapCurrentEvents = () => { // I know this is right, just don't know how to access/invoke it yet.
-  currentEvents.news.map(news => {
+  let eventsArray = currentEvents.news.map(news => {
     return new Event(news);
   });
+  return eventsArray;
 };
 
 function Event(doing){
@@ -191,11 +192,10 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  arr.reduce((total, num) => {
-    return total + num;
+  let arrayLength = arr.reduce((total, num) => {
+    return total + 1;
   }, 0);
-  return arr.slice(-1).pop();
-  // ; // Solution found here https://stackoverflow.com/questions/3216013/get-the-last-item-in-an-array, TODO: but is this  using array's built-in length property?
+  return arrayLength;
 };
 
 /* ------------------------------------------------------------------------------------------------
