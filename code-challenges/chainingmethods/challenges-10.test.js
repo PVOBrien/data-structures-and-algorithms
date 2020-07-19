@@ -59,7 +59,6 @@ const count = (target, input) => {
   return targetCount;
 };
 
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -71,7 +70,14 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
+  let totalSum = 0;
+
+  input.forEach(element => {
+    let elementSum = element.reduce((accumulator,currentValue) => accumulator + currentValue);
+    //the arrow function's builtin *implicit return* is amazingly useful for reduce() work, otherwise it is very obtuse. // https://careerkarma.com/blog/javascript-filter-reduce/ was actually helpful in describing reduce. Screw mdn and w3c on their entries on this one. Sure, they're descriptive but when that isn't helpful... :shrug: off to go find something that actually is useful.
+    totalSum = totalSum + elementSum;
+  });
+  return totalSum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -228,13 +234,13 @@ describe('Testing challenge 2', () => {
   });
 });
 
-// describe('Testing challenge 3', () => {
-//   test('It should add all the numbers in the arrays', () => {
-//     const nums = [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]];
+describe('Testing challenge 3', () => {
+  test('It should add all the numbers in the arrays', () => {
+    const nums = [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]];
 
-//     expect(totalSum(nums)).toStrictEqual(66);
-//   });
-// });
+    expect(totalSum(nums)).toStrictEqual(66);
+  });
+});
 
 // describe('Testing challenge 4', () => {
 //   test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
