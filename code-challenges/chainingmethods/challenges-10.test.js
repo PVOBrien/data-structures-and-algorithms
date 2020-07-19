@@ -93,7 +93,22 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  let noRemainderOf = 5;
+  let newArrayOfFiltered = [];
+  let poweredArray = [];
+
+  // FIRST: remove any elements that are not numbers or are not divisible by five.
+  input.forEach(element => {
+    newArrayOfFiltered.push(
+      element.filter(item => !(item % noRemainderOf)))
+    return newArrayOfFiltered;
+  });
+
+  // Then raise 2 to the power of the resulting numbers, returning an array of arrays.
+  newArrayOfFiltered.forEach(element => {
+    poweredArray.push(element.map(item => 2 ** item));
+  });
+  return poweredArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -242,10 +257,11 @@ describe('Testing challenge 3', () => {
   });
 });
 
-// describe('Testing challenge 4', () => {
-//   test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
-//     expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
-//   });
+describe('Testing challenge 4', () => {
+  test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
+    expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
+  });
+});
 
 //   test('It should return an empty array if none of the numbers are divisible by five', () => {
 //     expect(divisibleByFiveTwoToThePower([[1, 2, 3], [5, 10, 15]])).toStrictEqual([[], [32, 1024, 32768]]);
