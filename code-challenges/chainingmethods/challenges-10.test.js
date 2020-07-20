@@ -100,7 +100,7 @@ const divisibleByFiveTwoToThePower = (input) => {
   // FIRST: remove any elements that are not numbers or are not divisible by five.
   input.forEach(element => {
     newArrayOfFiltered.push(
-      element.filter(item => !(item % noRemainderOf)))
+      element.filter(item => !(item % noRemainderOf) && Number.isInteger(item)))
     return newArrayOfFiltered;
   });
 
@@ -263,14 +263,13 @@ describe('Testing challenge 4', () => {
   });
 });
 
-//   test('It should return an empty array if none of the numbers are divisible by five', () => {
-//     expect(divisibleByFiveTwoToThePower([[1, 2, 3], [5, 10, 15]])).toStrictEqual([[], [32, 1024, 32768]]);
-//   });
+  test('It should return an empty array if none of the numbers are divisible by five', () => {
+    expect(divisibleByFiveTwoToThePower([[1, 2, 3], [5, 10, 15]])).toStrictEqual([[], [32, 1024, 32768]]);
+  });
 
-//   test('It should return an empty array if the values are not numbers', () => {
-//     expect(divisibleByFiveTwoToThePower([['one', 'two', 'five'], ['5', '10', '15'], [5]])).toStrictEqual([[], [], [32]]);
-//   });
-// });
+  test('It should return an empty array if the values are not numbers', () => {
+    expect(divisibleByFiveTwoToThePower([['one', 'two', 'five'], ['5', '10', '15'], [5]])).toStrictEqual([[], [], [32]]);
+  });
 
 // xdescribe('Testing challenge 5', () => {
 //   test('It should return only characters that are male or female', () => {
