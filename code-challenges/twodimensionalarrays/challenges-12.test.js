@@ -62,16 +62,18 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  console.log(hours);
-  console.log(data);
+  // console.log(hours);
+  let hoursResults = [];
+  let counter = 0;
   hours.forEach(element => {
-    new HourlySales;
+    let store = {
+      sales: `${data[counter]} cookies`,
+      time: element
+    }
+    hoursResults.push(store);
+    counter ++;
   });
-
-};
-
-function HourlySales() {
-  this.element = time;
+  return hoursResults;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -96,7 +98,13 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let thingToGet = arr.reduce((total, fromStore) => {
+    console.log(fromStore.items[1].name === 'Treats');
+    if (fromStore.items[1].name === 'Treats') {
+      return fromStore.items[1].quantity;
+    }
+  }, 0);
+  return thingToGet;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -237,63 +245,63 @@ describe('Testing challenge 3', () => {
   });
 });
 
-// describe('Testing challenge 4', () => {
-//   test('It should return the number 24', () => {
-//     expect(howManyTreats(errands)).toStrictEqual(24);
-//   });
-// });
+describe('Testing challenge 4', () => {
+  test('It should return the number 24', () => {
+    expect(howManyTreats(errands)).toStrictEqual(24);
+  });
+});
 
-// xdescribe('Testing challenge 5', () => {
-//   const battleshipData = [
-//     ['#', ' ', '#', ' '],
-//     ['#', ' ', '#', ' '],
-//     ['#', ' ', ' ', ' '],
-//     [' ', ' ', '#', '#'],
-//   ];
+xdescribe('Testing challenge 5', () => {
+  const battleshipData = [
+    ['#', ' ', '#', ' '],
+    ['#', ' ', '#', ' '],
+    ['#', ' ', ' ', ' '],
+    [' ', ' ', '#', '#'],
+  ];
 
-//   test('It should return "hit" when it hits a boat', () => {
-//     expect(battleship(battleshipData, 0, 0)).toStrictEqual('hit');
-//     expect(battleship(battleshipData, 1, 0)).toStrictEqual('hit');
-//   });
+  test('It should return "hit" when it hits a boat', () => {
+    expect(battleship(battleshipData, 0, 0)).toStrictEqual('hit');
+    expect(battleship(battleshipData, 1, 0)).toStrictEqual('hit');
+  });
 
-//   test('It should return "miss" when it doesn\'t hit a boat', () => {
-//     expect(battleship(battleshipData, 0, 1)).toStrictEqual('miss');
-//     expect(battleship(battleshipData, 3, 0)).toStrictEqual('miss');
-//   });
-// });
+  test('It should return "miss" when it doesn\'t hit a boat', () => {
+    expect(battleship(battleshipData, 0, 1)).toStrictEqual('miss');
+    expect(battleship(battleshipData, 3, 0)).toStrictEqual('miss');
+  });
+});
 
-// xdescribe('Testing challenge 6', () => {
-//   test('It should multiply all the numbers together', () => {
-//     expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
-//   });
+xdescribe('Testing challenge 6', () => {
+  test('It should multiply all the numbers together', () => {
+    expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
+  });
 
-//   test('It should return zero if there are any zeroes in the data', () => {
-//     expect(calculateProduct([[2, 3, 4, 6, 0], [4, 3, 7], [2, 4, 6]])).toStrictEqual(0);
-//   });
-//   test('It should work even if some of the arrays contain no numbers', () => {
-//     expect(calculateProduct([[1, 2], [], [3, 4, 5]])).toStrictEqual(120);
-//   });
-// });
+  test('It should return zero if there are any zeroes in the data', () => {
+    expect(calculateProduct([[2, 3, 4, 6, 0], [4, 3, 7], [2, 4, 6]])).toStrictEqual(0);
+  });
+  test('It should work even if some of the arrays contain no numbers', () => {
+    expect(calculateProduct([[1, 2], [], [3, 4, 5]])).toStrictEqual(120);
+  });
+});
 
-// xdescribe('Testing challenge 7', () => {
-//   test('It should calculate and return the average temperature of the data set', () => {
-//     expect(averageDailyTemperature(weeklyTemperatures)).toStrictEqual(60.25);
-//   });
-// });
+xdescribe('Testing challenge 7', () => {
+  test('It should calculate and return the average temperature of the data set', () => {
+    expect(averageDailyTemperature(weeklyTemperatures)).toStrictEqual(60.25);
+  });
+});
 
-// xdescribe('Testing challenge 8', () => {
-//   test('It should return the lowest weekly average temperature within the data set', () => {
-//     expect(lowestWeeklyAverage(weeklyTemperatures)).toStrictEqual(57);
-//     expect(lowestWeeklyAverage(lowestWeeklyTemperatureData)).toStrictEqual(46);
-//   });
-// });
+xdescribe('Testing challenge 8', () => {
+  test('It should return the lowest weekly average temperature within the data set', () => {
+    expect(lowestWeeklyAverage(weeklyTemperatures)).toStrictEqual(57);
+    expect(lowestWeeklyAverage(lowestWeeklyTemperatureData)).toStrictEqual(46);
+  });
+});
 
-// xdescribe('Testing challenge 9', () => {
-//   test('It should return the total count for each row', () => {
-//     let result = excel('1,1,1\n4,4,4\n9,9,9');
-//     expect(result.length).toStrictEqual(3);
-//     expect(result[0]).toStrictEqual(3);
-//     expect(result[1]).toStrictEqual(12);
-//     expect(result[2]).toStrictEqual(27);
-//   });
-// });
+xdescribe('Testing challenge 9', () => {
+  test('It should return the total count for each row', () => {
+    let result = excel('1,1,1\n4,4,4\n9,9,9');
+    expect(result.length).toStrictEqual(3);
+    expect(result[0]).toStrictEqual(3);
+    expect(result[1]).toStrictEqual(12);
+    expect(result[2]).toStrictEqual(27);
+  });
+});
