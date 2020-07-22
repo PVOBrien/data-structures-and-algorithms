@@ -15,7 +15,7 @@ const createServer = () => {
 
   var server = app.listen(3301, function () {
     var port = server.address().port;
-    console.log('Example app listening at port', port);
+    // console.log('Example app listening at port', port);
   });
   return server;
 };
@@ -66,8 +66,8 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
-  newArray = arr.filter (value => {
-    value !==forbiddenValues.includes(number);
+  let newArray = arr.filter (value => {
+    return !forbiddenValues.includes(value); // the single ! does the job of !==, le sigh.
   });
   return newArray;
 };
