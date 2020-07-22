@@ -43,18 +43,13 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  console.log(stores);
-  let rowValues = new Array;
-  for(let i = 0; i<stores.length; i++) {
-
-    for(let j = 0; j<stores[0].length; j++) {
-
-      let value = stores[i][j];
-      rowValues[i] += value;
-    }
-    return rowValues;
-  }
-};
+  let endArray = stores.reduce(function(accumulator, array2) {
+    return accumulator.map(function (sum, index) {
+      return sum + array2[index];
+    });
+  });
+  return endArray;
+}; // attempted to follow along with the example offered herehttps://www.youtube.com/watch?v=3Bu754D4gp8&list=PLVngfM2hsbi-L6G8qlWd8RyRbuTamHt3k&index=10 but constantly added +1 empty array at the end, despite there only ever being 12 values for a loop to iterate over, so what the heck? Then I overflowstacked to this one https://stackoverflow.com/questions/32139773/sum-array-of-arrays-matrix-vertically-efficiently-elegantly that answers it with yes an elegant mix of reduce to *reduce* the answer to a single array, by the accumulator being a map of each index, and then adding that sum of the array's index being evaluated. BUT: WHY DIDN'T THE CODE FELLOWS SHRED TALKS 2D ARRAYS SOLUTION WORK.?
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -67,8 +62,17 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  console.log(hours);
+  console.log(data);
+  hours.forEach(element => {
+    new HourlySales;
+  });
+
 };
+
+function HourlySales() {
+  this.element = time;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
