@@ -157,7 +157,7 @@ const createServer = () => {
 
   var server = app.listen(3301, function () {
     var port = server.address().port;
-    console.log('Example app listening at port', port);
+    // console.log('Example app listening at port', port);
   });
   return server;
 };
@@ -255,7 +255,11 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  // Solution code here...
+  let justNames = arr.reduce ((accumulator, current) => {
+    return accumulator.concat(current.name); // why not .push(current.name)?
+  }, []);
+  console.log(justNames);
+  return justNames;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -267,7 +271,12 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
+  let arr = str.split('');
+  console.log(arr);
+  let revStr = arr.reduce( (accumulator, letter) => {
+    return letter + accumulator;
+  }, '');
+  return revStr;
 };
 
 /* ------------------------------------------------------------------------------------------------
