@@ -4,14 +4,30 @@
 
 Objective: To take an array as an argument and - without using built-in methods - return an array with the element in reversed order.
 
-### Challenge
+#### Challenge
 No use of built-in methods to accomplish the objective.
 
-### Approach & Efficiency
+#### Approach & Efficiency
 <!-- Not Applicable for first challenge -->
 
-### Solution
+#### Solution
 <!-- Not Applicable for first challenge -->
+
+## Array Shift - 2020-09-15
+
+Objective: To take an array and insert a new value into the middle of it.
+
+#### Challenge
+No use of built-in methods to accomplish the objective.
+
+#### Approach & Efficiency
+Time: O(n)
+Space O(n)
+
+#### Solution
+
+
+=====
 
 [x] Read all of the following instructions carefully. Name things exactly as described.
 [x] Do all your work in a public repository called data-structures-and-algorithms.
