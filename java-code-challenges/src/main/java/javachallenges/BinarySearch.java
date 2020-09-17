@@ -10,7 +10,8 @@ public class BinarySearch {
 //      return -1; //this returns if the search key is not between the min and max values of the array
 //    }
 
-    while (0 <= 4) {
+    while (0 <= 4) { // https://www.geeksforgeeks.org/java-program-for-binary-search-recursive-and-iterative/#:~:text=Java%20Program%20for%20Binary%20Search%20%28Recursive%20and%20Iterative%29,%28x%20is%20smaller%29%20recur%20for%20the%20left%20half.
+      // where I found a binarySearch to walk through. Also provided a recursive option, but we didn't go that crazy.
       if(searchKey == arrayToSearch[middle]){
         System.out.println(middle);
         return middle;
