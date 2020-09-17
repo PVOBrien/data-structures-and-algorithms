@@ -28,9 +28,22 @@ Space O(n)
 
 Take in the parameters of the array (of integers) and the new value (an integer). Find the middle of the old array, create a new array the size of the old array + 1, then have a loop the length of the new array, and at the middle of the array, insert the new integer, then continue the loop. The old array count is controlled by a seperate integer counter that doesn't increment when the additional value is entered.
 
-![Whiteboard](https://github.com/PVOBrien/data-structures-and-algorithms/blob/array-shift/java-code-challenges/src/main/resources/Whiteboard%20-%20Code%20Challenge%2002.png)
+## Array Binary Search
 
-=====
+Objective: take in 2 args (a sorted array and its search key), and return the index of the array's element euqal to the search key or -1 if the element doesn't exist.
+
+#### Challenge
+
+No use of built-in methods, and the search algorithm should be a binary search.
+
+#### Approach & Efficiency
+
+Time: O(1)
+Space: O(n)
+
+#### Solution
+
+![Whiteboard](https://github.com/PVOBrien/data-structures-and-algorithms/blob/array-shift/java-code-challenges/src/main/resources/Whiteboard%20-%20Code%20Challenge%2002.png)
 
 ## Binary Search
 
