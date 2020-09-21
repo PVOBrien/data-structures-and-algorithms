@@ -8,10 +8,11 @@ Objective: To take an array as an argument and - without using built-in methods 
 No use of built-in methods to accomplish the objective.
 
 #### Approach & Efficiency
-<!-- Not Applicable for first challenge -->
+Time: O(n)
+Space: O(1)
 
 #### Solution
-<!-- Not Applicable for first challenge -->
+The method takes in the array, initializes a new array and then in a for loop takes the last index of the original array and puts it in the first index position of the new array, and then moves backwards through the passed array (original.length - i -1) until it fills the entirety of it's length into the new array. Then it returns that new array, all reversed!
 
 ## Array Shift - 2020-09-15
 
@@ -58,3 +59,19 @@ Time: O(log n)
 Space: O(log n)
 
 ![Code Challenge 03](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/Code%20Challenge%2003%20Whiteboard.png)
+
+
+## Single Linked List
+  Create a class which has a that starts with a value and is linked to a following value and so forth, can inform a user if a value exists in the list, and return a string of all values with the list.
+
+#### Challenge
+  No use of built-in classes or functions.
+
+#### Approach & Efficiency
+  Time: O(n)
+  Space O(1)
+
+#### API
+  Node() - creates the next node within the linkedlist.
+  toString() = lists out all Nodes within a list.
+  includes() = informs a user if a value is present within the linkedlist or not.
