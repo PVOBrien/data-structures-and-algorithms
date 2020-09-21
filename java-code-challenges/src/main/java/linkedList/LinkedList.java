@@ -41,11 +41,11 @@ public class LinkedList {
       }
 
       if (current != null) {
-      System.out.println("Here is the current LinkedList: ");
         while (current != null) {
-          System.out.println(current.value + " ");
+          System.out.println(current.value + " -> ");
           current = current.next;
         }
+      System.out.println("Null");
       }
     }
     public boolean includes (int searchValue) {
