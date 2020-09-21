@@ -60,5 +60,4 @@ public class LinkedList {
       }
       return false;
     }
-
   }
