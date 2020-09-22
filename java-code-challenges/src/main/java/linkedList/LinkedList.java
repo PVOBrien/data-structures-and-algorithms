@@ -1,63 +1,71 @@
 package linkedList;
 
+
 public class LinkedList {
 
-  public class Node {
 
-    public int value;
-    Node next; // changed to Node, after following tutorial.
+  public Node head = null;
 
-    public Node(int number) {
-      this.value = number;
-      this.next = null;
+  public void insert(int newValue) {
+    Node newNode = new Node(newValue);
+    if (this.head != null) {
+      newNode.next = this.head;
     }
+    this.head = newNode;
   }
 
-    public Node head;
-    public Node tail;
+  public void toTheString() { // this is originally giving an error as toString is a builtin, unless it is... overloaded(?))
 
-//    public LinkedList() { // we originally had this, but this would instantiate it, instead of making it... static?
-//      this.head = null; // thought this needed to be instantiated first, but now come to think of it, this *is* the linkedlist, static
-//      this.tail = null; // ^^^
-//    }
+    Node current = this.head;
 
-    public void insert (int newValue) {
-      Node newNode = new Node(newValue);
-      if (head == null) {
-        head = newNode;
-        tail = newNode;
-      }
-      else {
-        tail.next = newNode;
-        tail = newNode;
-      }
+    if (current == null) {
+      System.out.println("Nothing here");
     }
 
-    public void toString() { // this is originally giving an error as toString is a builtin, unless it is... overloaded(?))
-      Node current = head;
-
-      if (head == null) {
-        System.out.println("Nothing here");
+    if (current.next != null) {
+      while (current != null) {
+        System.out.print(current.value + " -> ");
+        current = current.next;
       }
-
-      if (current != null) {
-        while (current != null) {
-          System.out.println(current.value + " -> ");
-          current = current.next;
-        }
       System.out.println("Null");
-      }
-    }
-    public boolean includes (int searchValue) {
-      int check = head.value;
-
-      while (head.next != null){
-        if (check == searchValue){
-          return true;
-        } else {
-          check = head.next.value;
-        }
-      }
-      return false;
     }
   }
+
+  public boolean includes(int searchValue) {
+    if (this.head.value == searchValue) {
+      return true;
+    }
+    Node nextCheck = this.head.next;
+    while (nextCheck != null) {
+      if (nextCheck.value == searchValue) {
+        System.out.println("good job checker!");
+        return true;
+      } else {
+        nextCheck = nextCheck.next;
+      }
+    }
+    System.out.println("this ain't real");
+    return false;
+  }
+
+  public static void main(String[] args) {
+    LinkedList tryList = new LinkedList();
+    tryList.insert(4);
+    tryList.insert(3);
+    tryList.insert(2);
+    tryList.insert(1);
+    tryList.toTheString();
+    tryList.includes(3);
+  }
+}
+
+class Node {
+
+  int value;
+  Node next;
+
+  public Node(int number) {
+    this.value = number;
+    this.next = null;
+  }
+}
