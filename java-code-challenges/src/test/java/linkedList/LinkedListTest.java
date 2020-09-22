@@ -73,5 +73,5 @@ public class LinkedListTest {
 //    tryList.insert(2);
 //    tryList.insert(1);
 //    int[] testNodesArray = tryList.nodesArray();
-  }
+//  }
 }
