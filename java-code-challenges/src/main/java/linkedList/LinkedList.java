@@ -8,7 +8,7 @@ public class LinkedList {
   public void insert(int newValue) {
     Node newNode = new Node(newValue);
     if (this.head != null) {
-      newNode.next = this.head;
+      newNode.setNext(this.head); // which getter/setter should work here?
     }
     this.head = newNode;
   }
@@ -16,33 +16,33 @@ public class LinkedList {
   public String toTheString() {
 
     Node current = this.head;
-    String message = "";
+    StringBuilder message = new StringBuilder();
 
     if (current == null) {
-      return message = ("Nothing here");
+      return ("Nothing here");
     }
 
-    if (current.next != null) {
+    if (current.getNext() != null) {
       while (current != null) {
         System.out.print(current.value + " -> ");
-        message += String.format("%d -> ", current.value);
-        current = current.next;
+        message.append(String.format("%d -> ", current.getValue()));
+        current = current.getNext();
       }
     }
-    return message += "Null";
+    return message + "Null";
   }
 
   public boolean includes(int searchValue) {
-    if (this.head.value == searchValue) {
+    if (head.getValue() == searchValue) {
       return true;
     }
-    Node nextCheck = this.head.next;
-    while (nextCheck != null) {
-      if (nextCheck.value == searchValue) {
+    Node nextCheck = head.getNext();
+    while (nextCheck.getNext() != null) {
+      if (nextCheck.getValue() == searchValue) {
         System.out.println("good job checker!");
         return true;
       } else {
-        nextCheck = nextCheck.next;
+        nextCheck = nextCheck.getNext();
       }
     }
     System.out.println("this ain't real");
@@ -50,39 +50,38 @@ public class LinkedList {
   }
 
   public void append(int newValue) {
-    if (this.head == null) {
-      Node newNode = new Node(newValue);
-      head = newNode;
+    if (head == null) {
+      head = new Node(newValue); // Node newNode = new Node(newValue); used to have that last line one above. but you can create "new" inline.
       return;
     }
     Node nextToCheck = head;
 
     do {
-      if (nextToCheck.next == null) {
-        nextToCheck.next = new Node(newValue);
+      if (nextToCheck.getNext() == null) {
+        nextToCheck.setNext(new Node(newValue)); // you can create "new" this way!
         break;
       } else {
-        nextToCheck = nextToCheck.next;
+        nextToCheck = nextToCheck.getNext();
       }
     } while (nextToCheck != null);
   }
 
   public void insertBefore(int searchValue, int newValue) throws Exception {
     Node previousChecked = head;
-    if (head.value == searchValue) {
+    if (head.getValue() == searchValue) {
       insert(newValue);
     }
     do {
-      if (previousChecked.next == null) {
+      if (previousChecked.getNext() == null) {
         throw new Exception("Value not found.");
       }
-      if (previousChecked.next.value == searchValue) {
+      if (previousChecked.getNext().value == searchValue) {
         Node newNode = new Node(newValue);
-        newNode.next = previousChecked.next;
-        previousChecked.next = newNode;
+        newNode.setNext(previousChecked.getNext());
+        previousChecked.setNext(newNode);
         return;
       } else {
-        previousChecked = previousChecked.next;
+        previousChecked = previousChecked.getNext();
       }
     } while (previousChecked != null);
   }
@@ -90,13 +89,13 @@ public class LinkedList {
   public void insertAfter(int searchValue, int newValue) throws Exception {
     Node currentNode = head;
     while (currentNode != null) {
-      if (currentNode.value == searchValue) {
+      if (currentNode.getValue() == searchValue) {
         Node newNode = new Node(newValue);
-        newNode.next = currentNode.next;
-        currentNode.next = newNode;
+        newNode.setNext(currentNode.getNext());
+        currentNode.setNext(newNode);
         return;
       }
-      currentNode = currentNode.next;
+      currentNode = currentNode.getNext();
     }
     throw new Exception("Value not found.");
   }
