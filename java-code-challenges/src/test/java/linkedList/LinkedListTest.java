@@ -66,4 +66,12 @@ public class LinkedListTest {
     assertEquals("this is what it should read out like.", "1 -> 2 -> 3 -> 4 -> 8 -> Null", tryList.toTheString());
   }
 
+//  @Test public void testNodesArray() {
+//    LinkedList tryList = new LinkedList();
+//    tryList.insert(4);
+//    tryList.insert(3);
+//    tryList.insert(2);
+//    tryList.insert(1);
+//    int[] testNodesArray = tryList.nodesArray();
+  }
 }

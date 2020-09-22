@@ -3,7 +3,6 @@ package linkedList;
 
 public class LinkedList {
 
-
   public Node head = null;
 
   public void insert(int newValue) {
@@ -14,7 +13,7 @@ public class LinkedList {
     this.head = newNode;
   }
 
-  public String toTheString() { // this is originally giving an error as toString is a builtin, unless it is... overloaded(?))
+  public String toTheString() {
 
     Node current = this.head;
     String message = "";
@@ -30,7 +29,7 @@ public class LinkedList {
         current = current.next;
       }
     }
-      return message += "Null";
+    return message += "Null";
   }
 
   public boolean includes(int searchValue) {
@@ -50,7 +49,7 @@ public class LinkedList {
     return false;
   }
 
-  public void append (int newValue) {
+  public void append(int newValue) {
     if (this.head == null) {
       Node newNode = new Node(newValue);
       head = newNode;
@@ -101,15 +100,25 @@ public class LinkedList {
     }
     throw new Exception("Value not found.");
   }
-}
 
-class Node {
+//  public int[] nodesArray() {
+//    int counter = 1;
+//    Node currentNode = head;
+//    while (currentNode.next != null) {
+//      counter++;
+//      currentNode = currentNode.next;
+//    }
+//    int[] complete = new int[counter];
+//
+//    int counterTwo = 0;
 
-  int value;
-  Node next;
-
-  public Node(int number) {
-    this.value = number;
-    this.next = null;
-  }
+//    for (int i = 0; i < complete.length; i++) {
+//      System.out.println(Arrays.toString(complete));
+//      complete[i] = currentNode.value;
+////      currentNode = currentNode.next;
+//      currentNode = currentNode.next;
+//    }
+//    System.out.println(Arrays.toString(complete));
+//    return complete;
+//  }
 }
