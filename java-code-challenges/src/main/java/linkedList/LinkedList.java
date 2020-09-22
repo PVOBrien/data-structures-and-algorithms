@@ -14,21 +14,23 @@ public class LinkedList {
     this.head = newNode;
   }
 
-  public void toTheString() { // this is originally giving an error as toString is a builtin, unless it is... overloaded(?))
+  public String toTheString() { // this is originally giving an error as toString is a builtin, unless it is... overloaded(?))
 
     Node current = this.head;
+    String message = "";
 
     if (current == null) {
-      System.out.println("Nothing here");
+      return message = ("Nothing here");
     }
 
     if (current.next != null) {
       while (current != null) {
         System.out.print(current.value + " -> ");
+        message += String.format("%d -> ", current.value);
         current = current.next;
       }
-      System.out.println("Null");
     }
+      return message += "Null";
   }
 
   public boolean includes(int searchValue) {
@@ -48,14 +50,56 @@ public class LinkedList {
     return false;
   }
 
-  public static void main(String[] args) {
-    LinkedList tryList = new LinkedList();
-    tryList.insert(4);
-    tryList.insert(3);
-    tryList.insert(2);
-    tryList.insert(1);
-    tryList.toTheString();
-    tryList.includes(3);
+  public void append (int newValue) {
+    if (this.head == null) {
+      Node newNode = new Node(newValue);
+      head = newNode;
+      return;
+    }
+    Node nextToCheck = head;
+
+    do {
+      if (nextToCheck.next == null) {
+        nextToCheck.next = new Node(newValue);
+        break;
+      } else {
+        nextToCheck = nextToCheck.next;
+      }
+    } while (nextToCheck != null);
+  }
+
+  public void insertBefore(int searchValue, int newValue) throws Exception {
+    Node previousChecked = head;
+    if (head.value == searchValue) {
+      insert(newValue);
+    }
+    do {
+      if (previousChecked.next == null) {
+        throw new Exception("Value not found.");
+      }
+      if (previousChecked.next.value == searchValue) {
+        Node newNode = new Node(newValue);
+        newNode.next = previousChecked.next;
+        previousChecked.next = newNode;
+        return;
+      } else {
+        previousChecked = previousChecked.next;
+      }
+    } while (previousChecked != null);
+  }
+
+  public void insertAfter(int searchValue, int newValue) throws Exception {
+    Node currentNode = head;
+    while (currentNode != null) {
+      if (currentNode.value == searchValue) {
+        Node newNode = new Node(newValue);
+        newNode.next = currentNode.next;
+        currentNode.next = newNode;
+        return;
+      }
+      currentNode = currentNode.next;
+    }
+    throw new Exception("Value not found.");
   }
 }
 
