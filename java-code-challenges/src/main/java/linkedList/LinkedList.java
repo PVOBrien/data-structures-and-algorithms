@@ -7,15 +7,15 @@ public class LinkedList {
 
   public void insert(int newValue) {
     Node newNode = new Node(newValue);
-    if (this.head != null) {
-      newNode.setNext(this.head); // which getter/setter should work here?
+    if (head != null) {
+      newNode.setNext(head); // which getter/setter should work here?
     }
-    this.head = newNode;
+    head = newNode;
   }
 
   public String toTheString() {
 
-    Node current = this.head;
+    Node current = head;
     StringBuilder message = new StringBuilder();
 
     if (current == null) {

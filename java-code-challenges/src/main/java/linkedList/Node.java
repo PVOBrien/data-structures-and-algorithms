@@ -22,7 +22,7 @@ class Node {
   }
 
   public Node(int number) {
-    this.value = number;
+    this.setValue(number);
     this.setNext(null);
   }
 }
