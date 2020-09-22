@@ -73,5 +73,11 @@ Space: O(log n)
 
 #### API
   Node() - creates the next node within the linkedlist.
-  toString() = lists out all Nodes within a list.
-  includes() = informs a user if a value is present within the linkedlist or not.
+  toString() - lists out all Nodes within a list.
+  includes() - informs a user if a value is present within the linkedlist or not.
+  insert() - inserts a new Node into the linkedlist.
+  append() - adds new node at end of the linkedlist.
+  insertBefore - inserts a new node before a passed value.
+  insertAfter() - inserts a new node after a passed value.
+
+![Code Challenge 06 WhiteBoard](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/401%20Challenge%2006%20Whiteboard.png)
