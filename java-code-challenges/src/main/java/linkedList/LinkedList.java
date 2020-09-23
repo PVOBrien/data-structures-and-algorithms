@@ -118,4 +118,27 @@ public class LinkedList {
     System.out.println(complete);
     return complete.get(complete.size() - 1 - kthPlace);
   }
+
+  public LinkedList zip(LinkedList first, LinkedList second) {
+    Node firstL = first.head;
+    Node secondL = second.head;
+    while(firstL != null) {
+      if(secondL != null) {
+        Node newThing = new Node(secondL.value);
+        newThing.setNext(firstL.getNext());
+        firstL.setNext(newThing);
+        Node nextOfNext = firstL.getNext();
+        if(nextOfNext.getNext() != null) {
+          firstL = nextOfNext.getNext();
+        } else {
+          firstL = firstL.getNext();
+        }
+        secondL = secondL.getNext();
+      } else {
+        break;
+      }
+    }
+    return first;
+  }
+
 }

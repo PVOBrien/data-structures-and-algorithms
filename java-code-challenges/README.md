@@ -79,8 +79,13 @@ Space: O(log n)
   append() - adds new node at end of the linkedlist.
   insertBefore - inserts a new node before a passed value.
   insertAfter() - inserts a new node after a passed value.
-  valueFromKth() - takes in a integer and returns the value found at that location kth places from the head.
+  valueFromKth() - takes in an integer and returns the value found at that location kth places from the head.
+  zip() - takes in two LinkedLists, and adds them together, one from one, then the other, until one runs out and then the other finishes.
+        worked together with Garhett Morgan.
+
 
 ![Code Challenge 06 WhiteBoard](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/401%20Challenge%2006%20Whiteboard.png)
 
 ![Code Challenge kth from end](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/401-06%20Whiteboard%20kthfromlist.png)
+
+![Code Challenge zip](https://github.com/PVOBrien/reading-notes/blob/master/resources/llZipChallengeWB.png)
