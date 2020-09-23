@@ -101,9 +101,14 @@ public class LinkedListTest {
   }
 
   @Test public void testNodesArray2() throws Exception {
+
     LinkedList tryList = new LinkedList();
     tryList.insert(2);
     assertEquals("This should be from the \"index\" of the linkedlist", 2, tryList.valueFromKth(0));
+    assertThrows("This should throw",
+      kthNegative().class,
+      () -> tryList.valueFromKth(5)
+    ) // arrow functions are LAMBDA, NOT ARROW FUNCTIONS
   }
 
   @Test public void kthHappy() throws Exception {
