@@ -1,6 +1,8 @@
 package linkedList;
 
 
+import java.util.ArrayList;
+
 public class LinkedList {
 
   public Node head = null;
@@ -24,7 +26,6 @@ public class LinkedList {
 
     if (current.getNext() != null) {
       while (current != null) {
-        System.out.print(current.value + " -> ");
         message.append(String.format("%d -> ", current.getValue()));
         current = current.getNext();
       }
@@ -100,24 +101,21 @@ public class LinkedList {
     throw new Exception("Value not found.");
   }
 
-//  public int[] nodesArray() {
-//    int counter = 1;
-//    Node currentNode = head;
-//    while (currentNode.next != null) {
-//      counter++;
-//      currentNode = currentNode.next;
-//    }
-//    int[] complete = new int[counter];
-//
-//    int counterTwo = 0;
+  public int valueFromKth(int kthPlace) throws Exception {
+    Node current = head;
+    ArrayList<Integer> complete = new ArrayList<>();
 
-//    for (int i = 0; i < complete.length; i++) {
-//      System.out.println(Arrays.toString(complete));
-//      complete[i] = currentNode.value;
-////      currentNode = currentNode.next;
-//      currentNode = currentNode.next;
-//    }
-//    System.out.println(Arrays.toString(complete));
-//    return complete;
-//  }
+    if (current.getNext() != null)
+      do {
+        complete.add(current.getValue());
+        current = current.getNext();
+    } while (current != null);
+
+    if (kthPlace > complete.size() -1 || kthPlace < 0) {
+      throw new Exception("Exception: Kth place not in LinkedList");
+    }
+
+    System.out.println(complete);
+    return complete.get(complete.size() - 1 - kthPlace);
+  }
 }

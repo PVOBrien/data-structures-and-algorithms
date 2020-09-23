@@ -73,12 +73,17 @@ Space: O(log n)
   Space O(1)
 
 #### API
--  Node() - creates the next node within the linkedlist.
--  toString() - lists out all Nodes within a list. \n
--  includes() - informs a user if a value is present within the linkedlist or not.
--  insert() - inserts a new Node into the linkedlist.
--  append() - adds new node at end of the linkedlist.
--  insertBefore - inserts a new node before a passed value.
--  insertAfter() - inserts a new node after a passed value.
+
+  Node() - creates the next node within the linkedlist.
+  toString() - lists out all Nodes within a list.
+  includes() - informs a user if a value is present within the linkedlist or not.
+  insert() - inserts a new Node into the linkedlist.
+  append() - adds new node at end of the linkedlist.
+  insertBefore - inserts a new node before a passed value.
+  insertAfter() - inserts a new node after a passed value.
+  valueFromKth() - takes in a integer and returns the value found at that location kth places from the head.
+
 
 ![Code Challenge 06 WhiteBoard](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/401%20Challenge%2006%20Whiteboard.png)
+
+![Code Challenge kth from end](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/401-06%20Whiteboard%20kthfromlist.png)
