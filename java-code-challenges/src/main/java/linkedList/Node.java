@@ -5,6 +5,11 @@ class Node {
   int value;
   private Node next;
 
+  public Node(int number) {
+    this.setValue(number);
+    this.setNext(null);
+  }
+
   public int getValue() {
     return value;
   }
@@ -21,8 +26,4 @@ class Node {
     this.next = next;
   }
 
-  public Node(int number) {
-    this.setValue(number);
-    this.setNext(null);
-  }
 }
