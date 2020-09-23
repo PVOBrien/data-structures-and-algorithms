@@ -6,7 +6,8 @@ import static org.junit.Assert.*;
 
 public class LinkedListTest {
 
-    @Test public void testEmptyLinkList() {
+
+  @Test public void testEmptyLinkList() {
     assertNotNull(new LinkedList());
   }
 
@@ -66,14 +67,51 @@ public class LinkedListTest {
     assertEquals("this is what it should read out like.", "1 -> 2 -> 3 -> 4 -> 8 -> Null", tryList.toTheString());
   }
 
-  @Test public void testNodesArray() throws Exception {
+  @Test public void kthSameSize() throws Exception {
     LinkedList tryList = new LinkedList();
-    tryList.insert(4);
-    tryList.insert(3);
     tryList.insert(2);
+    tryList.insert(8);
+    tryList.insert(3);
     tryList.insert(1);
-//    ArrayList<Integer> testNodesArray = tryList.nodesArray(2);
-    assertEquals("This should be from the \"index\" of the linkedlist", 4, tryList.valueFromKth(0));
-//    assertEquals("This should be from the \"index\" of the linkedlist", 5, tryList.valueFromKth(5));
+    assertEquals("This should be from the \"index\" of the linkedlist", 1, tryList.valueFromKth(4));
+  }
+
+  @Test public void kthGreaterSize() throws Exception {
+    LinkedList tryList = new LinkedList();
+    tryList.insert(2);
+    tryList.insert(8);
+    tryList.insert(3);
+    tryList.insert(1);
+    assertEquals("This should be from the \"index\" of the linkedlist", 1, tryList.valueFromKth(5));
+  }
+
+  @Test public void kthSameAndSizeOne() throws Exception {
+    LinkedList tryList = new LinkedList();
+    tryList.insert(2);
+    assertEquals("This should be from the \"index\" of the linkedlist", 8, tryList.valueFromKth(1));
+  }
+
+  @Test public void kthNegative() throws Exception {
+    LinkedList tryList = new LinkedList();
+    tryList.insert(2);
+    tryList.insert(8);
+    tryList.insert(3);
+    tryList.insert(1);
+    assertEquals("This should be from the \"index\" of the linkedlist", 0, tryList.valueFromKth(-1));
+  }
+
+  @Test public void testNodesArray2() throws Exception {
+    LinkedList tryList = new LinkedList();
+    tryList.insert(2);
+    assertEquals("This should be from the \"index\" of the linkedlist", 2, tryList.valueFromKth(0));
+  }
+
+  @Test public void kthHappy() throws Exception {
+    LinkedList tryList = new LinkedList();
+    tryList.insert(2);
+    tryList.insert(8);
+    tryList.insert(3);
+    tryList.insert(1);
+    assertEquals("This should be from the \"index\" of the linkedlist", 3, tryList.valueFromKth(2));
   }
 }
