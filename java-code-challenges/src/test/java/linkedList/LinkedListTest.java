@@ -101,9 +101,14 @@ public class LinkedListTest {
   }
 
   @Test public void testNodesArray2() throws Exception {
+
     LinkedList tryList = new LinkedList();
     tryList.insert(2);
     assertEquals("This should be from the \"index\" of the linkedlist", 2, tryList.valueFromKth(0));
+//    assertThrows("This should throw",
+//      kthNegative().class,
+//      () -> tryList.valueFromKth(5)
+//    ) // arrow functions are LAMBDA, NOT ARROW FUNCTIONS
   }
 
   @Test public void kthHappy() throws Exception {
@@ -113,5 +118,48 @@ public class LinkedListTest {
     tryList.insert(3);
     tryList.insert(1);
     assertEquals("This should be from the \"index\" of the linkedlist", 3, tryList.valueFromKth(2));
+  }
+
+
+  @Test
+  public void testZip() {
+    LinkedList linkedList = new LinkedList();
+    LinkedList linkedList2 = new LinkedList ();
+    linkedList.insert(1);
+    linkedList.insert(3);
+    linkedList.insert(5);
+    linkedList.insert(7);
+    linkedList2.insert(2);
+    linkedList2.insert(4);
+    linkedList2.insert(6);
+    linkedList2.insert(8);
+    linkedList.zip(linkedList, linkedList2);
+    assertEquals("Should return {7} -> {{8} -> {{5} -> {{6} -> {{3} -> {{4} -> {{1} -> {{2} -> {null}}}}}}}}", "7 -> 8 -> 5 -> 6 -> 3 -> 4 -> 1 -> 2 -> Null", linkedList.toTheString());
+  }
+  @Test
+  public void testZip2() {
+    LinkedList linkedList = new LinkedList();
+    LinkedList linkedList2 = new LinkedList ();
+    linkedList.insert(1);
+    linkedList.insert(3);
+    linkedList.insert(5);
+    linkedList.insert(7);
+    linkedList2.insert(2);
+    linkedList2.insert(4);
+    linkedList.zip(linkedList, linkedList2);
+    assertEquals("Should return {7} -> {{4} -> {{5} -> {{2} -> {{3} -> {{1} -> {null}}}}}}", "7 -> 4 -> 5 -> 2 -> 3 -> 1 -> Null", linkedList.toTheString());
+  }
+  @Test
+  public void testZip3() {
+    LinkedList linkedList = new LinkedList();
+    LinkedList linkedList2 = new LinkedList ();
+    linkedList.insert(5);
+    linkedList.insert(7);
+    linkedList2.insert(2);
+    linkedList2.insert(4);
+    linkedList2.insert(6);
+    linkedList2.insert(8);
+    linkedList.zip(linkedList, linkedList2);
+    assertEquals("Should return {7} -> {{8} -> {{5} -> {{6} -> {{3} -> {{4} -> {{1} -> {{2} -> {null}}}}}}}}", "7 -> 8 -> 5 -> 6 -> 4 -> 2 -> Null", linkedList.toTheString());
   }
 }
