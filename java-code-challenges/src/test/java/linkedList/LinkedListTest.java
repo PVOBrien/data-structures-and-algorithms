@@ -73,7 +73,7 @@ public class LinkedListTest {
     tryList.insert(8);
     tryList.insert(3);
     tryList.insert(1);
-    assertEquals("This should be from the \"index\" of the linkedlist", 1, tryList.valueFromKth(4));
+    assertEquals("This should be from the \"index\" of the linkedlist", 1, tryList.valueFromKthLazy(4));
   }
 
   @Test public void kthGreaterSize() throws Exception {
@@ -82,13 +82,13 @@ public class LinkedListTest {
     tryList.insert(8);
     tryList.insert(3);
     tryList.insert(1);
-    assertEquals("This should be from the \"index\" of the linkedlist", 1, tryList.valueFromKth(5));
+    assertEquals("This should be from the \"index\" of the linkedlist", 1, tryList.valueFromKthLazy(5));
   }
 
   @Test public void kthSameAndSizeOne() throws Exception {
     LinkedList tryList = new LinkedList();
     tryList.insert(2);
-    assertEquals("This should be from the \"index\" of the linkedlist", 8, tryList.valueFromKth(1));
+    assertEquals("This should be from the \"index\" of the linkedlist", 8, tryList.valueFromKthLazy(1));
   }
 
   @Test public void kthNegative() throws Exception {
@@ -97,14 +97,14 @@ public class LinkedListTest {
     tryList.insert(8);
     tryList.insert(3);
     tryList.insert(1);
-    assertEquals("This should be from the \"index\" of the linkedlist", 0, tryList.valueFromKth(-1));
+    assertEquals("This should be from the \"index\" of the linkedlist", 0, tryList.valueFromKthLazy(-1));
   }
 
   @Test public void testNodesArray2() throws Exception {
 
     LinkedList tryList = new LinkedList();
     tryList.insert(2);
-    assertEquals("This should be from the \"index\" of the linkedlist", 2, tryList.valueFromKth(0));
+    assertEquals("This should be from the \"index\" of the linkedlist", 2, tryList.valueFromKthLazy(0));
 //    assertThrows("This should throw",
 //      kthNegative().class,
 //      () -> tryList.valueFromKth(5)
@@ -117,7 +117,7 @@ public class LinkedListTest {
     tryList.insert(8);
     tryList.insert(3);
     tryList.insert(1);
-    assertEquals("This should be from the \"index\" of the linkedlist", 3, tryList.valueFromKth(2));
+    assertEquals("This should be from the \"index\" of the linkedlist", 3, tryList.valueFromKthLazy(2));
   }
 
 

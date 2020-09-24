@@ -101,7 +101,7 @@ public class LinkedList {
     throw new Exception("Value not found.");
   }
 
-  public int valueFromKth(int kthPlace) throws Exception {
+  public int valueFromKthLazy(int kthPlace) throws Exception {
     Node current = head;
     ArrayList<Integer> complete = new ArrayList<>();
 
@@ -117,6 +117,22 @@ public class LinkedList {
 
     System.out.println(complete);
     return complete.get(complete.size() - 1 - kthPlace);
+  }
+
+  public int valueFromKthSlowNumber(int kthPlace) {
+    Node fast = this.head;
+    Node slow = this.head;
+
+    for(int i = 0; i < kthPlace; i++){
+      fast = fast.getNext();
+    }
+
+    while (fast != null){
+      fast = fast.getNext();
+      slow = slow.getNext();
+    }
+
+    return slow.getValue();
   }
 
   public LinkedList zip(LinkedList first, LinkedList second) {
