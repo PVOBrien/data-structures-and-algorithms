@@ -40,13 +40,13 @@ public class LinkedList {
     Node nextCheck = head.getNext();
     while (nextCheck.getNext() != null) {
       if (nextCheck.getValue() == searchValue) {
-        System.out.println("good job checker!");
+//        System.out.println("good job checker!");
         return true;
       } else {
         nextCheck = nextCheck.getNext();
       }
     }
-    System.out.println("this ain't real");
+//    System.out.println("this ain't real");
     return false;
   }
 
@@ -112,11 +112,13 @@ public class LinkedList {
     } while (current != null);
 
     if (kthPlace > complete.size() - 1 || kthPlace < 0) {
+      System.out.println("There was an exception: no kth place in this LinkedList.");
       throw new Exception("Exception: Kth place not in LinkedList");
     }
 
-    System.out.println(complete);
+//    System.out.println(complete);
     return complete.get(complete.size() - 1 - kthPlace);
+
   }
 
   public int valueFromKthSlowNumber(int kthPlace) {

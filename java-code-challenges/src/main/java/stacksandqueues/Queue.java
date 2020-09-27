@@ -41,7 +41,13 @@ public class Queue {
     }
 
     public int peek() {
-        return front.value;
+        try {
+            return front.value;
+        } catch (NullPointerException npe) {
+//            npe.printStackTrace();
+            System.out.println("There's nothing to peek.");
+            throw new NullPointerException();
+        }
     }
 
     public boolean isEmpty() {

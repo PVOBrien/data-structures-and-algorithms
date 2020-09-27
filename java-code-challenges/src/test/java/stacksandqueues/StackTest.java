@@ -37,7 +37,7 @@ public class StackTest {
         assertEquals("It should return an int of 15", 15, testStack.pop());
         assertEquals("It should return an int of 10", 10, testStack.pop());
         assertEquals("It should return an int of 5", 5, testStack.pop());
-        assertThrows(NullPointerException.class, () -> testStack.pop());
+        assertThrows(NullPointerException.class, testStack::pop);
     }
 
     @Test public void popThrowsTest() {
