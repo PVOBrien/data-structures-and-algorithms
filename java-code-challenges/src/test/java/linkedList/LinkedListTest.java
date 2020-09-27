@@ -73,7 +73,7 @@ public class LinkedListTest {
     tryList.insert(8);
     tryList.insert(3);
     tryList.insert(1);
-    assertEquals("This should be from the \"index\" of the linkedlist", 1, tryList.valueFromKthLazy(4));
+    assertEquals("This should be from the \"index\" of the linkedlist", 1, tryList.valueFromKthLazy(3));
   }
 
   @Test public void kthGreaterSize() throws Exception {
@@ -88,7 +88,7 @@ public class LinkedListTest {
   @Test public void kthSameAndSizeOne() throws Exception {
     LinkedList tryList = new LinkedList();
     tryList.insert(2);
-    assertEquals("This should be from the \"index\" of the linkedlist", 8, tryList.valueFromKthLazy(1));
+    assertThrows("This should throw", Exception.class, () -> tryList.valueFromKthLazy(1));
   }
 
   @Test public void kthNegative() throws Exception {
@@ -97,7 +97,7 @@ public class LinkedListTest {
     tryList.insert(8);
     tryList.insert(3);
     tryList.insert(1);
-    assertEquals("This should be from the \"index\" of the linkedlist", 0, tryList.valueFromKthLazy(-1));
+    assertThrows("This should throw", Exception.class, () -> tryList.valueFromKthLazy(-1));
   }
 
   @Test public void testNodesArray2() throws Exception {

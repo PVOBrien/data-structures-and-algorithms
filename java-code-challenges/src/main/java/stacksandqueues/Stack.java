@@ -2,35 +2,56 @@ package stacksandqueues;
 
 public class Stack {
 
-    Node front = null; // this implies that a stack *always* has a front null (even if it is null).
+    public Node front = null; // this implies that a stack *always* has a front null (even if it is null).
 
     @Override
     public String toString() {
-        return "Stack{" +
-                "front=" + this.front +
-                '}';
+
+        Node current = front;
+        StringBuilder message = new StringBuilder();
+
+        if (current == null) {
+            return ("Nothing here");
+        }
+
+        if (current.backOrBottom != null) {
+            while (current != null) {
+                message.append(String.format("%d -> ", current.value));
+                current = current.backOrBottom;
+            }
+        }
+        return message + "Null";
     }
 
     public void push(int newValue){
         Node newNode = new Node(newValue);
-//        System.out.println(newNode);
         if (front != null) {
-            newNode.backOrBottom = newNode;
+            newNode.backOrBottom = front;
         }
         front = newNode;
-//        System.out.println(this);
     }
 
     public int pop() {
-        int valueToReturn = front.value;
-        Node oldFront = front;
-        front = front.backOrBottom;
-        oldFront.backOrBottom = null;
-        return valueToReturn;
+        try {
+            int valueToReturn = front.value;
+            Node oldFront = front;
+            front = front.backOrBottom;
+            oldFront.backOrBottom = null;
+            return valueToReturn;
+        } catch (NullPointerException npe) {
+//            npe.printStackTrace();
+            throw new NullPointerException();
+        }
     }
 
     public int peek() {
-        return this.front.value;
+        try {
+            return this.front.value;
+        } catch (NullPointerException npe) {
+//            npe.printStackTrace();
+            System.out.println("Nothing to peek.");
+            throw new NullPointerException();
+        }
     }
 
     public boolean isEmpty(){

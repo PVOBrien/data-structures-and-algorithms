@@ -111,7 +111,7 @@ public class LinkedList {
         current = current.getNext();
     } while (current != null);
 
-    if (kthPlace > complete.size() -1 || kthPlace < 0) {
+    if (kthPlace > complete.size() - 1 || kthPlace < 0) {
       throw new Exception("Exception: Kth place not in LinkedList");
     }
 
