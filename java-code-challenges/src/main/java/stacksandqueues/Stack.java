@@ -40,6 +40,7 @@ public class Stack {
             return valueToReturn;
         } catch (NullPointerException npe) {
 //            npe.printStackTrace();
+            System.out.println("Nothing to pop in the stack.");
             throw new NullPointerException();
         }
     }
@@ -49,7 +50,7 @@ public class Stack {
             return this.front.value;
         } catch (NullPointerException npe) {
 //            npe.printStackTrace();
-            System.out.println("Nothing to peek.");
+            System.out.println("Nothing to peek in the stack.");
             throw new NullPointerException();
         }
     }

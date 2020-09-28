@@ -54,7 +54,7 @@ public class QueueTest {
     }
 
     @Test
-    public void peekEmptyExceptionThrownTest() {
+    public void peekEmptyExceptionThrowTest() {
         Queue queue = new Queue();
         assertThrows("this should catch a NullPointerException", NullPointerException.class, queue::peek); // OR () -> queue.peek())
     }
