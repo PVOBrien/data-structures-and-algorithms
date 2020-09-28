@@ -40,13 +40,13 @@ public class LinkedList {
     Node nextCheck = head.getNext();
     while (nextCheck.getNext() != null) {
       if (nextCheck.getValue() == searchValue) {
-        System.out.println("good job checker!");
+//        System.out.println("good job checker!");
         return true;
       } else {
         nextCheck = nextCheck.getNext();
       }
     }
-    System.out.println("this ain't real");
+//    System.out.println("this ain't real");
     return false;
   }
 
@@ -101,7 +101,7 @@ public class LinkedList {
     throw new Exception("Value not found.");
   }
 
-  public int valueFromKth(int kthPlace) throws Exception {
+  public int valueFromKthLazy(int kthPlace) throws Exception {
     Node current = head;
     ArrayList<Integer> complete = new ArrayList<>();
 
@@ -111,12 +111,30 @@ public class LinkedList {
         current = current.getNext();
     } while (current != null);
 
-    if (kthPlace > complete.size() -1 || kthPlace < 0) {
+    if (kthPlace > complete.size() - 1 || kthPlace < 0) {
+      System.out.println("There was an exception: no kth place in this LinkedList.");
       throw new Exception("Exception: Kth place not in LinkedList");
     }
 
-    System.out.println(complete);
+//    System.out.println(complete);
     return complete.get(complete.size() - 1 - kthPlace);
+
+  }
+
+  public int valueFromKthSlowNumber(int kthPlace) {
+    Node fast = this.head;
+    Node slow = this.head;
+
+    for(int i = 0; i < kthPlace; i++){
+      fast = fast.getNext();
+    }
+
+    while (fast != null){
+      fast = fast.getNext();
+      slow = slow.getNext();
+    }
+
+    return slow.getValue();
   }
 
   public LinkedList zip(LinkedList first, LinkedList second) {

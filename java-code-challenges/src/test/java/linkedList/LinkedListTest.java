@@ -73,38 +73,39 @@ public class LinkedListTest {
     tryList.insert(8);
     tryList.insert(3);
     tryList.insert(1);
-    assertEquals("This should be from the \"index\" of the linkedlist", 1, tryList.valueFromKth(4));
+    assertEquals("This should be from the \"index\" of the linkedlist", 1, tryList.valueFromKthLazy(3));
+    assertThrows("This should be from the \"index\" of the linkedlist", Exception.class, () -> tryList.valueFromKthLazy(4));
   }
 
-  @Test public void kthGreaterSize() throws Exception {
+  @Test public void kthGreaterSize(){
     LinkedList tryList = new LinkedList();
     tryList.insert(2);
     tryList.insert(8);
     tryList.insert(3);
     tryList.insert(1);
-    assertEquals("This should be from the \"index\" of the linkedlist", 1, tryList.valueFromKth(5));
+    assertThrows("This should be from the \"index\" of the linkedlist", Exception.class, () -> tryList.valueFromKthLazy(4));
   }
 
-  @Test public void kthSameAndSizeOne() throws Exception {
+  @Test public void kthSameAndSizeOne(){
     LinkedList tryList = new LinkedList();
     tryList.insert(2);
-    assertEquals("This should be from the \"index\" of the linkedlist", 8, tryList.valueFromKth(1));
+    assertThrows("This should throw", Exception.class, () -> tryList.valueFromKthLazy(1));
   }
 
-  @Test public void kthNegative() throws Exception {
+  @Test public void kthNegative() throws Exception { // left this in place... why doesn't it throw? It's literally down there below, Exception.class. ?
     LinkedList tryList = new LinkedList();
     tryList.insert(2);
     tryList.insert(8);
     tryList.insert(3);
     tryList.insert(1);
-    assertEquals("This should be from the \"index\" of the linkedlist", 0, tryList.valueFromKth(-1));
+    assertThrows("This should throw", Exception.class, () -> tryList.valueFromKthLazy(-1));
   }
 
   @Test public void testNodesArray2() throws Exception {
 
     LinkedList tryList = new LinkedList();
     tryList.insert(2);
-    assertEquals("This should be from the \"index\" of the linkedlist", 2, tryList.valueFromKth(0));
+    assertThrows("This should be from the \"index\" of the linkedlist", Exception.class, () -> tryList.valueFromKthLazy(0));
 //    assertThrows("This should throw",
 //      kthNegative().class,
 //      () -> tryList.valueFromKth(5)
@@ -117,9 +118,8 @@ public class LinkedListTest {
     tryList.insert(8);
     tryList.insert(3);
     tryList.insert(1);
-    assertEquals("This should be from the \"index\" of the linkedlist", 3, tryList.valueFromKth(2));
+    assertEquals("This should be from the \"index\" of the linkedlist", 3, tryList.valueFromKthLazy(2));
   }
-
 
   @Test
   public void testZip() {
