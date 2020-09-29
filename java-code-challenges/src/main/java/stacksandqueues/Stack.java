@@ -14,10 +14,10 @@ public class Stack {
             return ("Nothing here");
         }
 
-        if (current.backOrBottom != null) {
+        if (current.getBackOrBottom() != null) {
             while (current != null) {
-                message.append(String.format("%d -> ", current.value));
-                current = current.backOrBottom;
+                message.append(String.format("%d -> ", current.getValue()));
+                current = current.getBackOrBottom();
             }
         }
         return message + "Null";
@@ -26,17 +26,17 @@ public class Stack {
     public void push(int newValue){
         Node newNode = new Node(newValue);
         if (front != null) {
-            newNode.backOrBottom = front;
+            newNode.setBackOrBottom(front);
         }
         front = newNode;
     }
 
     public int pop() {
         try {
-            int valueToReturn = front.value;
+            int valueToReturn = front.getValue();
             Node oldFront = front;
-            front = front.backOrBottom;
-            oldFront.backOrBottom = null;
+            front = front.getBackOrBottom();
+            oldFront.setBackOrBottom(null);
             return valueToReturn;
         } catch (NullPointerException npe) {
 //            npe.printStackTrace();
@@ -47,7 +47,7 @@ public class Stack {
 
     public int peek() {
         try {
-            return this.front.value;
+            return this.front.getValue();
         } catch (NullPointerException npe) {
 //            npe.printStackTrace();
             System.out.println("Nothing to peek in the stack.");

@@ -13,20 +13,20 @@ public class StackTest {
     @Test public void pushTest() {
         Stack testStack = new Stack();
         testStack.push(5);
-        assertEquals("this should be a 5", 5, testStack.front.value);
+        assertEquals("this should be a 5", 5, testStack.front.getValue());
     }
 
     @Test public void pushMultipleTest() {
         Stack testStack = new Stack();
         testStack.push(5);
-        assertEquals("this should be a 5", 5, testStack.front.value);
+        assertEquals("this should be a 5", 5, testStack.front.getValue());
         testStack.push(13);
-        assertEquals("this should be a 13", 13, testStack.front.value);
+        assertEquals("this should be a 13", 13, testStack.front.getValue());
         testStack.push(22);
-        assertEquals("this should be a 22", 22, testStack.front.value);
+        assertEquals("this should be a 22", 22, testStack.front.getValue());
         testStack.push(30);
         System.out.println(testStack);
-        assertEquals("this should be a 30", 30, testStack.front.value);
+        assertEquals("this should be a 30", 30, testStack.front.getValue());
     }
 
     @Test public void popTest() {

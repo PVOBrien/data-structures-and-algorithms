@@ -16,7 +16,7 @@ public class Queue {
     public void enqueue(int value) {
         Node newNode = new Node(value);
         if (front != null) {
-            back.backOrBottom = newNode;
+            back.setBackOrBottom(newNode);
         } else {
             front = newNode;
         }
@@ -25,10 +25,10 @@ public class Queue {
 
     public int dequeue() {
         try {
-            int valueToReturn = front.value;
+            int valueToReturn = front.getValue();
             Node oldFront = front;
-            front = front.backOrBottom;
-            oldFront.backOrBottom = null;
+            front = front.getBackOrBottom();
+            oldFront.setBackOrBottom(null);
             if (front == null) {
                 back = null;
             }
@@ -42,7 +42,7 @@ public class Queue {
 
     public int peek() {
         try {
-            return front.value;
+            return front.getValue();
         } catch (NullPointerException npe) {
 //            npe.printStackTrace();
             System.out.println("There's nothing to peek.");
