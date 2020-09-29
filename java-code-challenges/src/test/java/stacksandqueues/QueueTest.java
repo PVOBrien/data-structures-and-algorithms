@@ -3,7 +3,6 @@ package stacksandqueues;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-
 public class QueueTest {
 
     @Test
@@ -17,12 +16,12 @@ public class QueueTest {
     public void enqueueTest() {
         Queue queue = new Queue();
         queue.enqueue(12);
-        assertEquals("This should be 12.", 12, queue.front.value);
-        assertEquals("This should be 12.", 12, queue.back.value);
+        assertEquals("This should be 12.", 12, queue.front.getValue());
+        assertEquals("This should be 12.", 12, queue.back.getValue());
         queue.enqueue(8);
-        assertEquals("This should be 8.", 8, queue.back.value);
-        assertEquals("This should be 12.", 12, queue.front.value);
-        assertEquals("This should be 12.", 12, queue.front.value);
+        assertEquals("This should be 8.", 8, queue.back.getValue());
+        assertEquals("This should be 12.", 12, queue.front.getValue());
+        assertEquals("This should be 12.", 12, queue.front.getValue());
     }
 
     @Test
@@ -31,7 +30,7 @@ public class QueueTest {
         queue.enqueue(9);
         queue.enqueue(22);
         assertEquals("This should equal 9.", 9, queue.dequeue());
-        assertEquals("The front should now be 22.", 22, queue.front.value);
+        assertEquals("The front should now be 22.", 22, queue.front.getValue());
         queue.dequeue();
         assertNull("This is empty", queue.front); // is this really empty though? or can it be more thoroughly emptied?
         assertNull("This is empty", queue.back); // is this really empty though? or can it be more thoroughly emptied?

@@ -22,3 +22,23 @@ all functions of both the stack and queue methods (that we were tasked with crea
 .dequeue() = returns the value of the front of the queue, and makes the front's "back" queue the new, then it's back node is turned to null to allow for garbage collection.
 .peek() = returns the value of the front node. Does not remove the front node from the queue.
 .isEmpty() = returns true if the queue is empty, false if queue has values (implying at least 1 node) in it.
+
+### PseudoQueue
+
+#### Challenge Summary
+- use two stacks to create a queue "by method", not by object. All methods besides those mentioned below are private.
+
+#### Efficiency:
+Time O(n)
+Space O(n)
+
+#### APIs (aka Solution)
+
+.enqueue(value) - takes in passed value, and creates a new PseudoQueue, or "slinkies" between the two stack to create a verisimilitude of a queue.
+.dequeue() - pops off the "front" node's value (by slinkying and then returning the value).
+.toString() - a recursive toString method.
+
+#### Whiteboard
+
+![the board for pseudoqueue](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/PseudoQueue%20Challenge%20Whiteboard.png)
+
