@@ -33,3 +33,5 @@ Space O(n)
 .enqueue(value) - takes in passed value, and creates a new PseudoQueue, or "slinkies" between the two stack to create the verisimilitude of a queue.
 .dequeue() - pops off the "front" node's value (by slinkying and then returning the value).
 .toString() - a recursive toString method.
+
+![the board for pseudoqueue](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/PseudoQueue%20Challenge%20Whiteboard.png)
