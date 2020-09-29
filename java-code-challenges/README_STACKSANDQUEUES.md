@@ -35,3 +35,4 @@ Space O(n)
 .toString() - a recursive toString method.
 
 ![the board for pseudoqueue](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/PseudoQueue%20Challenge%20Whiteboard.png)
+
