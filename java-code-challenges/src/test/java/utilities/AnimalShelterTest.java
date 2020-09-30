@@ -8,13 +8,13 @@ public class AnimalShelterTest {
 
     @Test
     public void testEmptyAnimalShelter() {
-        NodeGenericQueue quietShelter = new NodeGenericQueue();
+        AnimalShelter quietShelter = new AnimalShelter();
         System.out.println(quietShelter.toString());
     }
 
     @Test
     public void testFillingAnimalShelter() {
-        NodeGenericQueue quietShelter = new NodeGenericQueue();
+        AnimalShelter quietShelter = new AnimalShelter();
         quietShelter.enqueue("cat");
         quietShelter.enqueue("dog");
         quietShelter.enqueue("cat");
@@ -25,7 +25,7 @@ public class AnimalShelterTest {
 
     @Test
     public void testGivingCats() {
-        NodeGenericQueue quietShelter = new NodeGenericQueue();
+        AnimalShelter quietShelter = new AnimalShelter();
         quietShelter.enqueue("cat");
         quietShelter.enqueue("dog");
         quietShelter.enqueue("cat");
@@ -39,7 +39,7 @@ public class AnimalShelterTest {
 
     @Test
     public void testGivingDog() {
-        NodeGenericQueue quietShelter = new NodeGenericQueue();
+        AnimalShelter quietShelter = new AnimalShelter();
         quietShelter.enqueue("cat");
         quietShelter.enqueue("dog");
         quietShelter.enqueue("cat");
@@ -54,7 +54,7 @@ public class AnimalShelterTest {
 
     @Test
     public void testGivingAll() {
-        NodeGenericQueue quietShelter = new NodeGenericQueue();
+        AnimalShelter quietShelter = new AnimalShelter();
         quietShelter.enqueue("cat");
         quietShelter.enqueue("dog");
         quietShelter.enqueue("cat");
@@ -71,7 +71,7 @@ public class AnimalShelterTest {
 
     @Test
     public void noPrefTest() {
-        NodeGenericQueue quietShelter = new NodeGenericQueue();
+        AnimalShelter quietShelter = new AnimalShelter();
         quietShelter.enqueue("cat");
         quietShelter.enqueue("dog");
         assertEquals("no pref? you get last, cat!", "cat", quietShelter.dequeue());
