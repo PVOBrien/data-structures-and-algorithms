@@ -10,7 +10,7 @@ public class LinkedList {
   public void insert(int newValue) {
     Node newNode = new Node(newValue);
     if (head != null) {
-      newNode.setNext(head); // which getter/setter should work here?
+      newNode.setBehindInLine(head); // which getter/setter should work here?
     }
     head = newNode;
   }
@@ -24,10 +24,10 @@ public class LinkedList {
       return ("Nothing here");
     }
 
-    if (current.getNext() != null) {
+    if (current.getBehindInLine() != null) {
       while (current != null) {
         message.append(String.format("%d -> ", current.getValue()));
-        current = current.getNext();
+        current = current.getBehindInLine();
       }
     }
     return message + "Null";
@@ -37,32 +37,31 @@ public class LinkedList {
     if (head.getValue() == searchValue) {
       return true;
     }
-    Node nextCheck = head.getNext();
-    while (nextCheck.getNext() != null) {
+    Node nextCheck = head.getBehindInLine();
+    while (nextCheck.getBehindInLine() != null) {
       if (nextCheck.getValue() == searchValue) {
 //        System.out.println("good job checker!");
         return true;
       } else {
-        nextCheck = nextCheck.getNext();
+        nextCheck = nextCheck.getBehindInLine();
       }
     }
-//    System.out.println("this ain't real");
     return false;
   }
 
   public void append(int newValue) {
     if (head == null) {
-      head = new Node(newValue); // Node newNode = new Node(newValue); used to have that last line one above. but you can create "new" inline.
+      head = new Node(newValue);
       return;
     }
     Node nextToCheck = head;
 
     do {
-      if (nextToCheck.getNext() == null) {
-        nextToCheck.setNext(new Node(newValue)); // you can create "new" this way!
+      if (nextToCheck.getBehindInLine() == null) {
+        nextToCheck.setBehindInLine(new Node(newValue)); // you can create "new" this way!
         break;
       } else {
-        nextToCheck = nextToCheck.getNext();
+        nextToCheck = nextToCheck.getBehindInLine();
       }
     } while (nextToCheck != null);
   }
@@ -73,16 +72,16 @@ public class LinkedList {
       insert(newValue);
     }
     do {
-      if (previousChecked.getNext() == null) {
+      if (previousChecked.getBehindInLine() == null) {
         throw new Exception("Value not found.");
       }
-      if (previousChecked.getNext().value == searchValue) {
+      if (previousChecked.getBehindInLine().value == searchValue) {
         Node newNode = new Node(newValue);
-        newNode.setNext(previousChecked.getNext());
-        previousChecked.setNext(newNode);
+        newNode.setBehindInLine(previousChecked.getBehindInLine());
+        previousChecked.setBehindInLine(newNode);
         return;
       } else {
-        previousChecked = previousChecked.getNext();
+        previousChecked = previousChecked.getBehindInLine();
       }
     } while (previousChecked != null);
   }
@@ -92,11 +91,11 @@ public class LinkedList {
     while (currentNode != null) {
       if (currentNode.getValue() == searchValue) {
         Node newNode = new Node(newValue);
-        newNode.setNext(currentNode.getNext());
-        currentNode.setNext(newNode);
+        newNode.setBehindInLine(currentNode.getBehindInLine());
+        currentNode.setBehindInLine(newNode);
         return;
       }
-      currentNode = currentNode.getNext();
+      currentNode = currentNode.getBehindInLine();
     }
     throw new Exception("Value not found.");
   }
@@ -105,10 +104,10 @@ public class LinkedList {
     Node current = head;
     ArrayList<Integer> complete = new ArrayList<>();
 
-    if (current.getNext() != null)
+    if (current.getBehindInLine() != null)
       do {
         complete.add(current.getValue());
-        current = current.getNext();
+        current = current.getBehindInLine();
     } while (current != null);
 
     if (kthPlace > complete.size() - 1 || kthPlace < 0) {
@@ -116,7 +115,6 @@ public class LinkedList {
       throw new Exception("Exception: Kth place not in LinkedList");
     }
 
-//    System.out.println(complete);
     return complete.get(complete.size() - 1 - kthPlace);
 
   }
@@ -126,12 +124,12 @@ public class LinkedList {
     Node slow = this.head;
 
     for(int i = 0; i < kthPlace; i++){
-      fast = fast.getNext();
+      fast = fast.getBehindInLine();
     }
 
     while (fast != null){
-      fast = fast.getNext();
-      slow = slow.getNext();
+      fast = fast.getBehindInLine();
+      slow = slow.getBehindInLine();
     }
 
     return slow.getValue();
@@ -143,15 +141,15 @@ public class LinkedList {
     while(firstL != null) {
       if(secondL != null) {
         Node newThing = new Node(secondL.value);
-        newThing.setNext(firstL.getNext());
-        firstL.setNext(newThing);
-        Node nextOfNext = firstL.getNext();
-        if(nextOfNext.getNext() != null) {
-          firstL = nextOfNext.getNext();
+        newThing.setBehindInLine(firstL.getBehindInLine());
+        firstL.setBehindInLine(newThing);
+        Node nextOfNext = firstL.getBehindInLine();
+        if(nextOfNext.getBehindInLine() != null) {
+          firstL = nextOfNext.getBehindInLine();
         } else {
-          firstL = firstL.getNext();
+          firstL = firstL.getBehindInLine();
         }
-        secondL = secondL.getNext();
+        secondL = secondL.getBehindInLine();
       } else {
         break;
       }

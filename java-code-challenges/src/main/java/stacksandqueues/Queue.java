@@ -5,14 +5,6 @@ public class Queue {
     Node front;
     Node back;
 
-    @Override
-    public String toString() {
-        return "Queue{" +
-                "front=" + front +
-                ", back=" + back +
-                '}';
-    }
-
     public void enqueue(int value) {
         Node newNode = new Node(value);
         if (front != null) {
@@ -52,5 +44,13 @@ public class Queue {
 
     public boolean isEmpty() {
         return this.front == null;
+    }
+
+    @Override
+    public String toString() {
+        return "Queue{" +
+                "front=" + front +
+                ", back=" + back +
+                '}';
     }
 }

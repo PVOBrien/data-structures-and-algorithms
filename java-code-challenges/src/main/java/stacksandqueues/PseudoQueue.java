@@ -1,60 +1,45 @@
 package stacksandqueues;
 
 public class PseudoQueue {
-    private Stack currentStack = new Stack();
-    private Stack tempStack = new Stack();
-
-    private Stack getCurrentStack() {
-        return currentStack;
-    }
-
-    private void setCurrentStack(Stack currentStack) {
-        this.currentStack = currentStack;
-    }
-
-    private Stack getTempStack() {
-        return tempStack;
-    }
-
-    private void setTempStack(Stack tempStack) {
-        this.tempStack = tempStack;
-    }
+    private Stack enqueueStack = new Stack();
+    private Stack dequeueStack = new Stack();
 
 // ===== METHODS =====
 
     public int dequeue() throws Exception {
         try {
-            if (currentStack.front != null) {
-                Node thisNode = currentStack.front;
-                while (thisNode != null) {
-                    tempStack.push(currentStack.pop());
-                    thisNode = thisNode.getBackOrBottom();
+            if (dequeueStack.front == null) {
+                Stack thisStack = enqueueStack;
+                while (thisStack.front != null) {
+                    dequeueStack.push(thisStack.pop());
                 }
-                currentStack = tempStack;
             }
-            return currentStack.pop();
+            return dequeueStack.pop();
         } catch (NullPointerException npe) {
             throw new NullPointerException();
         }
     }
 
     public void enqueue(int value) {
-        if (currentStack.front != null) {
-            Node thisNode = currentStack.front;
-            while (thisNode != null) {
-                tempStack.push(currentStack.pop());
+        if (enqueueStack.front == null && !dequeueStack.isEmpty()) {
+            Node thisNode = dequeueStack.front;
+            while (thisNode == null) {
+                enqueueStack.push(dequeueStack.pop());
                 thisNode = thisNode.getBackOrBottom();
             }
-            currentStack = tempStack;
         }
-        currentStack.push(value);
+        enqueueStack.push(value);
     }
 
     public String toString() { // attribution to David Dicken for the recursive.
-        if (currentStack.front == null) {
-            return "NULL";
+        if (dequeueStack.front == null && enqueueStack.front == null) {
+                return "NULL";
+            }
+        if (enqueueStack.isEmpty()) {
+            return toString(dequeueStack.front);
+        } else {
+            return toString(enqueueStack.front);
         }
-        return toString(currentStack.front);
     }
 
     private String toString(Node currentNode) {
@@ -63,5 +48,4 @@ public class PseudoQueue {
         }
         return String.format("%d -> ", currentNode.getValue()) + toString(currentNode.getBackOrBottom());
     }
-
 }
