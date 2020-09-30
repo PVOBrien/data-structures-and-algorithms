@@ -14,12 +14,15 @@ class Node {
   public int getValue() {
     return value;
   }
+
   public void setValue(int value) {
     this.value = value;
   }
+
   public Node getBehindInLine() {
     return behindLine;
   }
+
   public void setBehindInLine(Node behindInLine) {
     this.behindLine = behindInLine;
   }
