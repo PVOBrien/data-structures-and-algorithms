@@ -2,8 +2,8 @@ package utilities;
 
 public class NodeGenericQueue {
 
-    NodeGeneric<String> front;
-    NodeGeneric<String> back;
+    private NodeGeneric<String> front;
+    private NodeGeneric<String> back;
 
     public NodeGenericQueue(){
         this.front = null;
@@ -28,19 +28,20 @@ public class NodeGenericQueue {
             NodeGeneric<String> thisNode = front;
             while (thisNode != null) {
                 if (thisNode.getValue().equals(type)) {
-                    if (thisNode.getBehindInLine() == null && thisNode.getFrontInLine() == null) {
-                        front = null;
-                        back = null;
+                    if (thisNode.getFrontInLine() == null && thisNode.getBehindInLine() == null) {
+                        front = thisNode.getBehindInLine();
                         thisNode.setBehindInLine(null);
                         thisNode.setFrontInLine(null);
                         return thisNode.getValue();
                     }
                     if (thisNode.getFrontInLine() == null) {
-                        front  = thisNode.getBehindInLine();
+                        front = thisNode.getBehindInLine();
+                        front.setFrontInLine(null);
                         thisNode.setFrontInLine(null);
                         return thisNode.getValue();
                     } else if (thisNode.getBehindInLine() == null) {
                         back = thisNode.getFrontInLine();
+                        back.setBehindInLine(null);
                         return thisNode.getValue();
                     } else {
                         thisNode.getBehindInLine().setFrontInLine(thisNode.getFrontInLine());
@@ -51,9 +52,18 @@ public class NodeGenericQueue {
                 thisNode = thisNode.getBehindInLine();
             }
         }
-        return null;
+        return "null; no nothing here.";
     }
 
+    public String dequeue() {
+        if (front == null){
+            return "we don't have any animals for you!";
+        }
+        String anAnimal = this.front.getValue();
+        front.setFrontInLine(null);
+        front = this.front.getBehindInLine();
+        return anAnimal;
+    }
 
     @Override
     public String toString(){
@@ -66,7 +76,7 @@ public class NodeGenericQueue {
     private String toString(NodeGeneric<String> currentNode){
 
         if (currentNode.getBehindInLine() == null) {
-            return currentNode.getValue() + " -> NULL";
+            return currentNode.getValue() + " -> Back";
         }
         return currentNode.getValue() + " -> " + toString(currentNode.getBehindInLine());
     }
