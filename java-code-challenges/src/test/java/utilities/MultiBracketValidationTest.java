@@ -2,8 +2,7 @@ package utilities;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class MultiBracketValidationTest {
 
@@ -24,14 +23,14 @@ public class MultiBracketValidationTest {
 
     @Test
     public void removeCurlyBrackets() {
-        assertFalse(MultiBracketValidation.testForMirrors("}"));
-        assertTrue(MultiBracketValidation.testForMirrors("{a}"));
-//        assertTrue(MultiBracketValidation.testForMirrors("{{}}"));
-//        assertTrue(MultiBracketValidation.testForMirrors("{}{{}}"));
-//        assertTrue(MultiBracketValidation.testForMirrors("a}{}{{}}"));
-//        assertFalse(MultiBracketValidation.testForMirrors("}{}){{}}"));
-
-//        assertFalse(MultiBracketValidation.testForMirrors("{{}(}"));
+        assertTrue(MultiBracketValidation.testForMirrors("{}"));
+        assertTrue(MultiBracketValidation.testForMirrors("{}(){}"));
+        assertTrue(MultiBracketValidation.testForMirrors("()[[Extra Characters]]"));
+        assertTrue(MultiBracketValidation.testForMirrors("(){}[[]]"));
+        assertTrue(MultiBracketValidation.testForMirrors("{}{Code}[Fellows](())"));
+        assertFalse(MultiBracketValidation.testForMirrors("[({}]"));
+        assertFalse(MultiBracketValidation.testForMirrors("(]("));
+        assertFalse(MultiBracketValidation.testForMirrors("{(})"));
     }
 
 
