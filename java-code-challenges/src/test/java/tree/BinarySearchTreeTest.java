@@ -1,25 +1,50 @@
 package tree;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
+
 public class BinarySearchTreeTest {
 
-//    static Node makeTree() {
-//        Node one = new Node(1);
-//        Node two = new Node(2);
-//        Node three = new Node(3);
-//        Node four = new Node(4);
-//        Node five = new Node(5);
-//        Node six = new Node(6);
-//        Node seven = new Node(7);
-//        four.setLeft(two);
-//        four.setRight(six);
-//        two.setLeft(one);
-//        two.setRight(three);
-//        six.setLeft(five);
-//        six.setRight(seven);
-//    }
+    @Test
+    public void testEmptyBT(){
+        BinarySearchTree binaryTree = new BinarySearchTree();
+        assertNotNull(binaryTree);
+    }
 
-//    @Test
-//    public void testAddtoEmptyTree() {
-//
-//    }
+    @Test
+    public void addRootBstTest() throws Exception {
+        BinarySearchTree binaryTree = new BinarySearchTree();
+        binaryTree.makeRoot(new Node(50));
+        assertEquals("This should be 50.", 50,binaryTree.root.getValue());
+        assertThrows(Exception.class, () -> binaryTree.add(50, binaryTree));
+    }
+
+    @Test
+    public void binarySearchTreeAddTest() throws Exception{
+        BinarySearchTree binaryTree = new BinarySearchTree();
+        binaryTree.makeRoot(new Node(50));
+        binaryTree.add(25, binaryTree);
+        binaryTree.add(35, binaryTree);
+        binaryTree.add(45, binaryTree);
+        binaryTree.add(65, binaryTree);
+        binaryTree.add(75, binaryTree);
+        assertEquals("In order, up the numbers should go.", "[25, 35, 45, 50, 65, 75]", Tree.inOrder(binaryTree).toString());
+    }
+
+    @Test
+    public void binarySearchTreeContainsTest() throws Exception{
+        BinarySearchTree binaryTree = new BinarySearchTree();
+        binaryTree.makeRoot(new Node(50));
+        binaryTree.add(25, binaryTree);
+        binaryTree.add(35, binaryTree);
+        binaryTree.add(45, binaryTree);
+        binaryTree.add(65, binaryTree);
+        binaryTree.add(75, binaryTree);
+        assertTrue(binaryTree.contains(65, binaryTree.root));
+        assertTrue(binaryTree.contains(35, binaryTree.root));
+        assertFalse(binaryTree.contains(33, binaryTree.root));
+    }
+
 }
