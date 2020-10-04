@@ -6,7 +6,7 @@ public class Tree {
 
 // === Tree / Root Setup ===
 
-    public Node root;
+    public Node root; // TODO set to private w getters and setters Later
 
     public Tree() {
         this.root = null;
