@@ -9,8 +9,8 @@ public class MultiBracketValidation {
         String charToCheck;
 
         for (int i = 0; i < toTest.length(); i++) {
-                charToCheck = String.valueOf(toTest.charAt(i));
-                if (Pattern.matches("[})\\]]", charToCheck)) return false;
+            charToCheck = String.valueOf(toTest.charAt(i));
+            if (Pattern.matches("[})\\]]", charToCheck)) return false;
             if (Pattern.matches("[\\[{(]", charToCheck)) {
                 switch (charToCheck) {
                     case "{" :
