@@ -113,4 +113,25 @@ public class Tree {
 
 // ========================
 
+// === Max Value Method ===
+
+    public static int maximumValue(Node theRoot) {
+
+        if (theRoot == null) {
+            return Integer.MIN_VALUE; // why does it go this route to ensure nothing is lower?
+        }
+
+        int highestValue = theRoot.getValue();
+        int leftHighestValue = maximumValue(theRoot.getLeft());
+        int rightHighestValue = maximumValue(theRoot.getRight());
+
+        if (leftHighestValue > highestValue) {
+            highestValue = leftHighestValue;
+        }
+        if (rightHighestValue > highestValue) {
+            highestValue = rightHighestValue;
+        }
+
+        return highestValue;
+    }
 }

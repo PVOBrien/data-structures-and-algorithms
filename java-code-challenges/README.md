@@ -168,4 +168,9 @@ Loop over the string, checking each char that is a bracket if the next type of b
     - postOrder(Tree) : static method of Tree. recursively travels left, then right, then prints the value of the node.
 - BinarySearchTree : a child class of Tree().
     - add(value, Tree): takes in a value, and the Tree to add it to the Tree so that if it is less than the current node, it goes left (and if not right), and if it is higher than the upcoming node, slots in there and the previous node becomes its left (lower) tree node marker. To the right, does this also, but vice versa. (TODO: refactor so as to not have to include the tree explicitly).
-    - contains(value, Node) : Returns a boolean True if the passed in value exists in the Tree (starting at the root), else False. Will be refactored at a later time so as to not have to explicitly pass in the root of the Tree. 
+    - contains(value, Node) : Returns a boolean True if the passed in value exists in the Tree (starting at the root), else False. Will be refactored at a later time so as to not have to explicitly pass in the root of the Tree.
+
+# Find Maximum Value
+ Return the maximum value stored in a given tree (that is assumed to be of integers).
+ 
+ 
