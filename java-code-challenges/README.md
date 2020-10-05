@@ -171,6 +171,23 @@ Loop over the string, checking each char that is a bracket if the next type of b
     - contains(value, Node) : Returns a boolean True if the passed in value exists in the Tree (starting at the root), else False. Will be refactored at a later time so as to not have to explicitly pass in the root of the Tree.
 
 # Find Maximum Value
- Return the maximum value stored in a given tree (that is assumed to be of integers).
+  Return the maximum value stored in a given tree (that is assumed to be of integers).
+
+## Challenge
+
+  Find and return the highest value within the given binary tree.
+  
+## Approach and Efficiency
+
+  Approach: Recursion
  
+ Space: O(1)
+ Time: O(n)
  
+## API
+
+  maximumValue(Node) - recurses from the node through all nodes to return the highest value value
+  
+## Whiteboard
+
+![mV whiteboard](https://github.com/PVOBrien/data-structures-and-algorithms/blob/find-maximum-binary-tree/Code%20Challenge%2016%20Whiteboard%20Full.png?raw=true)
