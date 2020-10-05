@@ -114,7 +114,8 @@ public class Tree {
 // ========================
 
 // === Max Value Method ===
-
+// https://www.geeksforgeeks.org/find-maximum-or-minimum-in-binary-tree/ for attribution, follow-along.
+    
     public static int maximumValue(Node theRoot) {
 
         if (theRoot == null) {
