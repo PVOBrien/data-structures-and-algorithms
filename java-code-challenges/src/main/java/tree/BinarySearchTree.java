@@ -2,7 +2,7 @@ package tree;
 
 public class BinarySearchTree extends Tree {
 
-    public void add(int value, Tree theTree) throws Exception {
+    public void add(int value, Tree theTree) throws Exception { // can be refactored in order not to take in theTree
         Node newBNode = new Node(value);
         Node toCheck = theTree.root;
 
@@ -43,7 +43,7 @@ public class BinarySearchTree extends Tree {
         }
     }
 
-    public boolean contains(int value, Node nodeToCheck) { // https://www.baeldung.com/java-binary-tree ftw. See below comment for my hangup.
+    public boolean contains(int value, Node nodeToCheck) { // https://www.baeldung.com/java-binary-tree ftw. See below comment for my hangup. TODO refactor in order not to explicitly call the node.
         if (nodeToCheck == null) return false;
         if (value == nodeToCheck.getValue()) return true; // I had this code prior to me checking the web. Keep going for the real q...
 

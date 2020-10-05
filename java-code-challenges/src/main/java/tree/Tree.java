@@ -10,7 +10,7 @@ public class Tree {
 
     public Tree() {
         this.root = null;
-    } // instantiates empty Tree
+    } // instantiates empty Tree TODO: Overload constructor to also be able to take in a Node?
 
     public void makeRoot(Node newRoot) throws Exception { // makes a root for a newly (empty) instantiated Tree
         if (this.root == null) {
