@@ -31,7 +31,7 @@ Take in the parameters of the array (of integers) and the new value (an integer)
 
 ## Array Binary Search
 
-Objective: take in 2 args (a sorted array and its search key), and return the index of the array's element euqal to the search key or -1 if the element doesn't exist.
+Objective: take in 2 args (a sorted array and its search key), and return the index of the array's element equal to the search key or -1 if the element doesn't exist.
 
 #### Challenge
 
@@ -171,6 +171,20 @@ Loop over the string, checking each char that is a bracket if the next type of b
     - contains(value, Node) : Returns a boolean True if the passed in value exists in the Tree (starting at the root), else False. Will be refactored at a later time so as to not have to explicitly pass in the root of the Tree.
 
 # Find Maximum Value
- Return the maximum value stored in a given tree (that is assumed to be of integers).
+  Return the maximum value stored in a given tree (that is assumed to be of integers).
  
- 
+# BreadthFirst Traversal
+  Return an array of the values of a tree as they are encountered by level.
+
+## Challenge
+  Cannot use any built-in methods available to Java (only the ones coded by w/in the scope of this package).
+  
+## Approach and Efficiency
+  Space O(1)
+  Time O(n)
+  
+  Upon reaching a node, place the node into a queue. Then in the queue, you pop that node. You place that popped node's value into another array list, then place its left node into the queue, then the right node into the queue, and then the next node in the queue is popped off, and the process repeated until the queue is empty.
+
+## Whiteboard
+
+![Whiteboard for MaxBreadth](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/Code%20Challenge%2017%20-%20Breadth%20First%20Traversal.png?raw=true)

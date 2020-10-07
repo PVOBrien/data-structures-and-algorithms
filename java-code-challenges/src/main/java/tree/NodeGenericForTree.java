@@ -1,10 +1,10 @@
-package utilities;
+package tree;
 
-public class NodeGeneric <T> {
+public class NodeGenericForTree<T> {
 
     private T value;
-    private NodeGeneric<T> behindInLine;
-    private NodeGeneric<T> frontInLine;
+    private NodeGenericForTree<T> behindInLine;
+    private NodeGenericForTree<T> frontInLine;
 
     public void Node (T value){
         this.value = value;
@@ -12,16 +12,16 @@ public class NodeGeneric <T> {
         this.frontInLine = null;
 
     }
-    public NodeGeneric<T> getFrontInLine() {
+    public NodeGenericForTree<T> getFrontInLine() {
         return frontInLine;
     }
-    public void setFrontInLine(NodeGeneric<T> frontInLine) {
+    public void setFrontInLine(NodeGenericForTree<T> frontInLine) {
         this.frontInLine = frontInLine;
     }
-    public NodeGeneric<T> getBehindInLine() {
+    public NodeGenericForTree<T> getBehindInLine() {
         return behindInLine;
     }
-    public void setBehindInLine(NodeGeneric<T> behindInLine) {
+    public void setBehindInLine(NodeGenericForTree<T> behindInLine) {
         this.behindInLine = behindInLine;
     }
     public T getValue() {

@@ -1,18 +1,37 @@
-package utilities;
+package tree;
 
-public class AnimalShelter {
+import stacksandqueues.Queue;
+import utilities.NodeGeneric;
 
-    private NodeGeneric<String> front;
-    private NodeGeneric<String> back;
+public class QueueOfBinaryNodes<T> {
 
-    public AnimalShelter(){
+    public NodeGenericForTree<T> getFront() {
+        return front;
+    }
+
+    public void setFront(NodeGenericForTree<T> front) {
+        this.front = front;
+    }
+
+    public NodeGenericForTree<T> getBack() {
+        return back;
+    }
+
+    public void setBack(NodeGenericForTree<T> back) {
+        this.back = back;
+    }
+
+    private NodeGenericForTree<T> front;
+    private NodeGenericForTree<T> back;
+
+    public QueueOfBinaryNodes(){
         this.front = null;
         this.back = null;
     }
 
-    public void enqueue(String animal) {
-        NodeGeneric<String> newNode = new NodeGeneric<>();
-        newNode.setValue(animal);
+    public void enqueue(T node) {
+        NodeGenericForTree<T> newNode = new NodeGenericForTree<>();
+        newNode.setValue(node);
 
         if (front == null) {
             front = newNode;
@@ -23,46 +42,53 @@ public class AnimalShelter {
         this.back = newNode;
     }
 
-    public String dequeue(String type) {
-        if (type.equals("cat") || type.equals("dog")) {
-            NodeGeneric<String> thisNode = front;
-            while (thisNode != null) {
-                if (thisNode.getValue().equals(type)) {
-                    if (thisNode.getFrontInLine() == null && thisNode.getBehindInLine() == null) {
-                        front = thisNode.getBehindInLine();
-                        thisNode.setBehindInLine(null);
-                        thisNode.setFrontInLine(null);
-                        return thisNode.getValue();
-                    }
-                    if (thisNode.getFrontInLine() == null) {
-                        front = thisNode.getBehindInLine();
-                        front.setFrontInLine(null);
-                        thisNode.setFrontInLine(null);
-                        return thisNode.getValue();
-                    } else if (thisNode.getBehindInLine() == null) {
-                        back = thisNode.getFrontInLine();
-                        back.setBehindInLine(null);
-                        return thisNode.getValue();
-                    } else {
-                        thisNode.getBehindInLine().setFrontInLine(thisNode.getFrontInLine());
-                        thisNode.getFrontInLine().setBehindInLine(thisNode.getBehindInLine());
-                        return thisNode.getValue();
-                    }
-                }
-                thisNode = thisNode.getBehindInLine();
-            }
-        }
-        return "null; no nothing here.";
-    }
+//    public T dequeue() {
+////        if (type.equals("cat") || type.equals("dog")) {
+////            NodeGenericForTree<Node> thisNode = front;
+//            while (this.front != null) {
+////                if (node.getValue().equals(type)) {
+//                    if (this.front.getFrontInLine() == null && node.getBehindInLine() == null) {
+//                        this.front = node.setBehindInLine();
+//                        node.setBehindInLine(null);
+//                        node.setFrontInLine(null);
+//                        return node;
+//                    }
+//                    if (thisNode.getFrontInLine() == null) {
+//                        front = thisNode.getBehindInLine();
+//                        front.setFrontInLine(null);
+//                        thisNode.setFrontInLine(null);
+//                        return thisNode.getValue();
+//                    } else if (thisNode.getBehindInLine() == null) {
+//                        back = thisNode.getFrontInLine();
+//                        back.setBehindInLine(null);
+//                        return thisNode.getValue();
+//                    } else {
+//                        thisNode.getBehindInLine().setFrontInLine(thisNode.getFrontInLine());
+//                        thisNode.getFrontInLine().setBehindInLine(thisNode.getBehindInLine());
+//                        return thisNode.getValue();
+//                    }
+//                }
+//                thisNode = thisNode.getBehindInLine();
+//            }
+//        }
+//        return "null; no nothing here.";
+//    }
 
-    public String dequeue() {
-        if (front == null){
-            return "we don't have any animals for you!";
+    public T dequeue() {
+        if (this.front == null){
+            return null;
         }
-        String anAnimal = this.front.getValue();
-        front.setFrontInLine(null);
-        front = this.front.getBehindInLine();
-        return anAnimal;
+        if (front.getBehindInLine() == null) {
+            T toReturn = front.getValue();
+            front = null;
+            back = null;
+            return toReturn;
+        }
+        T toReturn = front.getValue();
+        front.getBehindInLine().setFrontInLine(null);
+        front = front.getBehindInLine();
+
+        return toReturn;
     }
 
     @Override
@@ -73,7 +99,7 @@ public class AnimalShelter {
         return toString(front);
     }
     //------------ helper ----------------
-    private String toString(NodeGeneric<String> currentNode){
+    private String toString(NodeGenericForTree currentNode){
 
         if (currentNode.getBehindInLine() == null) {
             return currentNode.getValue() + " -> Back";
