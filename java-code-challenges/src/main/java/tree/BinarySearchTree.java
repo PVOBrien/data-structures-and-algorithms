@@ -1,5 +1,10 @@
 package tree;
 
+import stacksandqueues.Queue;
+import stacksandqueues.QueueGeneric;
+
+import java.util.ArrayList;
+
 public class BinarySearchTree extends Tree {
 
     public void add(int value, Tree theTree) throws Exception { // can be refactored in order not to take in theTree
@@ -51,4 +56,5 @@ public class BinarySearchTree extends Tree {
                 ? contains(value, nodeToCheck.getLeft())
                 : contains(value, nodeToCheck.getRight()); // Because I had this rearranged a couple of ways, and my return true always "bubbled back up" to a code block that the value *couldn't even satisfy* but the code ran it anyway. ???
     } // also, why does this ternary work here? Tried to get this working elsewhere in the project, and it kept ! me in either of the three ways I tried to frame it up just so.
+
 }

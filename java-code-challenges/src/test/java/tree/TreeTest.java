@@ -1,6 +1,9 @@
 package tree;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 // [x] Can successfully instantiate an empty tree
@@ -14,6 +17,7 @@ public class TreeTest {
 
     @Test public void testEmptyTreeCreation() {
         Tree treeTest = new Tree();
+//        TODO TEST HERE.
     }
 
 
@@ -105,5 +109,48 @@ public class TreeTest {
         treeTest.addRightNode(node1,node6);
 
         assertEquals("This is a postwalk", "[3, 62, 21, 16, 45, 88, 42]", Tree.postOrder(treeTest).toString());
+    }
+
+    @Test public void testMaximumValue() throws Exception {
+        Tree treeTest = new Tree();
+        treeTest.makeRoot(new Node(42));
+        Node node1 = new Node(21);
+        Node node2 = new Node(88);
+        Node node3 = new Node(16);
+        Node node4 = new Node(45);
+        Node node5 = new Node(3);
+        Node node6 = new Node(62);
+        treeTest.addLeftNode(treeTest.root, node1);
+        treeTest.addLeftNode(node2,node3);
+        treeTest.addLeftNode(node1,node5);
+        treeTest.addRightNode(treeTest.root, node2);
+        treeTest.addRightNode(node2, node4);
+        treeTest.addRightNode(node1,node6);
+        assertEquals("This is the highest value.", 88, Tree.maximumValue(treeTest.root)); // TODO Ensure the highest value is being returned.
+        Node nodeX = new Node(156);
+        treeTest.addLeftNode(node6, nodeX);
+        assertEquals("This is the highest value.", 156, Tree.maximumValue(treeTest.root)); // TODO Ensure the highest value is being returned.
+//        assertEquals("These equal the string values", "[42, 21, 3, 62, 88, 16, 45]", treeTest.maximumValue(treeTest.root)); // TODO Make sure all nodes are being checked.
+        // assertThrows(Exception);// TODO Make sure there are nodes (w values).
+    }
+
+    @Test public void testBreadthFirst() throws Exception {
+        Tree treeTest = new Tree();
+        treeTest.makeRoot(new Node(42));
+        Node node1 = new Node(21);
+        Node node2 = new Node(88);
+        Node node3 = new Node(16);
+        Node node4 = new Node(45);
+        Node node5 = new Node(3);
+        Node node6 = new Node(62);
+        treeTest.addLeftNode(treeTest.root, node1);
+        treeTest.addLeftNode(node2,node3);
+        treeTest.addLeftNode(node1,node5);
+        treeTest.addRightNode(treeTest.root, node2);
+        treeTest.addRightNode(node2, node4);
+        treeTest.addRightNode(node1,node6);
+        System.out.println(Tree.preOrder(treeTest));
+        ArrayList<Integer> toTest = treeTest.breadthFirst();
+        assertEquals("This should be...", "[42, 21, 88, 3, 62, 16, 45]", toTest.toString());
     }
 }

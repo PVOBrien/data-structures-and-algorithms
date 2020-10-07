@@ -113,4 +113,44 @@ public class Tree {
 
 // ========================
 
+// === Max Value Method ===
+
+    public static int maximumValue(Node theRoot) {
+
+        if (theRoot == null) {
+            return Integer.MIN_VALUE; // why does it go this route to ensure nothing is lower?
+        }
+
+        int highestValue = theRoot.getValue();
+        int leftHighestValue = maximumValue(theRoot.getLeft());
+        int rightHighestValue = maximumValue(theRoot.getRight());
+
+        if (leftHighestValue > highestValue) {
+            highestValue = leftHighestValue;
+        }
+        if (rightHighestValue > highestValue) {
+            highestValue = rightHighestValue;
+        }
+
+        return highestValue;
+    }
+
+    public ArrayList<Integer> breadthFirst() throws Exception {
+        QueueOfBinaryNodes queue = new QueueOfBinaryNodes();
+        ArrayList<Integer> valueArray = new ArrayList<>();
+        Node currentNode = null;
+        queue.enqueue(root);
+        if (root != null) {
+             do {
+                 System.out.println("here's the current node: " + currentNode);
+                 currentNode = (Node) queue.dequeue();
+                 if (currentNode != null) {
+                     valueArray.add(currentNode.getValue());
+                     if (currentNode.getLeft() != null) queue.enqueue(currentNode.getLeft());
+                     if (currentNode.getRight() != null) queue.enqueue(currentNode.getRight());
+                 }
+             } while (queue.getFront() != null); // why when we just tested if queue was null, it never was, even though nothing was in it?
+        } else throw new Exception("There's nothing here!");
+        return valueArray;
+    }
 }
