@@ -1,8 +1,5 @@
 package tree;
 
-import stacksandqueues.Queue;
-import utilities.NodeGeneric;
-
 public class QueueOfBinaryNodes<T> {
 
     public NodeGenericForTree<T> getFront() {
@@ -42,37 +39,6 @@ public class QueueOfBinaryNodes<T> {
         this.back = newNode;
     }
 
-//    public T dequeue() {
-////        if (type.equals("cat") || type.equals("dog")) {
-////            NodeGenericForTree<Node> thisNode = front;
-//            while (this.front != null) {
-////                if (node.getValue().equals(type)) {
-//                    if (this.front.getFrontInLine() == null && node.getBehindInLine() == null) {
-//                        this.front = node.setBehindInLine();
-//                        node.setBehindInLine(null);
-//                        node.setFrontInLine(null);
-//                        return node;
-//                    }
-//                    if (thisNode.getFrontInLine() == null) {
-//                        front = thisNode.getBehindInLine();
-//                        front.setFrontInLine(null);
-//                        thisNode.setFrontInLine(null);
-//                        return thisNode.getValue();
-//                    } else if (thisNode.getBehindInLine() == null) {
-//                        back = thisNode.getFrontInLine();
-//                        back.setBehindInLine(null);
-//                        return thisNode.getValue();
-//                    } else {
-//                        thisNode.getBehindInLine().setFrontInLine(thisNode.getFrontInLine());
-//                        thisNode.getFrontInLine().setBehindInLine(thisNode.getBehindInLine());
-//                        return thisNode.getValue();
-//                    }
-//                }
-//                thisNode = thisNode.getBehindInLine();
-//            }
-//        }
-//        return "null; no nothing here.";
-//    }
 
     public T dequeue() {
         if (this.front == null){

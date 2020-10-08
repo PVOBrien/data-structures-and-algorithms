@@ -1,19 +1,19 @@
 package tree;
 
-import utilities.NodeGeneric;
+import utilities.NodeQueueGenericNew;
 
 public class GenericQueue<T> {
 
-    private NodeGeneric front;
-    private NodeGeneric back;
+    private NodeQueueGenericNew front;
+    private NodeQueueGenericNew back;
 
     public GenericQueue(){
         this.front = null;
         this.back = null;
     }
 
-    public void enqueue(NodeGeneric newValue) {
-        NodeGeneric<NodeGeneric> newNode = new NodeGeneric<>();
+    public void enqueue(NodeQueueGenericNew newValue) {
+        NodeQueueGenericNew<NodeQueueGenericNew> newNode = new NodeQueueGenericNew<>();
         newNode.setValue(newValue);
 
         if (front == null) {
@@ -44,7 +44,7 @@ public class GenericQueue<T> {
         return toString(front);
     }
     //------------ helper ----------------
-    private String toString(NodeGeneric<String> currentNode){
+    private String toString(NodeQueueGenericNew<String> currentNode){
 
         if (currentNode.getBehindInLine() == null) {
             return currentNode.getValue() + " -> Back";

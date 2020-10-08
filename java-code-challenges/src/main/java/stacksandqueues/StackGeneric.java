@@ -1,11 +1,11 @@
 package stacksandqueues;
 
-import utilities.NodeGeneric;
+import utilities.NodeQueueGenericNew;
 
 public class StackGeneric<T> {
 
-    NodeGeneric<T> front;
-    NodeGeneric<T> back;
+    NodeQueueGenericNew<T> front;
+    NodeQueueGenericNew<T> back;
 
     public void enqueue(T tValue) {
 

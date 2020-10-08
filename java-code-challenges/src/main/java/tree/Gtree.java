@@ -5,12 +5,12 @@ import utilities.AnimalShelter;
 
 public class Gtree<T> {
 
-    GtreeNode root = null;
+    GtreeNode<T> root = null;
 
     public Gtree(){}
 
     public Gtree(T root) {
-        this.root = new GtreeNode(root);
+        this.root = new GtreeNode<T>(root);
     }
 
     public T getRoot() {
