@@ -3,7 +3,7 @@ package stacksandqueues;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class NodeTest {
+public class NodeIntTest {
 
     @Test public void nodeTest() {
         Node newNode = new Node(6);

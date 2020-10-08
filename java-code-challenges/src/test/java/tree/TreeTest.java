@@ -23,22 +23,22 @@ public class TreeTest {
 
     @Test public void testTreeCreation() throws Exception {
         Tree treeTest = new Tree();
-        treeTest.makeRoot(new Node(42));
+        treeTest.makeRoot(new GtreeNode(42));
         assertNotNull(treeTest); // it's alive!
         assertEquals("should be value 42", 42,treeTest.root.getValue());
         assertNull("this should be null", treeTest.root.getLeft());
         assertNull("this should be null", treeTest.root.getRight());
-        assertThrows(Exception.class, () -> treeTest.makeRoot(new Node(12))); // () -> testStack.pop()
+        assertThrows(Exception.class, () -> treeTest.makeRoot(new GtreeNode(12))); // () -> testStack.pop()
     }
 
     @Test public void testTreeAdds() throws Exception {
         Tree treeTest = new Tree();
-        treeTest.makeRoot(new Node(42));
-        Node node1 = new Node(21);
-        Node node2 = new Node(88);
-        Node node3 = new Node(16);
-        Node node5 = new Node(3);
-        Node node6 = new Node(62);
+        treeTest.makeRoot(new GtreeNode(42));
+        GtreeNode node1 = new GtreeNode(21);
+        GtreeNode node2 = new GtreeNode(88);
+        GtreeNode node3 = new GtreeNode(16);
+        GtreeNode node5 = new GtreeNode(3);
+        GtreeNode node6 = new GtreeNode(62);
         treeTest.addLeftNode(treeTest.root, node1);
         treeTest.addLeftNode(node2,node3);
         treeTest.addLeftNode(node1,node5);
@@ -56,13 +56,13 @@ public class TreeTest {
 
     @Test public void testPreOrderWalk() throws Exception {
         Tree treeTest = new Tree();
-        treeTest.makeRoot(new Node(42));
-        Node node1 = new Node(21);
-        Node node2 = new Node(88);
-        Node node3 = new Node(16);
-        Node node4 = new Node(45);
-        Node node5 = new Node(3);
-        Node node6 = new Node(62);
+        treeTest.makeRoot(new GtreeNode(42));
+        GtreeNode node1 = new GtreeNode(21);
+        GtreeNode node2 = new GtreeNode(88);
+        GtreeNode node3 = new GtreeNode(16);
+        GtreeNode node4 = new GtreeNode(45);
+        GtreeNode node5 = new GtreeNode(3);
+        GtreeNode node6 = new GtreeNode(62);
         treeTest.addLeftNode(treeTest.root, node1);
         treeTest.addLeftNode(node2,node3);
         treeTest.addLeftNode(node1,node5);
@@ -75,13 +75,13 @@ public class TreeTest {
 
     @Test public void testInOrderWalk() throws Exception {
         Tree treeTest = new Tree();
-        treeTest.makeRoot(new Node(42));
-        Node node1 = new Node(21);
-        Node node2 = new Node(88);
-        Node node3 = new Node(16);
-        Node node4 = new Node(45);
-        Node node5 = new Node(3);
-        Node node6 = new Node(62);
+        treeTest.makeRoot(new GtreeNode(42));
+        GtreeNode node1 = new GtreeNode(21);
+        GtreeNode node2 = new GtreeNode(88);
+        GtreeNode node3 = new GtreeNode(16);
+        GtreeNode node4 = new GtreeNode(45);
+        GtreeNode node5 = new GtreeNode(3);
+        GtreeNode node6 = new GtreeNode(62);
         treeTest.addLeftNode(treeTest.root, node1);
         treeTest.addLeftNode(node2,node3);
         treeTest.addLeftNode(node1,node5);
@@ -94,13 +94,13 @@ public class TreeTest {
 
     @Test public void testPostOrderWalk() throws Exception {
         Tree treeTest = new Tree();
-        treeTest.makeRoot(new Node(42));
-        Node node1 = new Node(21);
-        Node node2 = new Node(88);
-        Node node3 = new Node(16);
-        Node node4 = new Node(45);
-        Node node5 = new Node(3);
-        Node node6 = new Node(62);
+        treeTest.makeRoot(new GtreeNode(42));
+        GtreeNode node1 = new GtreeNode(21);
+        GtreeNode node2 = new GtreeNode(88);
+        GtreeNode node3 = new GtreeNode(16);
+        GtreeNode node4 = new GtreeNode(45);
+        GtreeNode node5 = new GtreeNode(3);
+        GtreeNode node6 = new GtreeNode(62);
         treeTest.addLeftNode(treeTest.root, node1);
         treeTest.addLeftNode(node2,node3);
         treeTest.addLeftNode(node1,node5);
@@ -113,13 +113,13 @@ public class TreeTest {
 
     @Test public void testMaximumValue() throws Exception {
         Tree treeTest = new Tree();
-        treeTest.makeRoot(new Node(42));
-        Node node1 = new Node(21);
-        Node node2 = new Node(88);
-        Node node3 = new Node(16);
-        Node node4 = new Node(45);
-        Node node5 = new Node(3);
-        Node node6 = new Node(62);
+        treeTest.makeRoot(new GtreeNode(42));
+        GtreeNode node1 = new GtreeNode(21);
+        GtreeNode node2 = new GtreeNode(88);
+        GtreeNode node3 = new GtreeNode(16);
+        GtreeNode node4 = new GtreeNode(45);
+        GtreeNode node5 = new GtreeNode(3);
+        GtreeNode node6 = new GtreeNode(62);
         treeTest.addLeftNode(treeTest.root, node1);
         treeTest.addLeftNode(node2,node3);
         treeTest.addLeftNode(node1,node5);
@@ -127,7 +127,7 @@ public class TreeTest {
         treeTest.addRightNode(node2, node4);
         treeTest.addRightNode(node1,node6);
         assertEquals("This is the highest value.", 88, Tree.maximumValue(treeTest.root)); // TODO Ensure the highest value is being returned.
-        Node nodeX = new Node(156);
+        GtreeNode nodeX = new GtreeNode(156);
         treeTest.addLeftNode(node6, nodeX);
         assertEquals("This is the highest value.", 156, Tree.maximumValue(treeTest.root)); // TODO Ensure the highest value is being returned.
 //        assertEquals("These equal the string values", "[42, 21, 3, 62, 88, 16, 45]", treeTest.maximumValue(treeTest.root)); // TODO Make sure all nodes are being checked.
@@ -136,13 +136,13 @@ public class TreeTest {
 
     @Test public void testBreadthFirst() throws Exception {
         Tree treeTest = new Tree();
-        treeTest.makeRoot(new Node(42));
-        Node node1 = new Node(21);
-        Node node2 = new Node(88);
-        Node node3 = new Node(16);
-        Node node4 = new Node(45);
-        Node node5 = new Node(3);
-        Node node6 = new Node(62);
+        treeTest.makeRoot(new GtreeNode(42));
+        GtreeNode node1 = new GtreeNode(21);
+        GtreeNode node2 = new GtreeNode(88);
+        GtreeNode node3 = new GtreeNode(16);
+        GtreeNode node4 = new GtreeNode(45);
+        GtreeNode node5 = new GtreeNode(3);
+        GtreeNode node6 = new GtreeNode(62);
         treeTest.addLeftNode(treeTest.root, node1);
         treeTest.addLeftNode(node2,node3);
         treeTest.addLeftNode(node1,node5);

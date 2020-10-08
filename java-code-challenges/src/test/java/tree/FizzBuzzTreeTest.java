@@ -1,7 +1,7 @@
 package tree;
 
 import org.junit.Test;
-import utilities.NodeQueueGenericNew;
+import utilities.NodeGenericForQueue;
 import static org.junit.Assert.*;
 
 
@@ -9,13 +9,13 @@ public class FizzBuzzTreeTest {
 
     @Test
     public void fizzingBuzzingTest(){
-        NodeQueueGenericNew<String> gNode1 = new NodeQueueGenericNew<>();
+        NodeGenericForQueue<String> gNode1 = new NodeGenericForQueue<>();
         gNode1.setValue("3");
-        NodeQueueGenericNew<String> gNode2 = new NodeQueueGenericNew<>();
+        NodeGenericForQueue<String> gNode2 = new NodeGenericForQueue<>();
         gNode2.setValue("5");
-        NodeQueueGenericNew<String> gNode3 = new NodeQueueGenericNew<>();
+        NodeGenericForQueue<String> gNode3 = new NodeGenericForQueue<>();
         gNode3.setValue("7");
-        NodeQueueGenericNew<String> gNode4 = new NodeQueueGenericNew<>();
+        NodeGenericForQueue<String> gNode4 = new NodeGenericForQueue<>();
         gNode4.setValue("15");
         assertEquals("This should be Fizz", "fizz", FizzBuzzTree.fizzingBuzzingFunction(gNode1.getValue()));
         assertEquals("This should be Buzz", "buzz", FizzBuzzTree.fizzingBuzzingFunction(gNode2.getValue()));

@@ -3,8 +3,8 @@ package tree;
 public class GtreeNode<T> {
 
     T value;
-    GtreeNode left;
-    GtreeNode right;
+    GtreeNode<T> left;
+    GtreeNode<T> right;
 
     public GtreeNode(T value) {
         this.value = value;

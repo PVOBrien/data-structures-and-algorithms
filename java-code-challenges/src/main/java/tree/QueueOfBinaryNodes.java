@@ -1,5 +1,7 @@
 package tree;
 
+import utilities.NodeGenericForTree;
+
 public class QueueOfBinaryNodes<T> {
 
     public NodeGenericForTree<T> getFront() {

@@ -16,7 +16,7 @@ public class BinarySearchTreeTest {
     @Test
     public void addRootBstTest() throws Exception {
         BinarySearchTree binaryTree = new BinarySearchTree();
-        binaryTree.makeRoot(new Node(50));
+        binaryTree.makeRoot(new GtreeNode(50));
         assertEquals("This should be 50.", 50,binaryTree.root.getValue());
         assertThrows(Exception.class, () -> binaryTree.add(50, binaryTree));
     }
@@ -24,7 +24,7 @@ public class BinarySearchTreeTest {
     @Test
     public void binarySearchTreeAddTest() throws Exception{
         BinarySearchTree binaryTree = new BinarySearchTree();
-        binaryTree.makeRoot(new Node(50));
+        binaryTree.makeRoot(new GtreeNode(50));
         binaryTree.add(25, binaryTree);
         binaryTree.add(35, binaryTree);
         binaryTree.add(45, binaryTree);
@@ -36,7 +36,7 @@ public class BinarySearchTreeTest {
     @Test
     public void binarySearchTreeContainsTest() throws Exception{
         BinarySearchTree binaryTree = new BinarySearchTree();
-        binaryTree.makeRoot(new Node(50));
+        binaryTree.makeRoot(new GtreeNode(50));
         binaryTree.add(25, binaryTree);
         binaryTree.add(35, binaryTree);
         binaryTree.add(45, binaryTree);

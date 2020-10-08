@@ -1,12 +1,12 @@
 package tree;
 
-public class Node {
+public class NodeInt {
 
     private int value;
-    private Node left;
-    private Node right;
+    private NodeInt left;
+    private NodeInt right;
 
-    public Node(int value) {
+    public NodeInt(int value) {
         this.value = value;
         left = null;
         right = null;
@@ -20,13 +20,13 @@ public class Node {
         this.value = value;
     }
 
-    public Node getLeft() {return left;}
-    public void setLeft(Node left) {
+    public NodeInt getLeft() {return left;}
+    public void setLeft(NodeInt left) {
         this.left = left;
     }
 
-    public Node getRight() {return right;}
-    public void setRight(Node right) {
+    public NodeInt getRight() {return right;}
+    public void setRight(NodeInt right) {
         this.right = right;
     }
 
