@@ -188,3 +188,16 @@ Loop over the string, checking each char that is a bracket if the next type of b
 ## Whiteboard
 
 ![Whiteboard for MaxBreadth](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/Code%20Challenge%2017%20-%20Breadth%20First%20Traversal.png?raw=true)
+
+# K-ary Fizzbuzz Tree function
+   Make a function that swaps out any numbers divisible by 3 with "Fizz", 5 with "Buzz", and if it is divisble by both 3 and 5 with "FizzBuzz". In all other cases not divisible by 3 and/or 5, turn the number into a String.
+   Return a __new tree__.
+
+## Challenge
+- The strings of the new tree are based on the values from the old tree.
+- Take a tree of ints and create a new tree of strings.
+
+
+## Approach and Efficiency
+- Space O(1)
+- Time O(n)
