@@ -201,3 +201,7 @@ Loop over the string, checking each char that is a bracket if the next type of b
 ## Approach and Efficiency
 - Space O(1)
 - Time O(n)
+
+## Whiteboard
+
+![thewhiteboard](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/Code%20Challenge%2018%20Whiteboard%20FizzBuzz%20K%20ary%20Tree.png?raw=true)
