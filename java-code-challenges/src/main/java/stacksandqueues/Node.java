@@ -1,24 +1,24 @@
 package stacksandqueues;
 
-public class Node {
+public class Node<T> {
 
-    private int value;
-    private Node backOrBottom;
+    private T value;
+    private Node<T> backOrBottom;
 
-    public Node(int value){
+    public Node(T value){
         this.value = value;
         this.backOrBottom = null;
     }
 
-    public int getValue() {
+    public T getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(T value) {
         this.value = value;
     }
 
-    public Node getBackOrBottom() {
+    public Node<T> getBackOrBottom() {
         return backOrBottom;
     }
 

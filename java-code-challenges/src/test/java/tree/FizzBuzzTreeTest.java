@@ -40,7 +40,7 @@ public class FizzBuzzTreeTest {
 
 //    @Test
 //    public void fizzBuzzTreeTestThreeNodes() throws Exception {
-//        Gtree tree = new Gtree();
+//        Gtree<GtreeNode> tree = new Gtree();
 //        tree.add("500");
 //        tree.add("15");
 //        tree.add("3");

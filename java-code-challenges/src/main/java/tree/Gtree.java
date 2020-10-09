@@ -5,28 +5,29 @@ import utilities.AnimalShelter;
 
 public class Gtree<T> {
 
-    GtreeNode<T> root = null;
-
-    public Gtree(){}
-
-    public Gtree(T root) {
-        this.root = new GtreeNode<T>(root);
-    }
-
-    public T getRoot() {
-        return (T) root.getValue();
+    public GtreeNode getRoot() {
+        return root;
     }
 
     public void setRoot(T root) {
-        this.root = new GtreeNode(root);
+        this.root = (GtreeNode) root;
     }
 
-    @Override
-    public String toString() {
-        return "Gtree { root=" + root + '}';
+    GtreeNode root = null;
+
+    public Gtree(){}
+
     }
 
-    AnimalShelter animalShelter;
+
+
+//
+//    @Override
+//    public String toString() {
+//        return "Gtree { root=" + root + '}';
+//    }
+//
+//    AnimalShelter animalShelter;
 
 //    public void add (T newVal) {
 //        if (this.root == null) {
@@ -43,5 +44,5 @@ public class Gtree<T> {
 //            animalShelter.enqueue(newRoot.getLeft());
 //        }
 //    }
-
-}
+//
+//}

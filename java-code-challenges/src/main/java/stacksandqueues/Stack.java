@@ -33,7 +33,7 @@ public class Stack {
 
     public int pop() {
         try {
-            int valueToReturn = front.getValue();
+            int valueToReturn = (int) front.getValue();
             Node oldFront = front;
             front = front.getBackOrBottom();
             oldFront.setBackOrBottom(null);
@@ -45,7 +45,7 @@ public class Stack {
         }
     }
 
-    public int peek() {
+    public Object peek() {
         try {
             return this.front.getValue();
         } catch (NullPointerException npe) {
