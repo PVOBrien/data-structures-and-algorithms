@@ -5,7 +5,7 @@ public class FizzBuzzTree {
     public static Gtree<GtreeNode> fizzBuzzTree(Gtree oldTree) throws Exception {
         if (oldTree.root != null) {
             Gtree gtree = new Gtree();
-            gtree.root = recursiveFunctionWalk(oldTree.root);
+            gtree.root = recursiveFunctionWalk((GtreeNode) oldTree.root);
             return gtree;
         } else {
             throw new Exception("Sorry bub");

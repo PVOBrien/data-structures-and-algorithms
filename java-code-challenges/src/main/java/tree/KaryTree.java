@@ -9,8 +9,6 @@ public class KaryTree <T> {
 
     Node<T> root;
 
-
-
     public class Node<T> {
         ArrayList<Node<T>> children = new ArrayList<>();
         T value;

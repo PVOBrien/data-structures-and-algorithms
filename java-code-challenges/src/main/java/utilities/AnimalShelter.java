@@ -2,8 +2,8 @@ package utilities;
 
 public class AnimalShelter {
 
-    private NodeQueueGenericNew<String> front;
-    private NodeQueueGenericNew<String> back;
+    private NodeGenericForQueue<String> front;
+    private NodeGenericForQueue<String> back;
 
     public AnimalShelter(){
         this.front = null;
@@ -11,7 +11,7 @@ public class AnimalShelter {
     }
 
     public void enqueue(String animal) {
-        NodeQueueGenericNew<String> newNode = new NodeQueueGenericNew<>();
+        NodeGenericForQueue<String> newNode = new NodeGenericForQueue<>();
         newNode.setValue(animal);
 
         if (front == null) {
@@ -25,7 +25,7 @@ public class AnimalShelter {
 
     public String dequeue(String type) {
         if (type.equals("cat") || type.equals("dog")) {
-            NodeQueueGenericNew<String> thisNode = front;
+            NodeGenericForQueue<String> thisNode = front;
             while (thisNode != null) {
                 if (thisNode.getValue().equals(type)) {
                     if (thisNode.getFrontInLine() == null && thisNode.getBehindInLine() == null) {
@@ -73,7 +73,7 @@ public class AnimalShelter {
         return toString(front);
     }
     //------------ helper ----------------
-    private String toString(NodeQueueGenericNew<String> currentNode){
+    private String toString(NodeGenericForQueue<String> currentNode){
 
         if (currentNode.getBehindInLine() == null) {
             return currentNode.getValue() + " -> Back";

@@ -27,7 +27,7 @@ public class QueueGeneric {
 
     public int dequeue() {
         try {
-            int valueToReturn = front.getValue();
+            int valueToReturn = (int) front.getValue();
             Node oldFront = front;
             front = front.getBackOrBottom();
             oldFront.setBackOrBottom(null);
@@ -59,7 +59,7 @@ public class QueueGeneric {
         }
     }
 
-    public int peek() {
+    public Object peek() {
         try {
             return front.getValue();
         } catch (NullPointerException npe) {
