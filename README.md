@@ -10,7 +10,7 @@
 
 ## 5. [Single Linked List](/java-code-challenges/CC-READMEs/single-linked-list.md)
 
-## 6. [Zip()](/java-code-challenges/zip.md)
+## 6. [Zip()](/java-code-challenges/CC-READMEs/zip.md)
 
 ## 7. [Animal Shelter](/java-code-challenges/CC-READMEs/animal_shelter.md)
 
