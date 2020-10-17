@@ -4,7 +4,7 @@
 
 ## 2. [Array Shift](/java-code-challenges/array_shift.md)
 
-## 3. [Array Binary Search](/java-code-challenges/array_binary_search.md)
+## 3. [Array Binary Search](/java-code-challenges/CC-READMEs/array_binary_search.md)
 
 ## 4. [Binary Search](/java-code-challenges/binary_search.md)
 
