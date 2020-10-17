@@ -12,7 +12,7 @@
 
 ## 6. [Zip()](/java-code-challenges/zip.md)
 
-## 7. [Animal Shelter](/java-code-challenges/animal_shelter.md)
+## 7. [Animal Shelter](/java-code-challenges/CC-READMEs/animal_shelter.md)
 
 ## 8. [Multibracket Validation](/java-code-challenges/multibracket-validation.md)
 
