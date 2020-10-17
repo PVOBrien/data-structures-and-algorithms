@@ -10,11 +10,13 @@
 
 ## 5. [Single Linked List](/java-code-challenges/CC-READMEs/single-linked-list.md)
 
-## 6. [Zip()](/java-code-challenges/CC-READMEs/zip.md)
+## 6. [Stacks and Queues](/java-code-challenges/CC-READMEs/Stacks_and_Queues.md)
 
-## 7. [Animal Shelter](/java-code-challenges/CC-READMEs/animal_shelter.md)
+## 7. [Zip()](/java-code-challenges/CC-READMEs/zip.md)
 
-## 8. [Multibracket Validation](/java-code-challenges/CC-READMEs/multibracket-validation.md)
+## 8. [Animal Shelter](/java-code-challenges/CC-READMEs/animal_shelter.md)
 
-## 9. [Tree](/java-code-challenges/CC-READMEs/Tree.md)
+## 9. [Multibracket Validation](/java-code-challenges/CC-READMEs/multibracket-validation.md)
+
+## 10. [Tree](/java-code-challenges/CC-READMEs/Tree.md)
 ## | A. [Kary FizzBuzz Tree](/java-code-challenges/CC-READMEs/K-ary_Tree.md)
