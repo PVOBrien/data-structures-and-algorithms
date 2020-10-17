@@ -8,7 +8,7 @@
 
 ## 4. [Binary Search](/java-code-challenges/CC-READMEs/binary_search.md)
 
-## 5. [Single Linked List](/java-code-challenges/single-linked-list.md)
+## 5. [Single Linked List](/java-code-challenges/CC-READMEs/single-linked-list.md)
 
 ## 6. [Zip()](/java-code-challenges/zip.md)
 
