@@ -1,4 +1,4 @@
-## MultiBracketValidation
+## Multibracket Validation
 
 ### Challenge Description
 
