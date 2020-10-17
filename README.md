@@ -2,7 +2,7 @@
 
 ## 1. [Array Reverse](/java-code-challenges/CC-READMEs/array_reverse.md)
 
-## 2. [Array Shift](/java-code-challenges/array_shift.md)
+## 2. [Array Shift](/java-code-challenges/CC-READMEs/array_shift.md)
 
 ## 3. [Array Binary Search](/java-code-challenges/CC-READMEs/array_binary_search.md)
 
