@@ -1,4 +1,4 @@
-# ~~K-ary Fizzbuzz Tree function~~ Corrected Kary FizzBuzz Tree
+# K-ary FizzBuzz Tree
    Make a function that swaps out any numbers divisible by 3 with "Fizz", 5 with "Buzz", and if it is divisble by both 3 and 5 with "FizzBuzz". In all other cases not divisible by 3 and/or 5, turn the number into a String.
    Return a __new tree__. NOTE: This is now a kary tree, not a binary tree. It is also using entirely generic classes of nodes and the kary binary tree.
 
