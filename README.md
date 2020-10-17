@@ -2,7 +2,7 @@
 
 ## [Array Reverse](/java-code-challenges/array_reverse.md)
 
-## Array Shift - 2020-09-15
+## [Array Shift](/java-code-challenges/array_shift.md)
 
 Objective: To take an array and insert a new value into the middle of it.
 
