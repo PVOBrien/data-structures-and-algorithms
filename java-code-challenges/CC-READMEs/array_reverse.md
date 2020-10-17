@@ -1,4 +1,4 @@
-## Reverse an Array
+## Array Reverse
 
 Objective: To take an array as an argument and - without using built-in methods - return an array with the element in reversed order.
 
