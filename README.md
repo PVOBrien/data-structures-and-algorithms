@@ -6,7 +6,7 @@
 
 ## 3. [Array Binary Search](/java-code-challenges/CC-READMEs/array_binary_search.md)
 
-## 4. [Binary Search](/java-code-challenges/binary_search.md)
+## 4. [Binary Search](/java-code-challenges/CC-READMEs/binary_search.md)
 
 ## 5. [Single Linked List](/java-code-challenges/single-linked-list.md)
 
