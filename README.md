@@ -17,4 +17,4 @@
 ## 8. [Multibracket Validation](/java-code-challenges/multibracket-validation.md)
 
 ## 9. [Tree](/java-code-challenges/Tree.md)
-### - [Kary FizzBuzz Tree](/java-code-challenges/K-ary_Tree.md)
+### - [Kary FizzBuzz Tree](/java-code-challenges/CC-READMEs/K-ary_Tree.md)
