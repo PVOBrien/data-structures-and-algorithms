@@ -14,7 +14,7 @@
 
 ## 7. [Animal Shelter](/java-code-challenges/CC-READMEs/animal_shelter.md)
 
-## 8. [Multibracket Validation](/java-code-challenges/multibracket-validation.md)
+## 8. [Multibracket Validation](/java-code-challenges/CC-READMEs/multibracket-validation.md)
 
 ## 9. [Tree](/java-code-challenges/CC-READMEs/Tree.md)
 ## | A. [Kary FizzBuzz Tree](/java-code-challenges/CC-READMEs/K-ary_Tree.md)
