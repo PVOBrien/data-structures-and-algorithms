@@ -1,6 +1,6 @@
 # Table of Contents
 
-## 1. [Array Reverse](/java-code-challenges/array_reverse.md)
+## 1. [Array Reverse](/java-code-challenges/CC-READMEs/array_reverse.md)
 
 ## 2. [Array Shift](/java-code-challenges/array_shift.md)
 
