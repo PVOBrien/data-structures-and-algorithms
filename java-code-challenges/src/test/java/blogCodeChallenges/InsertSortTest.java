@@ -1,7 +1,6 @@
-package sortSearchPseudoTest;
+package blogCodeChallenges;
 
 import org.junit.Test;
-import sortSearchPseudo.InsertSort;
 
 import java.util.Arrays;
 
