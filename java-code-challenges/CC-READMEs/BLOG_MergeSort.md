@@ -10,4 +10,4 @@ This is at steps 7, 8, 9, that the recursion starts popping back up the stack, a
 
 I was surprised to work through this, and come to the realization that it is a considerably faster than the sort search, where instead of it being the dreaded O(n^2) for time, here it is O(n log n) - not quite O(n) but far better than the square time of the preceding option. As for space, it is O(n), as many it will always build out as many spaces as there are array memory slots (plus a handful more for holding on to values temporarily). So in that regard, the sort search is somewhat better, but the tradeoff is likely worth it.
 
-Thank you for tuning into another method walkthrough with your host, Paul O'Brien!  
+Thank you for tuning into another method walkthrough with your host, Paul O'Brien, with a hearty thank you out to Meghan Domeck as co-coder for this assignment!
