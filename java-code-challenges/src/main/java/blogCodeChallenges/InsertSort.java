@@ -1,4 +1,4 @@
-package sortSearchPseudo;
+package blogCodeChallenges;
 
 public class InsertSort {                          //this is the java class (we are declaring the class).
     public int[] selectionSort(int[] arr){  //we are defining the method which takes in an int array as its params.
