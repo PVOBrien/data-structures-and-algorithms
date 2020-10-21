@@ -20,3 +20,6 @@
 
 ## 10. [Tree](/java-code-challenges/CC-READMEs/Tree.md)
 ### || A. [Kary FizzBuzz Tree](/java-code-challenges/CC-READMEs/K-ary_Tree.md)
+
+## 11. [Sort Search Walk Through](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/CC-READMEs/BLOG_InsertSort.md)
+## 12. [Merge Sort Walk Through](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/CC-READMEs/BLOG_MergeSort.md)
