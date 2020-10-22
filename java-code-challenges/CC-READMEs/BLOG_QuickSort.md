@@ -1,6 +1,6 @@
 # QuickSort
 
-This was a doozy of a merge method. Our attempt at fully whiteboarding this was stymied repeatedly by not quite seeing what was happening, unless we stepped through the code, line by line, and even then, we were stumped. So we let it simmer for the better part of a day and... still couldn't quite get it. It works, but if we don't understand it, it's usefulness is lessened. So, to step through it slowly, Here is the walk thru via MarkDown language, in order to save trees (by not wasting more paper) and perhaps electrons (as we constantly wipe a digital whiteboard)
+This was a doozy of a merge method. Our attempt at fully whiteboarding this was stymied repeatedly by not quite seeing what was happening, unless we stepped through the code, line by line, and even then, we were stumped. So we let it simmer for the better part of a day and... still couldn't quite get it. It works, but if we don't understand it, it's usefulness is lessened. So, to step through it slowly, below is the walk thru via MarkDown language, in order to save trees (by not wasting more paper) and perhaps electrons (as we constantly wipe a digital whiteboard)
 
 ```
   {42, 8, 4, 23, 16, 15}   // we pass in a (likely) unordered array, as well as the left (beginning) and right (end) index positions. Not their values, but the indexes. So 0 and 5 respectively.
