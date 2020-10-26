@@ -6,14 +6,18 @@ import java.util.NoSuchElementException;
 
 public class HashTable {
 
-    ArrayList<ArrayList<HtNode>> theHashTable;
+    ArrayList<ArrayList<HtNode>> theHashTable = new ArrayList<>();
 
-    public HashTable(){
-        this.theHashTable = new ArrayList<>(10); // this is "ineffective". Or is it really just saying you can go up to 10, but it's not building anything into it? *really?* *StrongSideEyes*
+    public HashTable() { // I thought this would solve the need for an empty hashtable like on line 10?
+        for (int i = 0; i < 10; i++) {
+            theHashTable.add(new ArrayList<HtNode>());
+        }
     }
 
-    public HashTable(int size) { // I thought this would solve the need for an empty hashtable like on line 10?
-        this.theHashTable = new ArrayList<>(size);
+    public HashTable(int size){
+        for (int i = 0; i <size; i++) {
+            theHashTable.add(new ArrayList<HtNode>());
+        }
     }
 
     public void add(String key, int value) {
@@ -42,7 +46,7 @@ public class HashTable {
     }
 
 
-    public int get (String key) {
+    public int retrieve(String key) {
         int hashedIndex = hash(key);
         if (contains(key) == true) {
             ArrayList<HtNode> bucketInQuestion = theHashTable.get(hashedIndex);
@@ -73,13 +77,13 @@ public class HashTable {
 
     }
 
-    public String toString(ArrayList<ArrayList<HtNode>> thingToString){
+    public static String toString(HashTable thingToString){
 
         String string = "[\n";
 
-        for (int i = 0; i < thingToString.size(); i++) {
+        for (int i = 0; i < thingToString.theHashTable.size(); i++) {
             string += i + ": [";
-            ArrayList<HtNode> nextStep = thingToString.get(i); // making it human readable.
+            ArrayList<HtNode> nextStep = thingToString.theHashTable.get(i); // making it human readable.
             for (int j = 0; j < nextStep.size(); j++) {
                 string += "{" + nextStep.get(j).getKey() + ", " + nextStep.get(j).getValue() + "},";
             }
