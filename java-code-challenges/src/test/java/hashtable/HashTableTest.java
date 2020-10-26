@@ -16,14 +16,14 @@ public class HashTableTest {
 
     @Test
     public void startingHashTableCreationTest(){
-        HashTable hashTable = new HashTable();
+        HashTable hashTable = new HashTable(); // builds it as 0. But I set initialCapacity to 10. ?
         System.out.println(hashTable.theHashTable.size());
 //        assertEquals("The size should be 10 by default", 10, hashTable.theHashTable.size());
     }
 //
     @Test
     public void hashTableCreationTest(){
-        HashTable hashTable = new HashTable(5);
+        HashTable hashTable = new HashTable(5); // this doesn't do anything. So... what is "initial capacity
         System.out.println(hashTable.theHashTable.size());
 //        assertEquals("The size should be 5", 5, hashTable.theHashTable.size());
     }

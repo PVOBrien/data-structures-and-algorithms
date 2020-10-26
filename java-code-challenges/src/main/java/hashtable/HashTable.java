@@ -9,7 +9,7 @@ public class HashTable {
     ArrayList<ArrayList<HtNode>> theHashTable;
 
     public HashTable(){
-        this.theHashTable = new ArrayList<>(10);
+        this.theHashTable = new ArrayList<>(10); // this is "ineffective". Or is it really just saying you can go up to 10, but it's not building anything into it? *really?* *StrongSideEyes*
     }
 
     public HashTable(int size) { // I thought this would solve the need for an empty hashtable like on line 10?
