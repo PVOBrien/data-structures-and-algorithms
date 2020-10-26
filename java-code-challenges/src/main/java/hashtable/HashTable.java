@@ -39,11 +39,6 @@ public class HashTable {
         return false;
     }
 
-//        catch (NullPointerException npe) {
-//          npe.printStackTrace();
-//            System.out.println("The key does not exist here.");
-
-
 
     public int retrieve(String key) {
         int hashedIndex = hash(key);
