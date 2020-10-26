@@ -1,6 +1,9 @@
 package hashtable;
 
 import org.junit.Test;
+
+import java.util.NoSuchElementException;
+
 import static org.junit.Assert.*;
 
 
@@ -29,7 +32,7 @@ public class HashTableTest {
     }
 
     @Test
-    public void hashTableAddTest(){
+    public void hashTableFunctionsTest(){
         HashTable hashTable = new HashTable(15); // this doesn't do anything. So... what is "initial capacity
         hashTable.add("five", 5);
         hashTable.add("seven", 7);
@@ -38,8 +41,27 @@ public class HashTableTest {
         hashTable.add("Rook", 2);
         hashTable.add("queen", 6);
         hashTable.add("king", 7);
-        System.out.println(hashTable.toString(hashTable));
         assertEquals("The size should be 15", 15, hashTable.theHashTable.size());
+        assertEquals("It should look like so: ", "[\n" +
+                "0: [{Rook, 2},] \n" +
+                "1: [] \n" +
+                "2: [] \n" +
+                "3: [{four, 4},] \n" +
+                "4: [{queen, 6},] \n" +
+                "5: [] \n" +
+                "6: [{seven, 7},] \n" +
+                "7: [] \n" +
+                "8: [] \n" +
+                "9: [] \n" +
+                "10: [{five, 5},] \n" +
+                "11: [{king, 7},] \n" +
+                "12: [] \n" +
+                "13: [] \n" +
+                "14: [{Pawn, 1},] \n" +
+                "]", hashTable.toString(hashTable));
+        assertTrue("A king doth exist.", hashTable.contains("king"));
+        assertFalse("No bishop is present", hashTable.contains("Bishop"));
+        assertEquals("here is a 4, from four.", 4, hashTable.retrieve("four"));
+        assertThrows(NoSuchElementException.class, () -> hashTable.retrieve("Bishop"));
     }
-
 }

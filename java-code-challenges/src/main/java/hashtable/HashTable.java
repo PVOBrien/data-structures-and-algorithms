@@ -14,8 +14,8 @@ public class HashTable {
         }
     }
 
-    public HashTable(int size){
-        for (int i = 0; i <size; i++) {
+    public HashTable(int size) {
+        for (int i = 0; i < size; i++) {
             theHashTable.add(new ArrayList<HtNode>());
         }
     }
@@ -28,22 +28,21 @@ public class HashTable {
         theHashTable.get(hashedIndex).add(nodeToAdd);
     }
 
-    public boolean contains (String key) {
+    public boolean contains(String key) {
         int hashedIndex = hash(key);
         ArrayList<HtNode> bucketInQuestion = theHashTable.get(hashedIndex);
-        try {
-            for (int i = 0; i < bucketInQuestion.size(); i++) {
-                if (key.equals(bucketInQuestion.get(i).getKey())) {
-                    return true;
-                }
+        for (int i = 0; i < bucketInQuestion.size(); i++) {
+            if (key.equals(bucketInQuestion.get(i).getKey())) { // .equal is necessary when it's not a primitive
+                return true;
             }
-        } catch (NullPointerException npe) {
-//          npe.printStackTrace();
-            System.out.println("The key does not exist here.");
-        } finally {
-        return false;
         }
+        return false;
     }
+
+//        catch (NullPointerException npe) {
+//          npe.printStackTrace();
+//            System.out.println("The key does not exist here.");
+
 
 
     public int retrieve(String key) {
