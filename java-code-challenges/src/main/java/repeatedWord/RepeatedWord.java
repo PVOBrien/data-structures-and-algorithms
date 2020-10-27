@@ -9,7 +9,7 @@ public class RepeatedWord {
         Hashtable<String, String> hashtable = new Hashtable<String, String>();
         String firstRepeated = "";
 
-        words = words.replaceAll("\\p{Punct}", "").toLowerCase();
+        words = words.replaceAll("\\p{Punct}", "").toLowerCase(); // https://www.geeksforgeeks.org/removing-punctuations-given-string/
         String [] arrayOfWords = words.split("\\s");
 
         if(arrayOfWords.length < 2) {
