@@ -15,8 +15,12 @@ public class TreeIntersection extends Tree {
     ArrayList<Integer> collisionList = new ArrayList<>();
 
 
-    public HashMap preOrderHashMapCreation(Tree tree) {
+    public HashMap preOrderHashMapCreation(Tree tree) throws Exception {
         HashMap hashMap = new HashMap();
+
+        if (tree.root == null){
+            throw new Exception("no root, no play");
+        }
 
         preOrderWalkWHashMap(tree.root, hashMap);
         return hashMap;

@@ -14,6 +14,7 @@ public class TreeIntersectionTest {
 
     tree.Tree tree1 = new Tree();
     tree.Tree tree2 = new Tree();
+    tree.Tree tree3 = new Tree();
 
     @Before
     public void treeCreation() throws Exception {
@@ -78,7 +79,7 @@ public class TreeIntersectionTest {
     }
 
     @Test
-    public void treeHashMapTest() {
+    public void treeHashMapTest() throws Exception {
         TreeIntersection treeIntersection = new TreeIntersection();
         HashMap treeOneHash = treeIntersection.preOrderHashMapCreation(tree1);
         System.out.println(treeOneHash);
@@ -86,11 +87,16 @@ public class TreeIntersectionTest {
     }
 
     @Test
-    public void collisionTest() {
+    public void collisionTest() throws Exception {
         TreeIntersection treeIntersection = new TreeIntersection();
         HashMap treeOneHash = treeIntersection.preOrderHashMapCreation(tree1);
         treeIntersection.preOrderWalkWHashMap(tree2.root, treeOneHash);
         assertEquals("Here are the results: ", "[200, 350, 500, 100, 160, 125, 175]", treeIntersection.collisionList.toString());
     }
 
+    @Test
+    public void emptyTreeExceptionTest() throws Exception {
+        TreeIntersection treeIntersection = new TreeIntersection();
+        assertThrows("no root, no play", Exception.class, ()-> treeIntersection.preOrderHashMapCreation(tree3));
+    }
 }
