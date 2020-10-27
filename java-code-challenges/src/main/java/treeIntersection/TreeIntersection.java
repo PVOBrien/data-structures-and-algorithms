@@ -32,5 +32,6 @@ public class TreeIntersection extends Tree {
         if (node.getLeft() != null)  preOrderWalkWHashMap(node.getLeft(), hashMap);
         if (node.getRight() != null) preOrderWalkWHashMap(node.getRight(), hashMap);
     }
-
 }
+
+// https://www.geeksforgeeks.org/print-common-nodes-in-two-binary-search-trees/ for another solution
