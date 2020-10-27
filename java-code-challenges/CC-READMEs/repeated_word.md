@@ -15,4 +15,4 @@ Space O(1)
 ## Approach & Efficiency
 - Using a hashtable (the built-in method within Java) the method strips all punctuation, turns everything to lowercase, and then - after checking that the string passed in not 1 or less "string blocks" - goes to either return the first repeated word or adds it to the hashed table.
 
-#### (No whitetable assigned)
+#### ![Today's Whiteboard](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/codeChallenge31wb.png?raw=true)
