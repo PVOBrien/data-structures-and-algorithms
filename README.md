@@ -23,3 +23,6 @@
 
 ## 11. [Sort Search Walk Through](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/CC-READMEs/BLOG_InsertSort.md)
 ## 12. [Merge Sort Walk Through](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/CC-READMEs/BLOG_MergeSort.md)
+## 13. [QuickSort Walk Through](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/CC-READMEs/BLOG_QuickSort.md)
+## 14. [Hash Table](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/CC-READMEs/hash_table.md)
+## 15. [Repeated Word Hash Map](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/CC-READMEs/repeated_word.md)
