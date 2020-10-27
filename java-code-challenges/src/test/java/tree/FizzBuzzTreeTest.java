@@ -33,19 +33,21 @@ public class FizzBuzzTreeTest {
 
     @Test
     public void fizzBuzzTreeTestOneRoot() throws Exception {
-        Gtree tree = new Gtree();
-        tree.setRoot("500");
-        assertEquals("Gtree { root=GtreeNode{value=buzz, left=null, right=null}}", FizzBuzzTree.fizzBuzzTree(tree).toString());
+        Gtree<GtreeNode> tree = new Gtree<>();
+        GtreeNode<String> thisOne = new GtreeNode<>();
+        thisOne.setValue("500");
+        tree.setRoot(thisOne);
+        assertEquals("Gtree{root=GtreeNode{value=500, left=null, right=null}}", tree.toString());
     }
 
-//    @Test
-//    public void fizzBuzzTreeTestThreeNodes() throws Exception {
-//        Gtree<GtreeNode> tree = new Gtree();
-//        tree.add("500");
-//        tree.add("15");
-//        tree.add("3");
-//        assertEquals("root=GtreeNode{value=buzz, left=GtreeNode{value=fizzbuzz, left=null, right=null}, right=GtreeNode{value=fizz, left=null, right=null}}", FizzBuzzTree.fizzBuzzTree(tree).toString());
-//    }
+    @Test
+    public void fizzBuzzTreeTestThreeNodes() throws Exception {
+        Gtree<GtreeNode> tree = new Gtree();
+        tree.setRoot("500");
+        tree.add("15");
+        tree.add("3");
+        assertEquals("root=GtreeNode{value=buzz, left=GtreeNode{value=fizzbuzz, left=null, right=null}, right=GtreeNode{value=fizz, left=null, right=null}}", FizzBuzzTree.fizzBuzzTree(tree).toString());
+    }
 //
 //
 //    @Test
