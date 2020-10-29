@@ -28,25 +28,26 @@ So, we start with the value at the zero-th index: 8, and get going in a first fo
 
 Now, that's the first number. We only stepped through the first pass of the i loop - there's another 6 index values to step through! So, we go through it again, and this value is…
 
-
+![Step 2](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/insertSort2.png?raw=true)
 
 8 again! It just moved forward one, so it doesn't move again; there was only one number lower than it, and it was the next number. So a whole iteration was spent just checking things in place.
 But we move on now to the next position…
 
+![Step 3](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/insertSort3.png?raw=true)
 
 23.  Now, if you're paying attention, there are two numbers lower than it. It actually held 16 as the lowest number for a step, before 15 took the place as the lowest, and then the two locations swap.
 
-
+![Step 4](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/insertSort4.png?raw=true)
 
 Next to 42, which again first sees 16 as the lowest, then still has to check against 23, and then 16 and 42 swap…
 
-
+![Step 5](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/insertSort5.png?raw=true)
 
 And then 42 sees that 23 is below (and lowest), so they swap.
 
+![Step 6](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/insertSort6.png?raw=true)
 
+And 42 is the answer, I mean the last number (or is that one and the same ;))! The array is returned, all prettified and in order! You have yourself an insertSort!
 
-And 42 is the answer, I mean the last number (or is that one and the same ;))! The array is returned, all prettified and in order!
-
-
+====
 Edited 2020-10-29
