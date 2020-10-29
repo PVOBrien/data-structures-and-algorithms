@@ -1,13 +1,52 @@
 # InsertSort Breakdown
 ## w Help from Matthew Petersen and Kamit Satkeev
 
-![step-by-step](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/codeChallenge26.PNG?raw=true)
+An insert takes an arraylist, and sorts from lowest to highest in place. This makes for good space - O(n) - but not great time, (although not horrible time, seeing that it has to iterate over item, so it's time is O(n). So here's the actual code:
+``` Java
+public int[] insertSort (int[] arr) {
+    int n = arr.length
+    for (int I = 0; I < n ; i++) {
+        int min = i;
+        for (int j = I + 1; j < n; j++) {
+            if (arr[j] < arr[min])
+            min = j;
+        }
+    int temp = arr[min];
+    arr [min] = arr[i];
+    arr[i] = temp
+    }
+    return arr;
+}
+```
 
-We worked through a step by step of a SortSearch method, first interpreting it from pseudocode given to us, and then we proceeded to walk through and rebuild it in Java.
+So what is this code doing? Let's break it down. We're going to arrange this list:
+	[8, 4, 23, 42, 16, 15]
 
-After the necessary steps of turning on the class, and declaring the method with a return of an integer array (the sorted array) and being passed in an integer array (the array to be sorted) we got to it.
-First for ease of reading we declared a variable _n_ to be assigned the length of the array. Then we ran a for loop. In the for loop we declare min to be i - the number being iterated over at the time. Then we start another for loop, the j loop. In the j loop, it is the "fast" loop, wherein it is checked to see if the value at the index of j is lower than i, and if so then min is re-assigned to j.
-Once that inner for loop iterated, a temp variable is assigned to the index at the variable min, then the value at the index of array at min becomes the value of array at i, effectively shuffling the number forward if need be (or just leaving it in place if it's the same), and then the value of the array at index i becomes the temp, completing the shuffle.
-This for loop runs over the entire array. So it will get the job done, but when discussing big O notation, it is not fast for time, having to take the O(n^2) as it runs an inner for loop. But it does get the job done.
+So, we start with the value at the zero-th index: 8, and get going in a first for loop, that we'll call the i loop. And then we start moving forward in another loop - the j loop - to see if there is a lower number. And if there is a lower number, then that number is held in another parameter (that starts at i basically so it is i+1, so that at the end of the nested for loop, the current number and the number in that low parameter are swapped.
 
-Completed 2020-10-20
+![Step 1](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/insertSort1.png?raw=true)
+
+Now, that's the first number. We only stepped through the first pass of the i loop - there's another 6 index values to step through! So, we go through it again, and this value is…
+
+
+
+8 again! It just moved forward one, so it doesn't move again; there was only one number lower than it, and it was the next number. So a whole iteration was spent just checking things in place.
+But we move on now to the next position…
+
+
+23.  Now, if you're paying attention, there are two numbers lower than it. It actually held 16 as the lowest number for a step, before 15 took the place as the lowest, and then the two locations swap.
+
+
+
+Next to 42, which again first sees 16 as the lowest, then still has to check against 23, and then 16 and 42 swap…
+
+
+
+And then 42 sees that 23 is below (and lowest), so they swap.
+
+
+
+And 42 is the answer, I mean the last number (or is that one and the same ;))! The array is returned, all prettified and in order!
+
+
+Edited 2020-10-29
