@@ -12,7 +12,7 @@ public class InsertSortTest {
         int[] lostNumber = {8,4,23,42,16,15};
         InsertSort insertSort = new InsertSort();
         int[] correctNumber =  {4, 8, 15, 16, 23, 42};
-        int[] fromInsertSort = insertSort.selectionSort(lostNumber);
+        int[] fromInsertSort = insertSort.insertSort(lostNumber);
         assertEquals(Arrays.toString(correctNumber), Arrays.toString(fromInsertSort));
     }
 }
