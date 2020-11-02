@@ -9,7 +9,30 @@ public class Graph {
     private Set<GraphNode> vertexes = new HashSet<>(); // it's a HASHset, not just a Set. :facepalm:
     public Set<GraphNode> getVertexes() { return vertexes; }
 
-    public class Edge{
+    public void add(int value) {
+        GraphNode<Integer> node = new GraphNode();
+        node.setValue(value);
+        vertexes.add(node);
+    }
+
+    public static class GraphNode<T> {
+        private T value;
+
+        private Set<Edge> edges = new HashSet<>();
+
+        public Set<Edge> getEdges() { return edges; }
+        public void setEdges(Set<Edge> edges) { this.edges = edges; }
+
+        public T getValue() { return value;}
+        public void setValue(T value) { this.value = value; }
+
+        @Override
+        public String toString() {
+            return "GraphNode{" + "value=" + value + ", edges=" + edges + '}';
+        }
+    }
+
+    private class Edge{
 
         private GraphNode origin;
         private GraphNode destination;
@@ -64,28 +87,6 @@ public class Graph {
         }
     }
 
-    public static class GraphNode<T> {
-        private T value;
-
-        Set<Edge> edges = new HashSet<>();
-
-        public Set<Edge> getEdges() { return edges; }
-        public void setEdges(Set<Edge> edges) { this.edges = edges; }
-
-        public T getValue() { return value;}
-        public void setValue(T value) { this.value = value; }
-
-        @Override
-        public String toString() {
-            return "GraphNode{" + "value=" + value + ", edges=" + edges + '}';
-        }
-    }
-
-    public void add(int value) {
-        GraphNode<Integer> node = new GraphNode();
-        node.setValue(value);
-        vertexes.add(node);
-    }
 
     public ArrayList<Neighbor> getNeighbors(GraphNode node) {
         ArrayList<Edge> neighbors = new ArrayList<>(node.getEdges());
