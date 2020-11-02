@@ -58,7 +58,7 @@ public class GraphTest {
         Object[] verticesArray = graph.getVertexes().toArray();
         System.out.println(Arrays.toString(verticesArray));
         assertEquals("This is 2 vertices graph.", 2, graph.getVertexes().size());
-//        assertEquals("here are a graph's nodes.", "[GraphNode{value=1, edges=[Edge{origin=1, destination=14}]}, GraphNode{value=14, edges=[Edge{origin=14, destination=1}]}]", Arrays.toString(verticesArray)); // This line breaks the full test suite, but will pass if it is only tested.
+        assertEquals("here are a graph's nodes.", "[GraphNode{value=1, edges=[Edge{origin=1, destination=14}]}, GraphNode{value=14, edges=[Edge{origin=14, destination=1}]}]", Arrays.toString(verticesArray)); // This line breaks the full test suite, but will pass if it is only tested.
     }
 
     @Test

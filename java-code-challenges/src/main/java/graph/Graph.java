@@ -9,7 +9,7 @@ public class Graph {
     private Set<GraphNode> vertexes = new HashSet<>(); // it's a HASHset, not just a Set. :facepalm:
     public Set<GraphNode> getVertexes() { return vertexes; }
 
-    public void add(int value) {
+    public void addNode(int value) {
         GraphNode<Integer> node = new GraphNode();
         node.setValue(value);
         vertexes.add(node);
