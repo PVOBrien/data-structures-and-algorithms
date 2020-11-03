@@ -96,4 +96,22 @@ public class GraphTest {
         LinkedList<Integer> results = graph.breadthFirstTraversal(graphNodeOne);
         assertEquals("Here are results.", "[1, 14, 23]", results.toString());
     }
+
+    @Test
+    public void bftExceptionTest() {
+        Graph.GraphNode<Integer> graphNodeOne = new Graph.GraphNode<>();
+//        Graph.GraphNode<Integer> graphNodeTwo = new Graph.GraphNode<>();
+//        Graph.GraphNode<Integer> graphNodeThree = new Graph.GraphNode<>();
+//        graphNodeOne.setValue(1);
+//        graphNodeTwo.setValue(14);
+//        graphNodeThree.setValue(23);
+        Graph graph = new Graph();
+        graph.getVertexes().add(graphNodeOne);
+//        graph.getVertexes().add(graphNodeTwo);
+//        graph.getVertexes().add(graphNodeThree);
+//        graph.addEdge(graphNodeOne, graphNodeTwo, 6);
+//        graph.addEdge(graphNodeOne, graphNodeThree, 10);
+        assertThrows(Exception.class, () -> graph.breadthFirstTraversal(graphNodeOne));
+//        assertEquals("Here are results.", "[1, 14, 23]", results.toString());
+    }
 }

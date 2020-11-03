@@ -125,7 +125,7 @@ public class Graph {
         LinkedList<Integer> resultList = new LinkedList<>(); // TODO: create a full list of nodes to check against that each were visited.
         HashSet<GraphNode> visited = new HashSet<>();
 
-        if (nodeToCheck == null){
+        if (nodeToCheck.getValue() == null){
             throw new NullPointerException("Nothing here.");
         }
 
