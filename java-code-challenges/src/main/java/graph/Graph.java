@@ -8,8 +8,15 @@ public class Graph {
 
     private final Set<GraphNode> vertexes = new HashSet<>(); // it's a HASHset, not just a Set. :facepalm:
     public Set<GraphNode> getVertexes() { return vertexes; }
+//    public Map<String, GraphNode> mappedVertexes; TODO: this is a better way to store vertices for retrieval (in most cases).
 
     public void addNode(int value) {
+        GraphNode node = new GraphNode();
+        node.setValue(value);
+        vertexes.add(node);
+    }
+
+    public void addNode(String value) {
         GraphNode node = new GraphNode();
         node.setValue(value);
         vertexes.add(node);
@@ -32,7 +39,7 @@ public class Graph {
         }
     }
 
-    private static class Edge{
+    public  class Edge{
 
         private GraphNode origin;
         private GraphNode destination;
@@ -87,7 +94,6 @@ public class Graph {
         }
     }
 
-
     public ArrayList<Neighbor> getNeighbors(GraphNode node) {
         ArrayList<Edge> neighbors = new ArrayList<>(node.getEdges());
         ArrayList<Neighbor> destinations = new ArrayList<>();
@@ -96,29 +102,10 @@ public class Graph {
             Neighbor thisNeighbor = new Neighbor((Integer) neighbor.getDestination().getValue(), neighbor.getWeight());
             destinations.add(thisNeighbor);
         }
-
-//        Iterator<GraphNode> neighborIterator = node.getEdges().;
-//        while (neighborIterator.hasNext()) {
-//            neighbors.add();
-//            neighborIterator.next();
-//        }
-//        neighborIterator.forEachRemaining(thing -> neighbors.add((String) thing.)); // Todo: might work? https://learnjava.co.in/java-8-iterator-foreachremaining/ if it did.
-//        return neighbors;
         return destinations;
     }
 
-//    public ArrayList<String> breadthFirstTraversal(Graph graph) {
-//        Set<String> visitedVertices = new HashSet<>();
-////        ArrayList<String> visitedVerticesArrayL;
-//        Iterator<GraphNode> graphNodeIterator = (Iterator<GraphNode>) graph.getVertexes();
-//        while (graphNodeIterator.hasNext()) {
-//            GraphNode currentNode = graphNodeIterator.next();
-//            if (!visitedVertices.contains(currentNode.getValue())) {
-//                visitedVertices.add(currentNode.getValue().toString());
-//            }
-//        }
-//        return new ArrayList<>(visitedVertices);
-//    }
+
 
     public LinkedList<Integer> breadthFirstTraversal (GraphNode nodeToCheck) { // credit to: https://github.com/emd5/data-structures-and-algorithms-java/blob/master/src/main/java/graph/Graph.java
 

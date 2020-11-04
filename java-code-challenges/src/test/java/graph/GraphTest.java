@@ -103,6 +103,6 @@ public class GraphTest {
         Graph graph = new Graph();
         graph.getVertexes().add(graphNodeOne);
         assertThrows(Exception.class, () -> graph.breadthFirstTraversal(graphNodeOne));
-
     }
+
 }
