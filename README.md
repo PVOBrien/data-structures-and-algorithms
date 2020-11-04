@@ -33,3 +33,5 @@
 - Note: added to the Grapn.MD as an additional method.
 ## 20. [TakeAFlight() - aka GetEdges](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/CC-READMEs/graph.md#takeatrip-aka-getedges)
 - Note: added to the Graph.MD as an additional method.
+## 21. [DepthFirstTraversal](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/CC-READMEs/graph.md#depthfirsttraversal---using-a-recursive-method)
+- Note: added to the Graph.MD as an additional method.
