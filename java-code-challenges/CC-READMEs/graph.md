@@ -39,3 +39,19 @@ Note: all classes have getters and setters.
         Time O(n) __||__ Space O(n)
 - Whiteboard for breadthFirstTraversal:
 - ![breadthFirstTraversal Whiteboard](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/Code%20Challenge%2017%20-%20Breadth%20First%20Traversal.png?raw=true)
+
+### takeATrip() (aka getEdges())
+- NOTE: this is a new class, extended from Graph.java.
+
+#### Challenge Summary
+- Find if there is a given route through nodes, and if so return true and how much it will cost (via weight as cost).
+
+#### Challenge Description
+- This function takes in a list of locations/available node values, and ensures that between each node, it can reach it, and adds the "cost" (aka weight) to a total counter. If at any point it cannot reach the next node, it returns false and costs 0 as an object.
+
+#### Approach & Efficiency
+- On our whiteboard (below), we assumed that the Space and Time would be O(n). While we were correct on the Space, our Time was significantly incorrect, it's like... O(n^3), if that's a thing! Because of the use of a hashset, there's no way to just find an item (there is no key). So that is a definite limitation of hashsets.
+
+#### Solution
+
+- ![takeATrip Whiteboard](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/2020-11-03%20getEdge%20directFlight%20Whiteboard.png?raw=true)
