@@ -5,6 +5,7 @@ import java.util.*;
 public class Graph {
 
     public Graph() {}
+    private Set<GraphNode> visited = new HashSet<>();
 
     private final Set<GraphNode> vertexes = new HashSet<>(); // it's a HASHset, not just a Set. :facepalm:
     public Set<GraphNode> getVertexes() { return vertexes; }
@@ -104,7 +105,7 @@ public class Graph {
         }
         return destinations;
     }
-    
+
     public LinkedList<Integer> breadthFirstTraversal (GraphNode nodeToCheck) { // credit to: https://github.com/emd5/data-structures-and-algorithms-java/blob/master/src/main/java/graph/Graph.java
 
         LinkedList<Integer> resultList = new LinkedList<>(); // TODO: create a full list of nodes to check against that each were visited.
@@ -131,6 +132,28 @@ public class Graph {
         }
         return resultList;
     }
+
+    public ArrayList<String> depthFirstPreOrder (GraphNode nodeToStart) { // Code referenced from: https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/#:~:text=%20Solution%3A%20%201%20Approach%3A%20Depth-first%20search%20is,node%20as%20visited%20and%20print%20the...%20More%20
+            visited.clear();
+            ArrayList<String> depthFirst = new ArrayList<>();
+            depthFirstPreOrderHelper(nodeToStart, depthFirst);
+            return depthFirst;
+    }
+
+    private ArrayList<String> depthFirstPreOrderHelper (GraphNode nodeToCheck, ArrayList<String> visitedInThisOrder) {
+        visited.add(nodeToCheck);
+        visitedInThisOrder.add((String) nodeToCheck.getValue()); // has to be cast because my node is generic.
+
+        for (Edge edge : (HashSet<Edge>) nodeToCheck.getEdges()) {
+            if (!visited.contains(edge.getDestination())) {
+                depthFirstPreOrderHelper(edge.destination, visitedInThisOrder);
+            }
+        }
+        return visitedInThisOrder;
+    }
+
+    // TODO: https://www.programiz.com/dsa/graph-dfs check this for iterative approach.
+
 
     @Override
     public String toString() {

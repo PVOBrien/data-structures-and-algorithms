@@ -2,6 +2,7 @@ package graph;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 
@@ -105,4 +106,55 @@ public class GraphTest {
         assertThrows(Exception.class, () -> graph.breadthFirstTraversal(graphNodeOne));
     }
 
+    @Test
+    public void preOrderDepthTest() {
+        GetEdge graph = new GetEdge();
+        Graph.GraphNode<String> pandora = new Graph.GraphNode<>();
+        Graph.GraphNode<String> metroville = new Graph.GraphNode<>();
+        Graph.GraphNode<String> arendelle = new Graph.GraphNode<>();
+        Graph.GraphNode<String> monstropolis = new Graph.GraphNode<>();
+        Graph.GraphNode<String> naboo = new Graph.GraphNode<>();
+        Graph.GraphNode<String> narnia = new Graph.GraphNode<>();
+        pandora.setValue("Pandora");
+        metroville.setValue("Metroville");
+        arendelle.setValue("Arendelle");
+        monstropolis.setValue("Monstropolis");
+        naboo.setValue("Naboo");
+        narnia.setValue("Narnia");
+        graph.addEdge(pandora, arendelle, 150);
+        graph.addEdge(pandora, metroville, 82);
+        graph.addEdge(arendelle, metroville, 99);
+        graph.addEdge(arendelle, monstropolis, 42);
+        graph.addEdge(monstropolis, metroville, 105);
+        graph.addEdge(monstropolis, naboo, 73);
+        graph.addEdge(metroville, naboo, 26);
+        graph.addEdge(metroville, narnia, 250);
+        graph.addEdge(narnia, naboo, 37);
+        graph.getVertexes().add(pandora);
+        graph.getVertexes().add(metroville);
+        graph.getVertexes().add(arendelle);
+        graph.getVertexes().add(monstropolis);
+        graph.getVertexes().add(naboo);
+        graph.getVertexes().add(narnia);
+        ArrayList<String> results = graph.depthFirstPreOrder(pandora);
+        assertEquals("This is all of them.", "[Pandora, Metroville, Naboo, Monstropolis, Arendelle, Narnia]", results.toString());
+    }
+
+    @Test
+    public void straightForwardDepthFirstTest() {
+        Graph.GraphNode<String> graphNodeOne = new Graph.GraphNode<>();
+        Graph.GraphNode<String> graphNodeTwo = new Graph.GraphNode<>();
+        Graph.GraphNode<String> graphNodeThree = new Graph.GraphNode<>();
+        graphNodeOne.setValue("1");
+        graphNodeTwo.setValue("14");
+        graphNodeThree.setValue("23");
+        Graph graph = new Graph();
+        graph.getVertexes().add(graphNodeOne);
+        graph.getVertexes().add(graphNodeTwo);
+        graph.getVertexes().add(graphNodeThree);
+        graph.addEdge(graphNodeOne, graphNodeTwo, 6);
+        graph.addEdge(graphNodeTwo, graphNodeThree, 10);
+        ArrayList<String> results = graph.depthFirstPreOrder(graphNodeOne);
+        assertEquals("This is straightforward and correct.", "[1, 14, 23]", results.toString());
+    }
 }

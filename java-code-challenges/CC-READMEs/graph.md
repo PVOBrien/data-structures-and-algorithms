@@ -53,5 +53,19 @@ Note: all classes have getters and setters.
 - On our whiteboard (below), we assumed that the Space and Time would be O(n). While we were correct on the Space, our Time was significantly incorrect, it's like... O(n^3), if that's a thing! Because of the use of a hashset, there's no way to just find an item (there is no key). So that is a definite limitation of hashsets.
 
 #### Solution
-
 - ![takeATrip Whiteboard](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/2020-11-03%20getEdge%20directFlight%20Whiteboard.png?raw=true)
+
+### DepthFirstTraversal() - using a recursive method
+
+#### Challenge Summary
+- Return a list of vertice's value in (pre)order of being visited.
+
+#### Challenge Description
+- This function takes in a starting node, and then using a helper function, recurses through each node that has not already been visited.
+
+#### Approach & Efficiency
+- Time O(n) - every node needs to be addressed/evaluated, no way around it.
+- Space O(n) - every node could eventually be included.
+
+#### Solution
+- ![takeATrip Whiteboard](https://github.com/PVOBrien/data-structures-and-algorithms/blob/master/java-code-challenges/src/main/resources/2020-11-04%20depthFirstRecursion%20Whiteboard.png?raw=true)
