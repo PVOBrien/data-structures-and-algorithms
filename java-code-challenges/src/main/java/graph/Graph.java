@@ -104,9 +104,7 @@ public class Graph {
         }
         return destinations;
     }
-
-
-
+    
     public LinkedList<Integer> breadthFirstTraversal (GraphNode nodeToCheck) { // credit to: https://github.com/emd5/data-structures-and-algorithms-java/blob/master/src/main/java/graph/Graph.java
 
         LinkedList<Integer> resultList = new LinkedList<>(); // TODO: create a full list of nodes to check against that each were visited.
