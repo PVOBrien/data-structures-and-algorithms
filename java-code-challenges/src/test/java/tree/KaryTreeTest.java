@@ -1,15 +1,15 @@
 package tree;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class KaryTreeTest {
 
     KaryTree<String> karyTree = new KaryTree<>(); // anything you want "globally" available, still needs to be outside of everywhere.
 
-    @Before
+    @BeforeEach
     public void newTestKaryTree(){
         karyTree.insert("1");
         karyTree.insert("2");

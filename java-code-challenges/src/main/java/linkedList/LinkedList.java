@@ -1,6 +1,5 @@
 package linkedList;
 
-
 import java.util.ArrayList;
 
 public class LinkedList {
@@ -40,7 +39,6 @@ public class LinkedList {
     Node nextCheck = head.getBehindInLine();
     while (nextCheck.getBehindInLine() != null) {
       if (nextCheck.getValue() == searchValue) {
-//        System.out.println("good job checker!");
         return true;
       } else {
         nextCheck = nextCheck.getBehindInLine();
@@ -111,12 +109,9 @@ public class LinkedList {
     } while (current != null);
 
     if (kthPlace > complete.size() - 1 || kthPlace < 0) {
-      System.out.println("There was an exception: no kth place in this LinkedList.");
       throw new Exception("Exception: Kth place not in LinkedList");
     }
-
     return complete.get(complete.size() - 1 - kthPlace);
-
   }
 
   public int valueFromKthSlowNumber(int kthPlace) {
@@ -131,7 +126,6 @@ public class LinkedList {
       fast = fast.getBehindInLine();
       slow = slow.getBehindInLine();
     }
-
     return slow.getValue();
   }
 

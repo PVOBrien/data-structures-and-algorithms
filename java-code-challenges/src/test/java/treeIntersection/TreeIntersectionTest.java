@@ -1,14 +1,14 @@
 package treeIntersection;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import tree.GtreeNode;
 import tree.Tree;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TreeIntersectionTest {
 
@@ -16,7 +16,7 @@ public class TreeIntersectionTest {
     tree.Tree tree2 = new Tree();
     tree.Tree tree3 = new Tree();
 
-    @Before
+    @BeforeEach
     public void treeCreation() throws Exception {
 
         GtreeNode<Integer> rootNode = new GtreeNode<>(150);
@@ -66,7 +66,6 @@ public class TreeIntersectionTest {
         nodeThreeTwo2.setRight(nodeFourThree2);
         nodeThreeFour2.setLeft(nodeFourFour2);
         nodeThreeFour2.setRight(nodeFourFive2);
-
     }
 
     @Test
@@ -97,6 +96,6 @@ public class TreeIntersectionTest {
     @Test
     public void emptyTreeExceptionTest() throws Exception {
         TreeIntersection treeIntersection = new TreeIntersection();
-        assertThrows("no root, no play", Exception.class, ()-> treeIntersection.preOrderHashMapCreation(tree3));
+        assertThrows(Exception.class, ()-> treeIntersection.preOrderHashMapCreation(tree3));
     }
 }

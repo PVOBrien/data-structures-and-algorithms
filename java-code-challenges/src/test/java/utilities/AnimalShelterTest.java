@@ -1,8 +1,8 @@
 package utilities;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AnimalShelterTest {
 
@@ -19,7 +19,6 @@ public class AnimalShelterTest {
         quietShelter.enqueue("dog");
         quietShelter.enqueue("cat");
         quietShelter.enqueue("dog");
-
         assertEquals("catdogcatdog", "cat -> dog -> cat -> dog -> Back", quietShelter.toString());
     }
 

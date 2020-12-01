@@ -1,20 +1,19 @@
 package linkedList;
 
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LinkedListTest {
 
-
-  @Test public void testEmptyLinkList() {
+  @Test
+  public void testEmptyLinkList() {
     assertNotNull(new LinkedList());
   }
 
   @Test public void testInsert() {
     LinkedList tryList = new LinkedList();
     tryList.insert(4);
-    assertEquals("Here's the first linkedlist entry.", 4,tryList.head.value);
+    assertEquals(4,tryList.head.value);
   }
 
   @Test public void testIncludes() {
@@ -73,8 +72,8 @@ public class LinkedListTest {
     tryList.insert(8);
     tryList.insert(3);
     tryList.insert(1);
-    assertEquals("This should be from the \"index\" of the linkedlist", 1, tryList.valueFromKthLazy(3));
-    assertThrows("This should be from the \"index\" of the linkedlist", Exception.class, () -> tryList.valueFromKthLazy(4));
+    assertEquals(1, tryList.valueFromKthLazy(3));
+    assertThrows(Exception.class, () -> tryList.valueFromKthLazy(4));
   }
 
   @Test public void kthGreaterSize(){
@@ -83,13 +82,13 @@ public class LinkedListTest {
     tryList.insert(8);
     tryList.insert(3);
     tryList.insert(1);
-    assertThrows("This should be from the \"index\" of the linkedlist", Exception.class, () -> tryList.valueFromKthLazy(4));
+    assertThrows(Exception.class, () -> tryList.valueFromKthLazy(4));
   }
 
   @Test public void kthSameAndSizeOne(){
     LinkedList tryList = new LinkedList();
     tryList.insert(2);
-    assertThrows("This should throw", Exception.class, () -> tryList.valueFromKthLazy(1));
+    assertThrows(Exception.class, () -> tryList.valueFromKthLazy(1));
   }
 
   @Test public void kthNegative() throws Exception { // left this in place... why doesn't it throw? It's literally down there below, Exception.class. ?
@@ -98,18 +97,14 @@ public class LinkedListTest {
     tryList.insert(8);
     tryList.insert(3);
     tryList.insert(1);
-    assertThrows("This should throw", Exception.class, () -> tryList.valueFromKthLazy(-1));
+    assertThrows(Exception.class, () -> tryList.valueFromKthLazy(-1));
+    tryList.valueFromKthLazy(-1);
   }
 
-  @Test public void testNodesArray2() throws Exception {
-
+  @Test public void testNodesArray2(){
     LinkedList tryList = new LinkedList();
     tryList.insert(2);
-    assertThrows("This should be from the \"index\" of the linkedlist", Exception.class, () -> tryList.valueFromKthLazy(0));
-//    assertThrows("This should throw",
-//      kthNegative().class,
-//      () -> tryList.valueFromKth(5)
-//    ) // arrow functions are LAMBDA, NOT ARROW FUNCTIONS
+    assertThrows(Exception.class, () -> tryList.valueFromKthLazy(0));
   }
 
   @Test public void kthHappy() throws Exception {
@@ -118,7 +113,7 @@ public class LinkedListTest {
     tryList.insert(8);
     tryList.insert(3);
     tryList.insert(1);
-    assertEquals("This should be from the \"index\" of the linkedlist", 3, tryList.valueFromKthLazy(2));
+    assertEquals(3, tryList.valueFromKthLazy(2));
   }
 
   @Test

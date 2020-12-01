@@ -1,9 +1,8 @@
 package repeatedWord;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
-import java.util.Hashtable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RepeatedWordTest {
 

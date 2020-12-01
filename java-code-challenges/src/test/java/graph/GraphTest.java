@@ -1,14 +1,8 @@
 package graph;
 
-import org.checkerframework.checker.units.qual.A;
-import org.junit.Assert;
-import org.junit.Test;
-
-import java.lang.reflect.Array;
+import org.junit.jupiter.api.Test;
 import java.util.*;
-
-import static org.junit.Assert.*;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GraphTest {
 
@@ -53,8 +47,7 @@ public class GraphTest {
         graph.getVertexes().add(graphNodeOne);
         graph.getVertexes().add(graphNodeTwo);
         graph.addEdge(graphNodeOne, graphNodeTwo, 6);
-        Object[] verticesArray = graph.getVertexes().toArray();
-        assertEquals("This is 2 vertices graph.", 2, graph.getVertexes().size());
+        assertEquals(2, graph.getVertexes().size());
         Set<Graph.GraphNode> results = graph.getVertexes();
         ArrayList<Graph.GraphNode<Integer>> expectedResults = new ArrayList<>();
         expectedResults.add(graphNodeOne);
@@ -77,7 +70,7 @@ public class GraphTest {
         graph.addEdge(graphNodeOne, graphNodeTwo, 6);
         graph.addEdge(graphNodeOne, graphNodeThree, 10);
         assertEquals("Here are some neighbors!", "[Neighbor{weight=14, destination=6}, Neighbor{weight=23, destination=10}]", graph.getNeighbors(graphNodeOne).toString()); // TODO the nature of hashmaps is making these values switch. How to write a test to just ensure that both are included, not necessarily in that order?
-        assertEquals("This is 2 vertices graph.", 3, graph.getVertexes().size());
+        assertEquals(3, graph.getVertexes().size());
         Collection<Graph.GraphNode<Integer>> expectedResults = new ArrayList<>();
         expectedResults.add(graphNodeOne);
         expectedResults.add(graphNodeTwo);
@@ -153,7 +146,7 @@ public class GraphTest {
         expectedResults.add("Monstropolis");
         expectedResults.add("Naboo");
         expectedResults.add("Narnia");
-        Assert.assertTrue(results.containsAll(expectedResults) && expectedResults.containsAll(results));
+        assertTrue(results.containsAll(expectedResults) && expectedResults.containsAll(results));
     }
 
     @Test

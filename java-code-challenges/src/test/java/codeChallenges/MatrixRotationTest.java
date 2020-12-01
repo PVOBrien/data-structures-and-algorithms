@@ -1,14 +1,16 @@
 package codeChallenges;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MatrixRotationTest {
 
     int[][] matrix = new int[3][3];
 
-    @Before
+    @BeforeEach
     public void matrixCreate(){
         matrix[0] = new int[]{1, 2, 3};
         matrix[1] = new int[]{4, 5, 6};

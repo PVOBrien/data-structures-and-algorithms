@@ -1,8 +1,9 @@
 package javachallenges;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class BinarySearchTest {
+
   @Test
   public void BinarySearching() {   // function takes in an array and a search key
     BinarySearch bananaSearch = new BinarySearch();

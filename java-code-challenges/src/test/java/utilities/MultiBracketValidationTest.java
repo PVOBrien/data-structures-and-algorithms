@@ -1,25 +1,10 @@
 package utilities;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MultiBracketValidationTest {
-
-//    @Test // Passed to assert Regex functions.
-//    public void testRegexTrue() {
-//
-//        assertTrue(MultiBracketValidation.testForMirrors("{"));
-//        assertTrue(MultiBracketValidation.testForMirrors("["));
-//        assertTrue(MultiBracketValidation.testForMirrors("("));
-//    }
-
-//    @Test // Passed to assert Regex functions.
-//    public void testRegexFalse() {
-//        assertFalse(MultiBracketValidation.testForMirrors("1"));
-//        assertFalse(MultiBracketValidation.testForMirrors("b"));
-//        assertFalse(MultiBracketValidation.testForMirrors("?"));
-//    }
 
     @Test
     public void removeCurlyBrackets() {

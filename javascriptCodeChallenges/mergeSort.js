@@ -1,10 +1,11 @@
 "use strict";
 
-mergeSort([10,3,7,16,2,15]);
+let arrayToTest = [10,3,7,16,2,15];
+mergeSort(arrayToTest);
 
 
 function mergeSort(arrayToSort) {
-  const helperArray = arrayToSort.length();
+  const helperArray = [];
   mergeSortHelper(array, helper, 0, helperArray.length-1);
 }
 

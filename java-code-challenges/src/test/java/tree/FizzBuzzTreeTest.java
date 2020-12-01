@@ -1,9 +1,8 @@
 package tree;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import utilities.NodeGenericForQueue;
-import static org.junit.Assert.*;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FizzBuzzTreeTest {
 
@@ -21,14 +20,12 @@ public class FizzBuzzTreeTest {
         assertEquals("This should be Buzz", "buzz", FizzBuzzTree.fizzingBuzzingFunction(gNode2.getValue()));
         assertEquals("This should be 7", "7", FizzBuzzTree.fizzingBuzzingFunction(gNode3.getValue()));
         assertEquals("This should be FizzBuzz", "fizzbuzz", FizzBuzzTree.fizzingBuzzingFunction(gNode4.getValue()));
-
     }
 
     @Test
     public void fizzBuzzTreeTestException(){
         Gtree tree = new Gtree();
-        assertThrows("It is an empty tree", Exception.class, ()->FizzBuzzTree.fizzBuzzTree(tree));
-
+        assertThrows(Exception.class, ()-> FizzBuzzTree.fizzBuzzTree(tree));
     }
 
     @Test
@@ -39,27 +36,4 @@ public class FizzBuzzTreeTest {
         tree.setRoot(thisOne);
         assertEquals("Gtree{root=GtreeNode{value=500, left=null, right=null}}", tree.toString());
     }
-
-//    @Test
-//    public void fizzBuzzTreeTestThreeNodes() throws Exception {
-//        Gtree<GtreeNode> tree = new Gtree();
-////        tree.setRoot("500");
-//        tree.add("15");
-//        tree.add("3");
-//        assertEquals("root=GtreeNode{value=buzz, left=GtreeNode{value=fizzbuzz, left=null, right=null}, right=GtreeNode{value=fizz, left=null, right=null}}", FizzBuzzTree.fizzBuzzTree(tree).toString());
-//    }
-//
-//
-//    @Test
-//    public void fizzBuzzTreeTestSixNodes() throws Exception {
-//        Gtree tree = new Gtree();
-//        tree.add("500");
-//        tree.add("15");
-//        tree.add("3");
-//        tree.add("1");
-//        tree.add("6");
-//        tree.add("7");
-//        assertEquals("root=GtreeNode{value=buzz, left=GtreeNode{value=fizzbuzz, left=GtreeNode{value=1, left=null, right=null}, right=GtreeNode{value=fizz, left=null, right=null}}, right=GtreeNode{value=fizz, left=GtreeNode{value=7, left=null, right=null}, right=null}}", FizzBuzzTree.fizzBuzzTree(tree).toString());
-//    }
-
 }

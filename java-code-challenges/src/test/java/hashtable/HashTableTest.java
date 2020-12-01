@@ -1,10 +1,9 @@
 package hashtable;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
-
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class HashTableTest {
@@ -13,22 +12,21 @@ public class HashTableTest {
     public void htNodeTest (){
         HtNode htNode = new HtNode();
         assertNull("the value should be null", htNode.getKey());
-        assertNotNull("The value field exists", htNode.getValue());
-        assertEquals("The value is int null, which is 0", 0, htNode.getValue());
+        assertNotNull(htNode.getValue());
+        assertEquals( 0, htNode.getValue());
     }
 
     @Test
     public void startingHashTableCreationTest(){
         HashTable hashTable = new HashTable(); // builds it as 0. But I set initialCapacity to 10. ?
-        System.out.println(hashTable.theHashTable.size());
-        assertEquals("The size should be 10 by default", 10, hashTable.theHashTable.size());
+        assertEquals(10, hashTable.theHashTable.size());
     }
 //
     @Test
     public void hashTableCreationTest(){
         HashTable hashTable = new HashTable(5); // this doesn't do anything. So... what is "initial capacity
         System.out.println(hashTable.theHashTable.size());
-        assertEquals("The size should be 5", 5, hashTable.theHashTable.size());
+        assertEquals(5, hashTable.theHashTable.size());
     }
 
     @Test
@@ -41,7 +39,7 @@ public class HashTableTest {
         hashTable.add("Rook", 2);
         hashTable.add("queen", 6);
         hashTable.add("king", 7);
-        assertEquals("The size should be 15", 15, hashTable.theHashTable.size());
+        assertEquals(15, hashTable.theHashTable.size());
         assertEquals("It should look like so: ", "[\n" +
                 "0: [{Rook, 2},] \n" +
                 "1: [] \n" +
@@ -59,9 +57,9 @@ public class HashTableTest {
                 "13: [] \n" +
                 "14: [{Pawn, 1},] \n" +
                 "]", hashTable.toString(hashTable));
-        assertTrue("A king doth exist.", hashTable.contains("king"));
-        assertFalse("No bishop is present", hashTable.contains("Bishop"));
-        assertEquals("here is a 4, from four.", 4, hashTable.retrieve("four"));
+        assertTrue(hashTable.contains("king"));
+        assertFalse(hashTable.contains("Bishop"));
+        assertEquals(4, hashTable.retrieve("four"));
         assertThrows(NoSuchElementException.class, () -> hashTable.retrieve("Bishop"));
     }
 }
