@@ -2,7 +2,7 @@ package codeChallenges;
 
 public class AddTwoNumbers {
 
-    static class ListNode {
+    static class ListNode { // This is basically a LinkedList. At least a node for it. The linkedList just sort of happens.
         int val;
         ListNode next;
         ListNode() { }
@@ -20,47 +20,53 @@ public class AddTwoNumbers {
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
+        if (l1 == null && l2 == null ) { throw new NullPointerException("Nothing to print."); } // if someone tries to grief the method.
+
         ListNode head = null;
-        ListNode current = new ListNode();
+        ListNode current = null;
+        int remainder = 0;
 
-        while (l1 != null) { // base case: if there's something to look at.
+        while (l1 != null || l2 != null) { // base case: if there's something to look at.
 
-            if (head == null && l1.val + l2.val > 9) { // edge case: what if the first #s add to 10 or more?
-                head = new ListNode(1); // if so, then put that overflow to a 1
-                current = head; // and then pass it by reference. (right?)
-            } else if (head == null) { // this is the easy/happy path to get it going
-                head = new ListNode(l1.val + l2.val); // gotta start somewhere...
+            if (head == null) { // this is basically "initializing" the linkedList.
+                if (l1.val + l2.val > 9) { remainder = 1; }
+                head = new ListNode((l1.val + l2.val) % 10); // gotta start somewhere...
                 l1 = l1.next; // move it forward
                 l2 = l2.next; // move it forward
-                current = head; // pass it by reference
+                current = head; // now start tracking, pass by reference
             }
 
-            ListNode tempNode = new ListNode(); // create / hold the new node
-            tempNode.val = (l1.val + l2.val) % 10; // node's value. checked see if it would be double digit. 0 is a valid number
-            if (l1.next != null && l1.next.val + l2.next.val > 9) { // edge case check
-                tempNode.val++; // edge case result
-            }
+            ListNode tempNode = new ListNode(); // create /  hold the new node
 
-            current.next = tempNode; // add that tempnode!
-            current = current.next; // move it forward
+            int valOne = l1 != null ? l1.val : 0;
+            int valTwo = l2 != null ? l2.val : 0;
 
-            l1 = l1.next; // move it forward
-            l2 = l2.next; // move it forward
+            int value = (valOne + valTwo + remainder) % 10; // node's value. checked see if it would be double digit. 0 is a valid number
+            remainder = valOne + valTwo + remainder > 9 ? 1 : 0; // check to see if there is an additional remainder carried on.
+
+            tempNode.val = value;
+
+            current.next = tempNode;
+            current = current.next;
+
+            l1 = l1 != null ? l1.next : null; // move it forward
+            l2 = l2 != null ? l2.next : null; // move it forward
         }
+
+        if (remainder == 1) { current.next = new ListNode(1); }
         return head; // thank goodness, the pass by reference works, and was building from head
     }
 
-    public static String prettyPrint(ListNode listNode) {
+    public static String prettyPrint(ListNode listNode) throws NullPointerException {
+
         if (listNode == null) { throw new NullPointerException("Nothing to print."); }
 
-        StringBuilder lnPrint = new StringBuilder("Pretty print a listnode: ");
+        StringBuilder lnPrint = new StringBuilder("ListNode:");
 
         while (listNode != null) {
-            lnPrint.append(listNode.val + " ");
+            lnPrint.append(" ").append(listNode.val); // :eyeBrowRaise: this method chaining is more acceptable than concatenation?
             listNode = listNode.next;
         }
-//        System.out.println("prettyPrint result: " + lnPrint);
         return lnPrint.toString();
     }
-
 }
