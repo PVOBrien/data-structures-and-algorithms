@@ -1,13 +1,15 @@
 package stacksandqueues;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NodeIntTest {
 
-    @Test public void nodeTest() {
+    @Test
+    public void nodeTest() {
         Node newNode = new Node(6);
         System.out.println(newNode);
-        assertEquals("That newNode is value 6.", 6, newNode.getValue());
+        assertEquals(6, newNode.getValue());
     }
 }

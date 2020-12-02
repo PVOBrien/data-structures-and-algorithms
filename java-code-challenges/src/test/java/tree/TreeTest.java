@@ -1,10 +1,10 @@
 package tree;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 // [x] Can successfully instantiate an empty tree
 // [x] Can successfully instantiate a tree with a single root node
@@ -15,7 +15,8 @@ import static org.junit.Assert.*;
 
 public class TreeTest {
 
-    @Test public void testEmptyTreeCreation() {
+    @Test
+    public void testEmptyTreeCreation() {
         Tree treeTest = new Tree();
 //        TODO TEST HERE.
     }
@@ -25,9 +26,9 @@ public class TreeTest {
         Tree treeTest = new Tree();
         treeTest.makeRoot(new GtreeNode(42));
         assertNotNull(treeTest); // it's alive!
-        assertEquals("should be value 42", 42,treeTest.root.getValue());
-        assertNull("this should be null", treeTest.root.getLeft());
-        assertNull("this should be null", treeTest.root.getRight());
+        assertEquals(42,treeTest.root.getValue());
+        assertNull(treeTest.root.getLeft());
+        assertNull(treeTest.root.getRight());
         assertThrows(Exception.class, () -> treeTest.makeRoot(new GtreeNode(12))); // () -> testStack.pop()
     }
 
@@ -48,10 +49,10 @@ public class TreeTest {
 
         assertThrows(Exception.class, () -> treeTest.addLeftNode(treeTest.root, 6));
         assertThrows(Exception.class, () -> treeTest.addRightNode(treeTest.root, node3));
-        assertEquals("Root right should be 88", 88, treeTest.root.getRight().getValue());
-        assertEquals("Root right should be 21", 21, treeTest.root.getLeft().getValue());
-        assertEquals("Root right right should be 45",45,treeTest.root.getRight().getRight().getValue());
-        assertEquals("Root left right should be 62",62,treeTest.root.getLeft().getRight().getValue());
+        assertEquals(88, treeTest.root.getRight().getValue());
+        assertEquals( 21, treeTest.root.getLeft().getValue());
+        assertEquals(45,treeTest.root.getRight().getRight().getValue());
+        assertEquals(62,treeTest.root.getLeft().getRight().getValue());
     }
 
     @Test public void testPreOrderWalk() throws Exception {
@@ -126,10 +127,10 @@ public class TreeTest {
         treeTest.addRightNode(treeTest.root, node2);
         treeTest.addRightNode(node2, node4);
         treeTest.addRightNode(node1,node6);
-        assertEquals("This is the highest value.", 88, Tree.maximumValue(treeTest.root)); // TODO Ensure the highest value is being returned.
+        assertEquals(88, Tree.maximumValue(treeTest.root)); // TODO Ensure the highest value is being returned.
         GtreeNode nodeX = new GtreeNode(156);
         treeTest.addLeftNode(node6, nodeX);
-        assertEquals("This is the highest value.", 156, Tree.maximumValue(treeTest.root)); // TODO Ensure the highest value is being returned.
+        assertEquals(156, Tree.maximumValue(treeTest.root)); // TODO Ensure the highest value is being returned.
 //        assertEquals("These equal the string values", "[42, 21, 3, 62, 88, 16, 45]", treeTest.maximumValue(treeTest.root)); // TODO Make sure all nodes are being checked.
         // assertThrows(Exception);// TODO Make sure there are nodes (w values).
     }

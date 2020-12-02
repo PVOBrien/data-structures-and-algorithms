@@ -3,28 +3,17 @@ package linkedList;
 class Node {
 
   int value;
-  private Node behindLine;
-  private Node aheadLine;
+  private Node next;
 
   public Node(int number) {
     this.setValue(number);
-    this.setBehindInLine(null);
+    this.setNext(null);
   }
 
-  public int getValue() {
-    return value;
-  }
+  public int getValue() { return value; }
+  public Node getNext() { return next; }
 
-  public void setValue(int value) {
-    this.value = value;
-  }
-
-  public Node getBehindInLine() {
-    return behindLine;
-  }
-
-  public void setBehindInLine(Node behindInLine) {
-    this.behindLine = behindInLine;
-  }
+  public void setValue(int value) { this.value = value; }
+  public void setNext(Node next) { this.next = next; }
 
 }

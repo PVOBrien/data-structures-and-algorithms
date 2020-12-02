@@ -1,11 +1,13 @@
 package stacksandqueues;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StackTest {
 
-    @Test public void stackEmptyTest() {
+    @Test
+    public void stackEmptyTest() {
         Stack testStack = new Stack();
         assertNull(testStack.front);
     }
@@ -13,20 +15,20 @@ public class StackTest {
     @Test public void pushTest() {
         Stack testStack = new Stack();
         testStack.push(5);
-        assertEquals("this should be a 5", 5, testStack.front.getValue());
+        assertEquals(5, testStack.front.getValue());
     }
 
     @Test public void pushMultipleTest() {
         Stack testStack = new Stack();
         testStack.push(5);
-        assertEquals("this should be a 5", 5, testStack.front.getValue());
+        assertEquals(5, testStack.front.getValue());
         testStack.push(13);
-        assertEquals("this should be a 13", 13, testStack.front.getValue());
+        assertEquals(13, testStack.front.getValue());
         testStack.push(22);
-        assertEquals("this should be a 22", 22, testStack.front.getValue());
+        assertEquals(22, testStack.front.getValue());
         testStack.push(30);
         System.out.println(testStack);
-        assertEquals("this should be a 30", 30, testStack.front.getValue());
+        assertEquals(30, testStack.front.getValue());
     }
 
     @Test public void popTest() {
@@ -34,17 +36,17 @@ public class StackTest {
         testStack.push(5);
         testStack.push(10);
         testStack.push(15);
-        assertEquals("It should return an int of 15", 15, testStack.pop());
-        assertEquals("It should return an int of 10", 10, testStack.pop());
-        assertEquals("It should return an int of 5", 5, testStack.pop());
+        assertEquals(15, testStack.pop());
+        assertEquals(10, testStack.pop());
+        assertEquals(5, testStack.pop());
     }
 
     @Test public void multiplePopToEmptyStackTest() {
         Stack testStack = new Stack();
         testStack.push(9);
         testStack.push(14);
-        assertEquals("It should return an int of 15", 14, testStack.pop());
-        assertEquals("It should return an int of 10", 9, testStack.pop());
+        assertEquals(14, testStack.pop());
+        assertEquals(9, testStack.pop());
         assertThrows(NullPointerException.class, testStack::pop);
     }
 
@@ -56,14 +58,14 @@ public class StackTest {
     @Test public void peekTest() {
         Stack testStack = new Stack();
         testStack.push(9);
-        assertEquals("This should equal 9.", 9, testStack.peek());
+        assertEquals(9, testStack.peek());
         testStack.push(17);
-        assertEquals("This should equal 17.", 17, testStack.peek());
+        assertEquals(17, testStack.peek());
     }
 
     @Test public void peekThrowTest() {
         Stack testStack = new Stack();
-        assertThrows("This should throw empty.", NullPointerException.class, testStack::peek);
+        assertThrows(NullPointerException.class, testStack::peek);
     }
 
     @Test public void isEmptyTrueTest() {

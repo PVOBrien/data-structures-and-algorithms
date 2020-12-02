@@ -1,9 +1,8 @@
 package tree;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BinarySearchTreeTest {
 
@@ -17,7 +16,7 @@ public class BinarySearchTreeTest {
     public void addRootBstTest() throws Exception {
         BinarySearchTree binaryTree = new BinarySearchTree();
         binaryTree.makeRoot(new GtreeNode(50));
-        assertEquals("This should be 50.", 50,binaryTree.root.getValue());
+        assertEquals(50,binaryTree.root.getValue());
         assertThrows(Exception.class, () -> binaryTree.add(50, binaryTree));
     }
 

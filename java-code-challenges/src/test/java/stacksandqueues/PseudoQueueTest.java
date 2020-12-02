@@ -1,11 +1,14 @@
 package stacksandqueues;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PseudoQueueTest {
 
-    @Test public void emptyPseudoQueue() {
+    @Test
+    public void emptyPseudoQueue() {
         PseudoQueue empty = new PseudoQueue();
         assertEquals("There should be nothing in here", "NULL", empty.toString());
     }
@@ -26,8 +29,8 @@ public class PseudoQueueTest {
         testQueue.enqueue(5);
         testQueue.enqueue(10);
         assertEquals("this should be 5", "10 -> 5 -> NULL", testQueue.toString());
-        assertEquals("this should be 5, null", 5, testQueue.dequeue());
-        assertEquals("this should be 5, null", 10, testQueue.dequeue());
+        assertEquals(5, testQueue.dequeue());
+        assertEquals(10, testQueue.dequeue());
         assertThrows(NullPointerException.class, testQueue::dequeue);
     }
 }

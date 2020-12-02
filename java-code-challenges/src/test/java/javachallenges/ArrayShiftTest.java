@@ -1,10 +1,11 @@
 package javachallenges;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ArrayShiftTest {
+
     @Test
     public void arrayShiftTest() {
         ArrayShift theWorking = new ArrayShift();
