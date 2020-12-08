@@ -1,5 +1,7 @@
 package codeChallenges;
 
+import java.util.Objects;
+
 public class AddTwoNumbers {
 
     static class ListNode { // This is basically a LinkedList. At least a node for it. The linkedList just sort of happens.
@@ -19,22 +21,20 @@ public class AddTwoNumbers {
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-
         if (l1 == null && l2 == null ) { throw new NullPointerException("Nothing to print."); } // if someone tries to grief the method.
 
-        ListNode head = null;
-        ListNode current = null;
+        ListNode current;
         int remainder = 0;
 
-        while (l1 != null || l2 != null) { // base case: if there's something to look at.
+        if (Objects.requireNonNull(l1).val + Objects.requireNonNull(l2).val > 9) { remainder = 1; } // the "throw new NPE" up above should catch if it's null, but the Objects.requireNN... seems to be a doublesafe.
+//        if (l1.val + l2.val > 9) { remainder = 1; } // this is the simpler / less safe way of writing the above line.
 
-            if (head == null) { // this is basically "initializing" the linkedList.
-                if (l1.val + l2.val > 9) { remainder = 1; }
-                head = new ListNode((l1.val + l2.val) % 10); // gotta start somewhere...
-                l1 = l1.next; // move it forward
-                l2 = l2.next; // move it forward
-                current = head; // now start tracking, pass by reference
-            }
+        ListNode head = new ListNode((l1.val + l2.val) % 10); // gotta start somewhere...
+        l1 = l1.next; // move it forward
+        l2 = l2.next; // move it forward
+        current = head; // now start tracking, pass by reference
+
+        while (l1 != null || l2 != null) { // base case: if there's something to look at.
 
             ListNode tempNode = new ListNode(); // create /  hold the new node
 
@@ -60,7 +60,6 @@ public class AddTwoNumbers {
     public static String prettyPrint(ListNode listNode) throws NullPointerException {
 
         if (listNode == null) { throw new NullPointerException("Nothing to print."); }
-
         StringBuilder lnPrint = new StringBuilder("ListNode:");
 
         while (listNode != null) {

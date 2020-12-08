@@ -1,9 +1,8 @@
 package codeChallenges;
 
-import org.apache.commons.math3.analysis.function.Add;
 import org.junit.jupiter.api.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS) // kudos to the JUnit team for decent documentation https://junit.org/junit5/docs/current/user-guide/#writing-tests-test-instance-lifecycle a big thanks for making life better!
 @DisplayName("Sum two numbers in parallel lists")
 public class AddTwoNumbersTest {
 
@@ -11,6 +10,8 @@ public class AddTwoNumbersTest {
     AddTwoNumbers.ListNode tln2 = new AddTwoNumbers.ListNode();
     AddTwoNumbers.ListNode tlnX1 = new AddTwoNumbers.ListNode(9);
     AddTwoNumbers.ListNode tlnX8 = new AddTwoNumbers.ListNode(9);
+    AddTwoNumbers.ListNode tlnZero = new AddTwoNumbers.ListNode(0);
+    AddTwoNumbers.ListNode tlnAlsoZero = new AddTwoNumbers.ListNode(0);
 
     @BeforeAll
     @DisplayName("Setup the ListNodes")
@@ -81,6 +82,13 @@ public class AddTwoNumbersTest {
     void trickySumNodeListTest(){
         AddTwoNumbers.ListNode aTrickySum = AddTwoNumbers.addTwoNumbers(tlnX1, tlnX8);
         System.out.println(AddTwoNumbers.prettyPrint(aTrickySum));
+    }
+
+    @Test
+    @DisplayName("Summing NodeLists")
+    void SumTwoZeroNodesTest(){
+        AddTwoNumbers.ListNode oneZeroSum = AddTwoNumbers.addTwoNumbers(tlnZero, tlnAlsoZero);
+        System.out.println(AddTwoNumbers.prettyPrint(oneZeroSum));
     }
 
 }
