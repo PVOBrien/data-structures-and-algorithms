@@ -40,12 +40,12 @@ public class RowSumOddNumbersTest {
 //        assertEquals(1, check5, "Should be 1");
 //        int check6 = LongestUniqueSubstring.longestSubstringUniqueChars("dvdf");
 //        assertEquals(3, check6, "Should be 3");
-//        int check4 = LongestUniqueSubstring.longestSubstringUniqueChars(" ");
-//        assertEquals(1, check4, "Should be 1");
+        int check4 = LongestUniqueSubstring.longestSubstringUniqueChars(" ");
+        assertEquals(1, check4, "Should be 1");
 //        int check3 = LongestUniqueSubstring.longestSubstringUniqueChars("pwwkew");
 //        assertEquals(3, check3, "Should be 3");
-        int check7 = LongestUniqueSubstring.longestSubstringUniqueChars("bpfbhmipx");
-        assertEquals(7, check7, "Should be 7");
+//        int check7 = LongestUniqueSubstring.longestSubstringUniqueChars("bpfbhmipx");
+//        assertEquals(7, check7, "Should be 7");
     }
 
 }
