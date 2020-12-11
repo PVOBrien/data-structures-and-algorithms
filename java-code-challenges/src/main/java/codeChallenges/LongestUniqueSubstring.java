@@ -29,7 +29,7 @@ public class LongestUniqueSubstring {
     public static int longestSubstringUniqueChars (String s) {
         HashMap<Character, Integer> uniques = new HashMap<>();
         int highCount = 0;
-        boolean spaceFlag = false;
+        boolean spaceFlag = false; // if leetCode's test suite was actually comprehensive and not just there for kicks and being a jerk, my solution should not work.
         int numsToDrop = 0; // 1
         int bottomNumToDrop = 0;
 
