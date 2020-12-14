@@ -29,4 +29,13 @@ public class CodeWarsTests {
         assertEquals(NextSquare.findNextSquare(10), -1, "Should be 16");
     }
 
+    @Test
+    @DisplayName("Matching end strings")
+    public void matchEndStringTest() {
+        assertEquals(MatchingEnd.solution("abcd", "bcd"), true, "Should be true");
+        assertEquals(MatchingEnd.solution("abc", "d"), false, "Should be false");
+        assertEquals(MatchingEnd.solution("abc", "abc"), true, "Should be false");
+        assertEquals(MatchingEnd.solution(" ", "d"), false, "Should be false");
+        assertEquals(MatchingEnd.solution("bcd", "abcd"), false, "Should be false");
+    }
 }
