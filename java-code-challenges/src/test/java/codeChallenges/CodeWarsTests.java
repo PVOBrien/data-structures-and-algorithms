@@ -38,4 +38,13 @@ public class CodeWarsTests {
         assertEquals(MatchingEnd.solution(" ", "d"), false, "Should be false");
         assertEquals(MatchingEnd.solution("bcd", "abcd"), false, "Should be false");
     }
+
+    @Test
+    @DisplayName("Sum all the individuals numbers of an int")
+    public void intSumTest() {
+        assertEquals(SumIntPlaces.digital_root(595), 1, "Should be solo uno");
+        assertEquals(SumIntPlaces.digital_root(5), 5, "Should be solo uno");
+        assertEquals(SumIntPlaces.digital_root(12345), 6, "Should be solo uno");
+    }
+
 }
