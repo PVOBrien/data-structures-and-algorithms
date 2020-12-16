@@ -1,6 +1,6 @@
 package codeChallenges;
 
-public class SumIntPlaces {
+public class SumIntPlaces { // this is recursive. If you want via "congruence" there are much simpler answers out there, here's the math: https://mathworld.wolfram.com/DigitalRoot.html
 
     public static int digital_root(int n) {
 
@@ -14,7 +14,7 @@ public class SumIntPlaces {
         return n < 10 ? sum : intSumDown(n);
     }
 
-    private static int intSumDown(int n) {
+    private static int intSumDown(int n) { // this is easier to break it down, but unnecessary. This can be wrapped all into the single recursive function above.
         int sum = 0;
         String stringN = String.valueOf(n);
 

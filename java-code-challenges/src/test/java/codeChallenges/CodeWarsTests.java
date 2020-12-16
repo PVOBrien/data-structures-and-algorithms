@@ -47,4 +47,9 @@ public class CodeWarsTests {
         assertEquals(SumIntPlaces.digital_root(12345), 6, "Should be solo uno");
     }
 
+    @Test
+    @DisplayName("Checking for the WUBS")
+    public void wubTest() {
+        System.out.println(DubWordCleanUp.SongDecoder("WUBWUBWUBWEWUBWUBARE"));
+    }
 }
