@@ -1,9 +1,10 @@
 package codeChallenges;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals; // https://junit.org/junit5/docs/current/user-guide/#overview
 
 @DisplayName("Test Suite for all CodeWar code challenges")
 public class CodeWarsTests {
@@ -50,6 +51,43 @@ public class CodeWarsTests {
     @Test
     @DisplayName("Checking for the WUBS")
     public void wubTest() {
-        System.out.println(DubWordCleanUp.SongDecoder("WUBWUBWUBWEWUBWUBARE"));
+//        System.out.println(DubWordCleanUp.SongDecoder("WUBWUBWUBWEWUBWUBARE"));
     }
+
+    @Nested
+    @DisplayName("Testing for Cube Buildings")
+    class CubeBuildingsTest {
+
+        @Test
+        @DisplayName("A Simple Building...")
+        public void oneLevelBuildTest() {
+            assertEquals(1, CubePileBuilder.findNb(1L));
+        }
+
+        @Test
+        @DisplayName("A large number test")
+        public void test1() {
+            assertEquals(2022, CubePileBuilder.findNb(4183059834009L));
+        }
+
+        @Test
+        public void test2() {
+            assertEquals(-1, CubePileBuilder.findNb(24723578342962L));
+        }
+        @Test
+        public void test3() {
+            assertEquals(4824, CubePileBuilder.findNb(135440716410000L));
+        }
+        @Test
+        public void test4() {
+            assertEquals(3568, CubePileBuilder.findNb(40539911473216L));
+        }
+        @Test
+        public void test1x() {
+            assertEquals(50673, CubePileBuilder.findNb(1648403834611043601L));
+        }
+
+    }
+
+
 }
