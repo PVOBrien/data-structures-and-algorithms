@@ -89,5 +89,55 @@ public class CodeWarsTests {
 
     }
 
+    @Nested
+    @DisplayName("Checking Factorials and Trailing Zeroes")
+    class FactorialsAndTrailingNumbers {
+
+        @Test
+        @DisplayName("Dumb Factorial")
+        public void factorialTest(){
+            int result = TrailingZeroes.zeros(3);
+            assertEquals(0, result);
+        }
+
+        @Test
+        @DisplayName("Simple Factorial")
+        public void SimpleFactorialTest(){
+            int result = TrailingZeroes.zeros(6);
+            assertEquals(1, result);
+        }
+
+        @Test
+        @DisplayName("Bigger Factorial")
+        public void FourteenFactorialTest(){
+            int result = TrailingZeroes.zeros(14);
+            assertEquals(2  , result);
+        }
+
+        @Test
+        @DisplayName("Huge Factorial")
+        public void HugeFactorialTest(){
+            int result = TrailingZeroes.zeros(582920136);
+            assertEquals(145730028, result);
+        }
+
+        @Test
+        @DisplayName("Five Factorial")
+        public void FiveFactorialTest(){
+            int result = TrailingZeroes.zeros(25);
+            assertEquals(6, result);
+        }
+    }
+
+    @Nested
+    @DisplayName("Clean String of Integers")
+    class NumbersToOrderedString {
+
+        @Test
+        @DisplayName("First of the Tests")
+        public void TestOne() {
+            assertEquals("-6,-3-1,3-5,7-11,14,15,17-20", StringNumbersTogether.rangeExtraction(new int[] {-6,-3,-2,-1,0,1,3,4,5,7,8,9,10,11,14,15,17,18,19,20}));
+        }
+    }
 
 }

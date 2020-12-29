@@ -7,7 +7,6 @@ public class QuickSort {
     public int[] quickSort(int[] arr, int left, int right){      // declare method and its parameters
 
         if(left < right){                                        // if left(start) is less than right(end)...
-//            System.out.println(Arrays.toString(arr));
             int position = partition(arr, left, right);          // position is equal to partition(go to line 15)
             quickSort(arr, left, position -1);
             quickSort(arr, position +1, right);
