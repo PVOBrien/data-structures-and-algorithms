@@ -4,6 +4,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals; // https://junit.org/junit5/docs/current/user-guide/#overview
 
 @DisplayName("Test Suite for all CodeWar code challenges")
@@ -132,12 +136,36 @@ public class CodeWarsTests {
     @Nested
     @DisplayName("Clean String of Integers")
     class NumbersToOrderedString {
-
         @Test
         @DisplayName("First of the Tests")
-        public void TestOne() {
+        public void IntRangeConcat1() {
+            assertEquals("-6,-3-1,3-5,7-11,14,15,17-20", StringNumbersTogether.rangeExtraction(new int[] {-6,-3,-2,-1,0,1,3,4,5,7,8,9,10,11,14,15,17,18,19,20}));
+        }
+        @Test
+        @DisplayName("Test Two")
+        public void IntRangeConcat2(){
             assertEquals("-6,-3-1,3-5,7-11,14,15,17-20", StringNumbersTogether.rangeExtraction(new int[] {-6,-3,-2,-1,0,1,3,4,5,7,8,9,10,11,14,15,17,18,19,20}));
         }
     }
 
+    @Nested
+    @DisplayName("Here comes Josephus / Duck Duck Go")
+    class JosephusTest{
+
+        @Test
+        @DisplayName("1-10 coming...")
+        public void simpleDuckTest(){
+            List<Integer> testList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+            assertEquals(testList.toString(), JosephusDuckDuckGo.josephusPermutation(testList, 1).toString());
+        }
+
+        @Test
+        @DisplayName("1-10 but skip every other one.")
+        public void everyOtherDuckTest(){
+            List<Integer> testList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+            assertEquals("[2, 4, 6, 8, 10, 3, 7, 1, 9, 5]", JosephusDuckDuckGo.josephusPermutation(testList, 2).toString());
+        }
+
+    }
 }
+

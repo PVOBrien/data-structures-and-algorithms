@@ -1,17 +1,11 @@
 package codeChallenges;
 
-import java.util.Arrays;
-
 public class StringNumbersTogether {
 
     public static String rangeExtraction(int[] arr) {
-        int current;
+        int current, betweenLimitToCheck, betweenCounter = 0;
         boolean throughTrue = false;
-        int betweenLimitToCheck;
-        int betweenLimit = 0;
-
         StringBuilder arrString = new StringBuilder();
-        System.out.println("here's arr: " + Arrays.toString(arr));
 
         for (int i = 0; i < arr.length; i++) {
             current = arr[i];
@@ -21,39 +15,25 @@ public class StringNumbersTogether {
 
                 if (arr[i + 1] == betweenLimitToCheck + 1) {
                     if (!throughTrue) arrString.append(current); // print the current number out.
-                    betweenLimit = betweenLimitToCheck;
                     throughTrue = true;
-//                    System.out.println("here's betweenLimit: " + betweenLimit);
+                    betweenCounter++;
                 } else if (arr[i + 1] != betweenLimitToCheck + 1 && throughTrue) {
-                    System.out.println("w/in One Range Hit.");
-                    System.out.println("The last to check: " + arr[i-1]);
-                    System.out.println("The betweenLimit in the Range:" + betweenLimit);
-                    if (arr[i-1] == betweenLimit-1) { // TODO: if the numbers are only 1 difference, then it should still just be a comma.
-//                        arrString.append(",");
-//                        arrString.append(current);
-//                        throughTrue = false;
-                    } else {
-//                        System.out.println("bump");
-                        arrString.append('-'); // TODO: concatenate these all after getting correct answer.
-                        arrString.append(current);
-                        arrString.append(",");
-                        throughTrue = false;
-                    }
+                    Character eitherOr = betweenCounter < 2 ? ',' : '-';
+                    arrString.append(String.format("%c%d%c", eitherOr, current, ',')); // can't do standard concatenation on .append(), otherwise it does math if there's a digit involved.
+                    throughTrue = false;
+                    betweenCounter = 0;
                 } else {
-                    System.out.println("else hit: " + betweenLimit);
-                    arrString.append(current);
-                    arrString.append(",");
+                    arrString.append(String.format("%d%c", current,','));
                 }
             } else {
-                if (throughTrue) {
-                    arrString.append("-" + current);
-                } else {
-                    arrString.append(current);
+                if (throughTrue && betweenCounter > 1) {
+                    arrString.append(String.format("%c%d", '-',current));
+                } else if (throughTrue && betweenCounter < 2) {
+                    arrString.append(',');
                 }
+                arrString.append(current);
             }
         }
-        System.out.println("here's the arrString: " + arrString.toString());
         return arrString.toString();
     }
-
 }
