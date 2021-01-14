@@ -1,9 +1,5 @@
 package codeChallenges;
 
-import java.math.BigInteger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class TrailingZeroes { // https://www.codewars.com/kata/52f787eb172a8b4ae1000a34/train/java
 
     public static int zeros(int n) {
