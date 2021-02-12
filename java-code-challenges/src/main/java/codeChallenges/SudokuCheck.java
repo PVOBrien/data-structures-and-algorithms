@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 
 public class SudokuCheck { // https://www.codewars.com/kata/529bf0e9bdf7657179000008/train/java
-
+// check it here when have chance https://leetcode.com/problems/valid-sudoku/
     public static boolean check(int[][] sudoku) {
 
         List<HashSet<Integer>> vertSud = new ArrayList<>();

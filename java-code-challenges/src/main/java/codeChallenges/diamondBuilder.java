@@ -1,5 +1,9 @@
 package codeChallenges;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class diamondBuilder { // https://www.codewars.com/kata/5503013e34137eeeaa001648/train/java
 
     public static String print(int n) {

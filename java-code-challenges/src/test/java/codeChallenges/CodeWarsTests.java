@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.awt.color.CMMException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -315,4 +316,32 @@ public class CodeWarsTests {
         }
 
     }
+
+    @Nested
+    @DisplayName("CamelCaser")
+    class CamelCaserTest {
+
+        @Test
+        @DisplayName("for the Camels!")
+        public void CamelCaserOne () {
+            assertEquals("howdyFolks",CamelCaser.toCamelCase("howdy-folks"), "howdyFolks expected.");
+        }
+
+        @Test
+        @DisplayName("for the Camels!")
+        public void CamelCaserTwo () {
+            assertEquals("we'reBackAndBetter!",
+                    CamelCaser.toCamelCase("we're-back_and-better!"),
+                    "that string back");
+        }
+
+        @Test
+        @DisplayName("for the Camels!")
+        public void CamelCaserThree () {
+            assertEquals("WhatAboutNow?",
+                    CamelCaser.toCamelCase("What-about_Now?"),
+                    "that string back");
+        }
+    }
+
 }
