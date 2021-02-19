@@ -328,7 +328,7 @@ public class CodeWarsTests {
         }
 
         @Test
-        @DisplayName("for the Camels!")
+        @DisplayName("for the different Camels!")
         public void CamelCaserTwo () {
             assertEquals("we'reBackAndBetter!",
                     CamelCaser.toCamelCase("we're-back_and-better!"),
@@ -336,7 +336,7 @@ public class CodeWarsTests {
         }
 
         @Test
-        @DisplayName("for the Camels!")
+        @DisplayName("for the most difficult Camels!")
         public void CamelCaserThree () {
             assertEquals("WhatAboutNow?",
                     CamelCaser.toCamelCase("What-about_Now?"),
@@ -344,4 +344,27 @@ public class CodeWarsTests {
         }
     }
 
+    @Nested
+    @DisplayName("Persistence")
+    class PersistenceTester {
+
+        @Test
+        @DisplayName("Next level...")
+        public void persisTestcW1() {
+            assertEquals(3, PersistenceToOne.persistence(39), "the answer!" );
+        }
+
+        @Test
+        @DisplayName("Next level...")
+        public void persisTestcW2() {
+            assertEquals(0, PersistenceToOne.persistence(4), "the answer!" );
+        }
+
+        @Test
+        @DisplayName("Next level...")
+        public void persisTestcW3() {
+            assertEquals(4, PersistenceToOne.persistence(999), "the answer!" );
+        }
+
+    }
 }
