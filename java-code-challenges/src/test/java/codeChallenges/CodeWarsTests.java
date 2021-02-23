@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import java.awt.color.CMMException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,9 +23,8 @@ public class CodeWarsTests {
     @Test
     @DisplayName("finding if a triangle is possible")
     public void triangleSidesTest() {
-        PossibleTriangleBySides.isTriangle(5, 6, 4);
-        assertEquals(true, PossibleTriangleBySides.isTriangle(1, 2, 2));
-        assertEquals(false, PossibleTriangleBySides.isTriangle(7, 2, 2));
+        assertTrue(PossibleTriangleBySides.isTriangle(1, 2, 2));
+        assertFalse(PossibleTriangleBySides.isTriangle(7, 2, 2));
     }
 
     @Test
