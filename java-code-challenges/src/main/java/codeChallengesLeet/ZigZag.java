@@ -1,6 +1,10 @@
 package codeChallengesLeet;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ZigZag {
 
@@ -17,20 +21,18 @@ public class ZigZag {
 
         for (char theChar : string.toCharArray()) {
             zigZagBucketer.get(zagCounter).append(theChar); // https://stackoverflow.com/questions/12134687/how-to-add-element-into-arraylist-in-hashmap
-
             zagCounter += zagUp ? -1 : 1 ;
-            if (zagCounter == rows - 1) {
-                zagUp = true;
-            } else if (zagCounter == 0) {
-                zagUp = false;
-            }
+            if (zagCounter == 0 || zagCounter == rows - 1) zagUp = !zagUp;
         }
 
-        StringBuilder resultString = new StringBuilder();
-        for (Integer sb : zigZagBucketer.keySet()) {
-            resultString.append(zigZagBucketer.get(sb).toString());
-        }
-
-        return resultString.toString();
+        return zigZagBucketer.values().stream() // you can just get values from a hashmap!!!
+                .reduce(new StringBuilder(), StringBuilder::append)
+                .toString();
     }
 }
+
+//            if (zagCounter == rows - 1) { // or:
+//                zagUp = true;
+//            } else if (zagCounter == 0) {
+//                zagUp = false;
+//            }
