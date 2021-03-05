@@ -22,7 +22,7 @@ public class ZigZag {
         for (char theChar : string.toCharArray()) {
             zigZagBucketer.get(zagCounter).append(theChar); // https://stackoverflow.com/questions/12134687/how-to-add-element-into-arraylist-in-hashmap
             zagCounter += zagUp ? -1 : 1 ;
-            if (zagCounter == 0 || zagCounter == rows - 1) zagUp = !zagUp;
+            if (zagCounter == 0 || zagCounter == rows - 1) zagUp = !zagUp; // nice.
         }
 
         return zigZagBucketer.values().stream() // you can just get values from a hashmap!!!
