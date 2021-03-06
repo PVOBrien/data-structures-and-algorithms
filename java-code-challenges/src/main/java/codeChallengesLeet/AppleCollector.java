@@ -11,24 +11,32 @@ public class AppleCollector { // https://leetcode.com/problems/minimum-time-to-c
     HashSet<int[]> visitedRoutes = new HashSet<>();
     HashSet<int[]> routeWApple = new HashSet<>();
 
-        public int minTime(int n, int[][] edges, List<Boolean> hasApple) {
-            int initialCount = (int) hasApple.stream().filter(apple -> apple).count();
-            if (initialCount == 0 || hasApple.get(0)) return initialCount;
+    public int minTime(int n, int[][] edges, List<Boolean> hasApple) {
+        int initialCount = (int) hasApple.stream().filter(apple -> apple).count();
+        if (initialCount == 0 || hasApple.get(0)) return initialCount;
 
-            for (int i = 0; i < hasApple.size(); i++) {
-                int edgeFrom = edges[i][1]; // or goingto but...
-                for (int j = 0; j < hasApple.size(); j++) {
-                    if (edges[j][0] == edgeFrom) {
-                        if (hasApple.get(j)) {
-                            routeWApple.add(edges[i]);
-                            routeWApple.add(edges[j]);
-                        }
-                        // TODO: recursive helper function to track when the deepest node/hasApple[index] is true, then add to hashset both "going from" and "going to" edges.
+        for (int i = 0; i < hasApple.size(); i++) {
+            int edgeFrom = edges[i][1]; // or goingto but...
+            for (int j = 0; j < hasApple.size(); j++) {
+                if (edges[j][0] == edgeFrom) {
+                    if (hasApple.get(j)) {
+                        routeWApple.add(edges[i]);
+                        routeWApple.add(edges[j]);
                     }
+                    // TODO: recursive helper function to track when the deepest node/hasApple[index] is true, then add to hashset both "going from" and "going to" edges.
+                }
             }
         }
-    return 0;
+        return 0;
     }
+    private static boolean applePathFinder(int[][] followedPath, int[] pathTo) {
+        boolean apple = false;
+
+
+
+        return apple;
+    }
+
 }
 
 
