@@ -4,11 +4,16 @@ import java.util.*;
 
 public class Graph {
 
-    public Graph() {}
+    public Graph() {
+    }
+
     private Set<GraphNode> visited = new HashSet<>();
 
     private final Set<GraphNode> vertexes = new HashSet<>(); // it's a HASHset, not just a Set. :facepalm:
-    public Set<GraphNode> getVertexes() { return vertexes; }
+
+    public Set<GraphNode> getVertexes() {
+        return vertexes;
+    }
 //    public Map<String, GraphNode> mappedVertexes; TODO: this is a better way to store vertices for retrieval (in most cases).
 
     public void addNode(int value) {
@@ -28,19 +33,26 @@ public class Graph {
         private T value;
         private final Set<Edge> edges = new HashSet<>();
 
-        public Set<Edge> getEdges() { return edges; }
+        public Set<Edge> getEdges() {
+            return edges;
+        }
 //        public void setEdges(Set<Edge> edges) { this.edges = edges; }
 
-        public T getValue() { return value;}
-        public void setValue(T value) { this.value = value; }
+        public T getValue() {
+            return value;
+        }
+
+        public void setValue(T value) {
+            this.value = value;
+        }
 
         @Override
         public String toString() {
-            return "GraphNode{" + "value=" + value + ", edges=" + edges + '}';
+            return "GraphNode{" + "value = " + value + ", edges = " + edges + '}';
         }
     }
 
-    public  class Edge{
+    public static class Edge {
 
         private GraphNode origin;
         private GraphNode destination;
@@ -52,21 +64,37 @@ public class Graph {
             this.weight = weight;
         }
 
-        public GraphNode getOrigin() { return origin; }
-        public void setOrigin(GraphNode origin) { this.origin = origin; }
+        public GraphNode getOrigin() {
+            return origin;
+        }
 
-        public GraphNode getDestination() { return destination; }
-        public void setDestination(GraphNode destination) { this.destination = destination; }
+        public void setOrigin(GraphNode origin) {
+            this.origin = origin;
+        }
 
-        public Integer getWeight() { return weight; }
-        public void setWeight(Integer weight) { this.weight = weight; }
+        public GraphNode getDestination() {
+            return destination;
+        }
 
-        @Override public String toString() {
+        public void setDestination(GraphNode destination) {
+            this.destination = destination;
+        }
+
+        public Integer getWeight() {
+            return weight;
+        }
+
+        public void setWeight(Integer weight) {
+            this.weight = weight;
+        }
+
+        @Override
+        public String toString() {
             return "Edge{" + "origin=" + origin.getValue() + ", destination=" + destination.getValue() + '}';
         }
     }
 
-    public void addEdge(GraphNode origin, GraphNode destination, int weight){
+    public void addEdge(GraphNode origin, GraphNode destination, int weight) {
         Edge edgeOne = new Edge(origin, destination, weight);
         Edge edgeTwo = new Edge(destination, origin, weight);
         origin.getEdges().add(edgeOne);
@@ -83,15 +111,25 @@ public class Graph {
             this.destination = destination;
         }
 
-        public Integer getWeight() { return weight; }
-        public void setWeight(Integer weight) { this.weight = weight; }
+        public Integer getWeight() {
+            return weight;
+        }
 
-        public T getDestination() { return destination; }
-        public void setDestination(T destination) { this.destination = destination; }
+        public void setWeight(Integer weight) {
+            this.weight = weight;
+        }
+
+        public T getDestination() {
+            return destination;
+        }
+
+        public void setDestination(T destination) {
+            this.destination = destination;
+        }
 
         @Override
         public String toString() {
-            return "Neighbor{" +  "weight=" + weight + ", destination=" + destination + '}';
+            return "Neighbor{" + "weight=" + weight + ", destination=" + destination + '}';
         }
     }
 
@@ -99,19 +137,18 @@ public class Graph {
         ArrayList<Edge> neighbors = new ArrayList<>(node.getEdges());
         ArrayList<Neighbor> destinations = new ArrayList<>();
         for (Edge neighbor : neighbors) {
-//            System.out.println("Here be a destination: " + neighbors.get(i).getDestination().getValue() + " and it's weight: " + neighbors.get(i).getWeight());
             Neighbor thisNeighbor = new Neighbor((Integer) neighbor.getDestination().getValue(), neighbor.getWeight());
             destinations.add(thisNeighbor);
         }
         return destinations;
     }
 
-    public LinkedList<Integer> breadthFirstTraversal (GraphNode nodeToCheck) { // credit to: https://github.com/emd5/data-structures-and-algorithms-java/blob/master/src/main/java/graph/Graph.java
+    public LinkedList<Integer> breadthFirstTraversal(GraphNode nodeToCheck) { // credit to: https://github.com/emd5/data-structures-and-algorithms-java/blob/master/src/main/java/graph/Graph.java
 
         LinkedList<Integer> resultList = new LinkedList<>(); // TODO: create a full list of nodes to check against that each were visited.
         HashSet<GraphNode> visited = new HashSet<>();
 
-        if (nodeToCheck.getValue() == null){
+        if (nodeToCheck.getValue() == null) {
             throw new NullPointerException("Nothing here.");
         }
 
@@ -123,8 +160,8 @@ public class Graph {
             GraphNode nodeBeingChecked = (GraphNode) queue.remove();
             resultList.add((Integer) nodeBeingChecked.getValue());
 
-            for (Edge neighbor: (HashSet<Edge>) nodeBeingChecked.getEdges()){
-                if(!visited.contains(neighbor.destination)){
+            for (Edge neighbor : (HashSet<Edge>) nodeBeingChecked.getEdges()) {
+                if (!visited.contains(neighbor.destination)) {
                     queue.add(neighbor.getDestination());
                     visited.add(neighbor.getDestination());
                 }
@@ -133,14 +170,14 @@ public class Graph {
         return resultList;
     }
 
-    public ArrayList<String> depthFirstPreOrder (GraphNode nodeToStart) { // Code referenced from: https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/#:~:text=%20Solution%3A%20%201%20Approach%3A%20Depth-first%20search%20is,node%20as%20visited%20and%20print%20the...%20More%20
-            visited.clear();
-            ArrayList<String> depthFirst = new ArrayList<>();
-            depthFirstPreOrderHelper(nodeToStart, depthFirst);
-            return depthFirst;
+    public ArrayList<String> depthFirstPreOrder(GraphNode nodeToStart) { // Code referenced from: https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/#:~:text=%20Solution%3A%20%201%20Approach%3A%20Depth-first%20search%20is,node%20as%20visited%20and%20print%20the...%20More%20
+        visited.clear();
+        ArrayList<String> depthFirst = new ArrayList<>();
+        depthFirstPreOrderHelper(nodeToStart, depthFirst);
+        return depthFirst;
     }
 
-    private ArrayList<String> depthFirstPreOrderHelper (GraphNode nodeToCheck, ArrayList<String> visitedInThisOrder) {
+    private ArrayList<String> depthFirstPreOrderHelper(GraphNode nodeToCheck, ArrayList<String> visitedInThisOrder) {
         visited.add(nodeToCheck);
         visitedInThisOrder.add((String) nodeToCheck.getValue()); // has to be cast because my node is generic.
 
