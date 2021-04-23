@@ -82,4 +82,115 @@ public class LeetCodeTests {
             assertEquals(8, ac2.minTime(n, edges, hasApplesArr), "should be 8...");
         }
     }
+
+    @Nested
+    @DisplayName("Word Search Square")
+    class wordSearchTest {
+
+        @Test
+        @DisplayName("testing single Chars...")
+        public void wSSimple() {
+
+            char[][] testArr = new char[2][];
+            char[] arr1 = {'a', 'b'};
+            char[] arr2 = {'c', 'd'};
+            testArr[0] = arr1;
+            testArr[1] = arr2;
+
+            WordSearch wordSearch = new WordSearch();
+            assertTrue(wordSearch.exist(testArr, "a"));
+            assertTrue(wordSearch.exist(testArr, "d"));
+            assertFalse(wordSearch.exist(testArr, "z"));
+        }
+
+        @Test
+        @DisplayName("testing simple square...")
+        public void wSOne() {
+
+            char[][] testArr = new char[2][];
+            char[] arr1 = {'a', 'b'};
+            char[] arr2 = {'c', 'd'};
+            testArr[0] = arr1;
+            testArr[1] = arr2;
+
+            WordSearch wordSearch = new WordSearch();
+            assertFalse(wordSearch.exist(testArr, "abcd"));
+        }
+
+        @Test
+        @DisplayName("testing larger square")
+        public void wSTwo() {
+
+            char[][] testArr = new char[3][];
+            char[] arr1 = {'A', 'B', 'C', 'E'};
+            char[] arr2 = {'S', 'F', 'C', 'S'};
+            char[] arr3 = {'A', 'D', 'E', 'E'};
+            testArr[0] = arr1;
+            testArr[1] = arr2;
+            testArr[2] = arr3;
+
+            WordSearch wordSearch = new WordSearch();
+            assertTrue(wordSearch.exist(testArr, "ABCCED"));
+        }
+
+        @Test
+        @DisplayName("testing square not from the start...")
+        public void wSThree() {
+
+            char[][] testArr = new char[3][];
+            char[] arr1 = {'A', 'B', 'C', 'E'};
+            char[] arr2 = {'S', 'F', 'C', 'S'};
+            char[] arr3 = {'A', 'D', 'E', 'E'};
+            testArr[0] = arr1;
+            testArr[1] = arr2;
+            testArr[2] = arr3;
+
+            WordSearch wordSearch = new WordSearch();
+            assertTrue(wordSearch.exist(testArr, "SEE"));
+        }
+
+        @Test
+        @DisplayName("testing large square...")
+        public void wSFour() {
+
+            char[][] testArr = new char[3][];
+            char[] arr1 = {'A', 'B', 'C', 'E'};
+            char[] arr2 = {'S', 'F', 'E', 'S'};
+            char[] arr3 = {'A', 'D', 'E', 'E'};
+            testArr[0] = arr1;
+            testArr[1] = arr2;
+            testArr[2] = arr3;
+
+            WordSearch wordSearch = new WordSearch();
+            assertTrue(wordSearch.exist(testArr, "ABCEFSADEESE"));
+        }
+
+        @Test
+        @DisplayName("testing secondary routes...")
+        public void wSFive() {
+
+            char[][] testArr = new char[2][];
+            char[] arr1 = {'A', 'B', 'E'};
+            char[] arr2 = {'B', 'C', 'D'};
+            testArr[0] = arr1;
+            testArr[1] = arr2;
+
+            WordSearch wordSearch = new WordSearch();
+            assertTrue(wordSearch.exist(testArr, "ABCDEB"));
+        }
+
+        @Test
+        @DisplayName("testing for no chance...")
+        public void wSSix() {
+
+            char[][] testArr = new char[2][];
+            char[] arr1 = {'A', 'B', 'E'};
+            char[] arr2 = {'B', 'C', 'D'};
+            testArr[0] = arr1;
+            testArr[1] = arr2;
+
+            WordSearch wordSearch = new WordSearch();
+            assertFalse(wordSearch.exist(testArr, "ABCDEBX"));
+        }
+    }
 }
