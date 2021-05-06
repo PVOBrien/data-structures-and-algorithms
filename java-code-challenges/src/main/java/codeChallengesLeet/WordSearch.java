@@ -76,6 +76,4 @@ public class WordSearch { // https://leetcode.com/problems/word-search/descripti
         }
         return foundWord;
     }
-
-    private boolean
 }
