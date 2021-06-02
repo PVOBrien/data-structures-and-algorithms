@@ -8,9 +8,7 @@ public class Graph {
     }
 
     private Set<GraphNode> visited = new HashSet<>();
-
     private final Set<GraphNode> vertexes = new HashSet<>(); // it's a HASHset, not just a Set. :facepalm:
-
     public Set<GraphNode> getVertexes() {
         return vertexes;
     }
@@ -38,13 +36,9 @@ public class Graph {
         }
 //        public void setEdges(Set<Edge> edges) { this.edges = edges; }
 
-        public T getValue() {
-            return value;
-        }
+        public T getValue() { return value; }
 
-        public void setValue(T value) {
-            this.value = value;
-        }
+        public void setValue(T value) { this.value = value; }
 
         @Override
         public String toString() {

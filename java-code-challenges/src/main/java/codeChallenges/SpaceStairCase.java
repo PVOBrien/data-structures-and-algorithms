@@ -12,7 +12,7 @@ public class SpaceStairCase {
             stringBuilder.append("#".repeat(i));
             stringBuilder.append("\n");
         }
-        System.out.println(stringBuilder.toString());
+        System.out.println(stringBuilder   );
 
         return stringBuilder.toString();
     }

@@ -1,32 +1,25 @@
 package hackerRankChallenges;
 
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class SockPairs {
 
     public static int sockMerchant(int n, List<Integer> ar) {
-        HashMap<Integer, Integer> socks = new HashMap<>();
-        int pairs = 0;
+        HashMap<Integer, Boolean> socks = new HashMap<>();
+        AtomicInteger newPairs = new AtomicInteger(0);
         ar.forEach(sock -> {
             if (!socks.containsKey(sock)) {
-                socks.put(sock, 1);
-            } else if (socks.containsKey(sock)) {
-                int count = socks.get(sock);
-                socks.replace(sock, count+1);
+                socks.put(sock, false);
+            } else if (socks.containsKey(sock) && !socks.get(sock)) {
+//                int count = newPairs.get();
+                newPairs.getAndIncrement();
+                System.out.println(newPairs);
+                socks.remove(sock);
             }
         });
 
-//        socks.entrySet().forEach((entry -> System.out.println("Key: " + entry.getKey() + " Value: " + entry.getValue())));
-
-        pairs = socks.values().stream()
-                .reduce(0, (accum, thisValue) -> {
-                    System.out.println("what is thisValue: " + thisValue);
-                    return thisValue/2 + accum;
-                });
-
-        return pairs;
+        return newPairs.get();
     }
 }
