@@ -11,6 +11,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @DisplayName("https://www.hackerrank.com/")
 public class HackerRankChallenges {
 
@@ -28,7 +30,7 @@ public class HackerRankChallenges {
             candles.add(2);
             candles.add(3);
             candles.add(3);
-            Assertions.assertEquals(3, BirthDayCandleHeight.birthdayCakeCandles(candles), "Should be 3.");
+            assertEquals(3, BirthDayCandleHeight.birthdayCakeCandles(candles), "Should be 3.");
         }
 
     }
@@ -83,43 +85,43 @@ public class HackerRankChallenges {
         @Test
         @DisplayName("only 1 letter")
         public void passwordTestOne() {
-            Assertions.assertEquals(5, PasswordChecker.minimumNumber(6, "a"));
+            assertEquals(5, PasswordChecker.minimumNumber(6, "a"));
         }
 
         @Test
         @DisplayName("only lower case, but minimum count")
         public void passwordTestTwo() {
-            Assertions.assertEquals(3, PasswordChecker.minimumNumber(6, "abcdef"));
+            assertEquals(3, PasswordChecker.minimumNumber(6, "abcdef"));
         }
 
         @Test
         @DisplayName("lower and upper, minimum count!")
         public void passwordTestThree() {
-            Assertions.assertEquals(2, PasswordChecker.minimumNumber(6, "Abcdef"));
+            assertEquals(2, PasswordChecker.minimumNumber(6, "Abcdef"));
         }
 
         @Test
         @DisplayName("lower and upper, minimum count!")
         public void passwordTestFour() {
-            Assertions.assertEquals(2, PasswordChecker.minimumNumber(6, "Abcdef"));
+            assertEquals(2, PasswordChecker.minimumNumber(6, "Abcdef"));
         }
 
         @Test
         @DisplayName("lower and upper and number, minimum count!")
         public void passwordTestFive() {
-            Assertions.assertEquals(1, PasswordChecker.minimumNumber(6, "Ab#def"));
+            assertEquals(1, PasswordChecker.minimumNumber(6, "Ab#def"));
         }
 
         @Test
         @DisplayName("complete, minimum count!")
         public void passwordTestSix() {
-            Assertions.assertEquals(0, PasswordChecker.minimumNumber(6, "Ab#1ef"));
+            assertEquals(0, PasswordChecker.minimumNumber(6, "Ab#1ef"));
         }
 
         @Test
         @DisplayName("missing upper case, but minimum count")
         public void passwordTestSeven() {
-            Assertions.assertEquals(1, PasswordChecker.minimumNumber(6, "ab#1ef"));
+            assertEquals(1, PasswordChecker.minimumNumber(6, "ab#1ef"));
         }
 
     }
@@ -131,7 +133,13 @@ public class HackerRankChallenges {
         @Test
         @DisplayName("Magic!")
         public void vowelsOne() {
-            Assertions.assertEquals(5, simpleVowelCounter.getCount("abracadabra"));
+            assertEquals(5, simpleVowelCounter.getCount("abracadabra"));
+        }
+
+        @Test
+        @DisplayName("two!")
+        public void vowelSolo() {
+            assertEquals(1, simpleVowelCounter.getCount("a"));
         }
     }
 
