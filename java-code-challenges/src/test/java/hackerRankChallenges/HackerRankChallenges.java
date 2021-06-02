@@ -142,5 +142,4 @@ public class HackerRankChallenges {
             assertEquals(1, simpleVowelCounter.getCount("a"));
         }
     }
-// test add
 }
