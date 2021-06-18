@@ -142,5 +142,29 @@ public class HackerRankChallenges {
             assertEquals(1, simpleVowelCounter.getCount("a"));
         }
     }
-    // UPLOAD?
+
+    @Nested
+    @DisplayName("all the a's")
+    class RepeatLetterStringNthTimesTest {
+
+        @Test
+        @DisplayName("aba test")
+        public void abaTest() {
+            System.out.println("Modulo: " + (9 % 10));
+
+            assertEquals(7,RepeatLetterStringNthTimes.repeatedString("aba", 10));
+        }
+
+        @Test
+        @DisplayName("aba test")
+        public void abThreeTest() {
+            assertEquals(1, RepeatLetterStringNthTimes.repeatedString("aba", 2));
+        }
+
+        @Test
+        @DisplayName("realTest, locked #7")
+        public void realTestSeven() {
+            assertEquals(51574523448L, RepeatLetterStringNthTimes.repeatedString("kmretasscityylpdhuwjirnqimlkcgxubxmsxpypgzxtenweirknjtasxtvxemtwxuarabssvqdnktqadhyktagjxoanknhgilnm", 736778906400L));
+        }
+    }
 }

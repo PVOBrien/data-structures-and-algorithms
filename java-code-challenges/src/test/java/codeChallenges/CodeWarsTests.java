@@ -37,11 +37,11 @@ public class CodeWarsTests {
     @Test
     @DisplayName("Matching end strings")
     public void matchEndStringTest() {
-        assertEquals(MatchingEnd.solution("abcd", "bcd"), true, "Should be true");
-        assertEquals(MatchingEnd.solution("abc", "d"), false, "Should be false");
-        assertEquals(MatchingEnd.solution("abc", "abc"), true, "Should be false");
-        assertEquals(MatchingEnd.solution(" ", "d"), false, "Should be false");
-        assertEquals(MatchingEnd.solution("bcd", "abcd"), false, "Should be false");
+        assertTrue(MatchingEnd.solution("abcd", "bcd"), "Should be true");
+        assertFalse(MatchingEnd.solution("abc", "d"), "Should be false");
+        assertTrue(MatchingEnd.solution("abc", "abc"), "Should be false");
+        assertFalse(MatchingEnd.solution(" ", "d"), "Should be false");
+        assertFalse(MatchingEnd.solution("bcd", "abcd"), "Should be false");
     }
 
     @Test
@@ -321,13 +321,13 @@ public class CodeWarsTests {
 
         @Test
         @DisplayName("for the Camels!")
-        public void CamelCaserOne () {
-            assertEquals("howdyFolks",CamelCaser.toCamelCase("howdy-folks"), "howdyFolks expected.");
+        public void CamelCaserOne() {
+            assertEquals("howdyFolks", CamelCaser.toCamelCase("howdy-folks"), "howdyFolks expected.");
         }
 
         @Test
         @DisplayName("for the different Camels!")
-        public void CamelCaserTwo () {
+        public void CamelCaserTwo() {
             assertEquals("we'reBackAndBetter!",
                     CamelCaser.toCamelCase("we're-back_and-better!"),
                     "that string back");
@@ -335,7 +335,7 @@ public class CodeWarsTests {
 
         @Test
         @DisplayName("for the most difficult Camels!")
-        public void CamelCaserThree () {
+        public void CamelCaserThree() {
             assertEquals("WhatAboutNow?",
                     CamelCaser.toCamelCase("What-about_Now?"),
                     "that string back");
@@ -349,20 +349,42 @@ public class CodeWarsTests {
         @Test
         @DisplayName("Next level...")
         public void persisTestcW1() {
-            assertEquals(3, PersistenceToOne.persistence(39), "the answer!" );
+            assertEquals(3, PersistenceToOne.persistence(39), "the answer!");
         }
 
         @Test
         @DisplayName("Next level...")
         public void persisTestcW2() {
-            assertEquals(0, PersistenceToOne.persistence(4), "the answer!" );
+            assertEquals(0, PersistenceToOne.persistence(4), "the answer!");
         }
 
         @Test
         @DisplayName("Next level...")
         public void persisTestcW3() {
-            assertEquals(4, PersistenceToOne.persistence(999), "the answer!" );
+            assertEquals(4, PersistenceToOne.persistence(999), "the answer!");
         }
 
+    }
+
+    @Nested
+    @DisplayName("maxSubArraySum")
+    class MaxSubArraySumTest {
+
+        int[] testCaseOne = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        int[] testCaseTwo = new int[]{};
+        int[] testCaseThree = {-2, 1, 0, -1, 2, 3, -5, 4};
+        int[] testCaseFour = {-2, -1, -5};
+
+        @Test
+        @DisplayName("Empty Arr")
+        public void mSastOne() {
+            assertEquals(0, MaxSubArraySum.sequence(testCaseTwo));
+        }
+
+        @Test
+        @DisplayName("All Negative Numbers")
+        public void mSastTwo() {
+            assertEquals(0, MaxSubArraySum.sequence(testCaseFour));
+        }
     }
 }
