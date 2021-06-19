@@ -27,7 +27,6 @@ public class MaxSubArraySum {
 //===== the real work begins! ===================================
 
         // sliding door to find greatest string.
-        result = arr.length;                             // this could be the greatest count of greatest sum...
         int rightWindow = arr.length - 1;                          // setup the starting far pointer/right window.
         int leftWindow = 0;
         int currentSum = sumUp(0, rightWindow);               // starting the count.
@@ -38,26 +37,34 @@ public class MaxSubArraySum {
 
         int nextJ = nextRightWindow(rightWindow, leftWindow); // next rightWBlock = "next" positive number preceding a negative integer.
         while (rightWindow != nextJ) { // todo: use a while (){} OR a do{}while() loop for rightWindow.
-            int tempSum = sumUp(leftWindow, nextJ);
-            if (tempSum > currentSum) currentSum = tempSum;
+            int tempSum = sumUp(leftWindow, nextJ + 1);
+            if (tempSum > currentSum) {
+                currentSum = tempSum;
+                rightWindow = nextJ;
+                nextJ = nextRightWindow(rightWindow, leftWindow);
+            } else {
+                break;
+            }
 //            result = nextJ - leftWindow;
-            rightWindow = nextJ;
-            nextJ = nextRightWindow(rightWindow, leftWindow);
         }
 
         int nextI = nextLeftWindow(leftWindow, rightWindow); // todo: use a while (){} OR a do{}while() loop for leftWindow.
         while (leftWindow != nextI) {
             int tempSum = sumUp(nextI, rightWindow);
-            if (tempSum > currentSum) currentSum = tempSum;
+            if (tempSum > currentSum) {
+                currentSum = tempSum;
+                leftWindow = nextI;
+                nextI = nextLeftWindow(leftWindow, rightWindow);
+            } else {
+                break;
+            }
 //            result = rightWindow - nextI;
-            leftWindow = nextI;
-            nextI = nextLeftWindow(leftWindow, rightWindow);
         }
 
 //        }
 
 //        System.out.println(sumUp(leftWindow, rightWindow + 1));
-        return sumUp(leftWindow, rightWindow+1);
+        return sumUp(leftWindow, rightWindow + 1);
     }
 
     // === Helper Function: Sum the Array ===
