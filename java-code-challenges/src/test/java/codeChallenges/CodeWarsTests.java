@@ -374,6 +374,8 @@ public class CodeWarsTests {
         int[] testCaseTwo = new int[]{};
         int[] testCaseThree = {-2, 1, 0, -1, 2, 3, -5, 4};
         int[] testCaseFour = {-2, -1, -5};
+        int[] textCaseSingleMinusASC = {1, 2, -3, 4, 5};
+        int[] textCaseSingleMinusDESC = {5, 4, -3, 2, 0};
 
         @Test
         @DisplayName("Empty Arr")
@@ -385,6 +387,12 @@ public class CodeWarsTests {
         @DisplayName("All Negative Numbers")
         public void mSastTwo() {
             assertEquals(0, MaxSubArraySum.sequence(testCaseFour));
+        }
+
+        @Test
+        @DisplayName("Working")
+        public void mSastSingleMinusRWindow() {
+            assertEquals(0, MaxSubArraySum.sequence(textCaseSingleMinusDESC));
         }
     }
 }
