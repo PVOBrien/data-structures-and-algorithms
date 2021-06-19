@@ -28,34 +28,42 @@ public class MaxSubArraySum {
 
         // sliding door to find greatest string.
         result = arr.length;                             // this could be the greatest count of greatest sum...
-        int j = arr.length - 1;                          // setup the starting far pointer/right window.
-        int currentSum = sumUp(0, j);               // starting the count.
+        int rightWindow = arr.length - 1;                          // setup the starting far pointer/right window.
+        int leftWindow = 0;
+        int currentSum = sumUp(0, rightWindow);               // starting the count.
 
-        for (int i = 0; i < j; ) {              // I need to have control of the pointer.
+//        for (int i = 0; i < rightWindow; ) {              // I need to have control of the pointer.
 //            while (arr[i] < 0) i++;                      // we'll never start on a negative number so increment. Probably don't need/would cause problems.
 //            while (arr[j] < 0) j--;                      // decrement, we'll never end on a negative. Probably don't need/would cause problems.
 
-            int nextJ = nextRightWindow(j, i); // next righWBlock = "next" positive number preceding a negative integer.
-
-            // todo: use a while (){} OR a do{}while() loop for leftWindow.
-
-            while (j != nextJ) { // todo: use a while (){} OR a do{}while() loop for rightWindow.
-                int tempSum = sumUp(i, nextJ);
-                if (tempSum > currentSum) currentSum = tempSum;
-                result = nextJ - i;
-                j = nextJ;
-            }
-//            i++; // TODO: check this is valid.
-
+        int nextJ = nextRightWindow(rightWindow, leftWindow); // next rightWBlock = "next" positive number preceding a negative integer.
+        while (rightWindow != nextJ) { // todo: use a while (){} OR a do{}while() loop for rightWindow.
+            int tempSum = sumUp(leftWindow, nextJ);
+            if (tempSum > currentSum) currentSum = tempSum;
+//            result = nextJ - leftWindow;
+            rightWindow = nextJ;
+            nextJ = nextRightWindow(rightWindow, leftWindow);
         }
 
-        return result;
+        int nextI = nextLeftWindow(leftWindow, rightWindow); // todo: use a while (){} OR a do{}while() loop for leftWindow.
+        while (leftWindow != nextI) {
+            int tempSum = sumUp(nextI, rightWindow);
+            if (tempSum > currentSum) currentSum = tempSum;
+//            result = rightWindow - nextI;
+            leftWindow = nextI;
+            nextI = nextLeftWindow(leftWindow, rightWindow);
+        }
+
+//        }
+
+//        System.out.println(sumUp(leftWindow, rightWindow + 1));
+        return sumUp(leftWindow, rightWindow+1);
     }
 
     // === Helper Function: Sum the Array ===
     private static int sumUp(int start, int end) {
         int sum = 0;
-        for (int k = start; start < end; start++) {
+        for (int k = start; k < end; k++) {
             sum += presentArr[k];
         }
         return sum;
@@ -69,6 +77,16 @@ public class MaxSubArraySum {
             if (positives) break;
         }
         return positives;
+    }
+
+    // === Helper Function: find next possible left window ===
+    private static int nextLeftWindow(int currentLWIndex, int rWindow) {
+        for (int i = currentLWIndex; i < rWindow; i++) {
+            if (presentArr[i] < 0 && presentArr[i + 1] > -1) {
+                return i + 1;
+            }
+        }
+        return currentLWIndex;
     }
 
     // === Helper Function: find next possible right window ===

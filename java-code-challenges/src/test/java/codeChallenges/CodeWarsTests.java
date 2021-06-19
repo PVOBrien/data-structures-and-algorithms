@@ -370,29 +370,43 @@ public class CodeWarsTests {
     @DisplayName("maxSubArraySum")
     class MaxSubArraySumTest {
 
-        int[] testCaseOne = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        int[] testCaseTwo = new int[]{};
+        int[] tRealCase = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        int[] tEmptyArr = new int[]{};
         int[] testCaseThree = {-2, 1, 0, -1, 2, 3, -5, 4};
-        int[] testCaseFour = {-2, -1, -5};
+        int[] tAllNegative = {-2, -1, -5};
         int[] textCaseSingleMinusASC = {1, 2, -3, 4, 5};
-        int[] textCaseSingleMinusDESC = {5, 4, -3, 2, 0};
+        int[] tSingleMinusDESC = {5, 4, -3, 2, 0};
+        int[] allPlus = {5, 4, 3, 2, 1};
 
         @Test
         @DisplayName("Empty Arr")
         public void mSastOne() {
-            assertEquals(0, MaxSubArraySum.sequence(testCaseTwo));
+            assertEquals(0, MaxSubArraySum.sequence(tEmptyArr));
         }
 
         @Test
         @DisplayName("All Negative Numbers")
         public void mSastTwo() {
-            assertEquals(0, MaxSubArraySum.sequence(testCaseFour));
+            assertEquals(0, MaxSubArraySum.sequence(tAllNegative));
         }
 
         @Test
-        @DisplayName("Working")
+        @DisplayName("Add all the Numbers")
         public void mSastSingleMinusRWindow() {
-            assertEquals(0, MaxSubArraySum.sequence(textCaseSingleMinusDESC));
+            assertEquals(15, MaxSubArraySum.sequence(allPlus));
+        }
+
+        @Test
+        @DisplayName("one negative")
+        public void mBabyStepDown() {
+            assertEquals(9, MaxSubArraySum.sequence(tSingleMinusDESC));
+        }
+
+
+        @Test
+        @DisplayName("a test of the wild...")
+        public void mTestReal() {
+            assertEquals(6, MaxSubArraySum.sequence(tRealCase));
         }
     }
 }
