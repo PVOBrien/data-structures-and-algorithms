@@ -377,6 +377,7 @@ public class CodeWarsTests {
         int[] textCaseSingleMinusASC = {1, 2, -3, 4, 5};
         int[] tSingleMinusDESC = {5, 4, -3, 2, 0};
         int[] allPlus = {5, 4, 3, 2, 1};
+        int[] randomOne = {-5, -9, 23, -4, 12, -2, -10, 9, -24, 5, 28, -7, -26, 26, -2, -29, -20, -2, 9, 26, -22, -5, 25, 22, 15, 0, -23, 21, -6, -28, 8, -17, -29, -26, 7, -26, 19, -26, -12, 20, 9, -15, 17, 10, -26, -18, 5, 2, 3, 0, -20, -26, 15, 7, -1};
 
         @Test
         @DisplayName("Empty Arr")
@@ -392,7 +393,7 @@ public class CodeWarsTests {
 
         @Test
         @DisplayName("Add all the Numbers")
-        public void mSastSingleMinusRWindow() {
+        public void mSasAllPlus() {
             assertEquals(15, MaxSubArraySum.sequence(allPlus));
         }
 
@@ -402,11 +403,16 @@ public class CodeWarsTests {
             assertEquals(9, MaxSubArraySum.sequence(tSingleMinusDESC));
         }
 
-
         @Test
-        @DisplayName("a test of the wild...")
+        @DisplayName("test of the wild...")
         public void mTestReal() {
             assertEquals(6, MaxSubArraySum.sequence(tRealCase));
+        }
+
+        @Test
+        @DisplayName("random test 1")
+        public void mTestRandomOne() {
+            assertEquals(70, MaxSubArraySum.sequence(randomOne));
         }
     }
 }
