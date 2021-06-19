@@ -46,13 +46,11 @@ public class MaxSubArraySum {
         int nextI = nextLeftWindow(leftWindow, rightWindow); // todo: use a while (){} OR a do{}while() loop for leftWindow.
         while (leftWindow != nextI) {
             int tempSum = sumUp(nextI, rightWindow);
-            if (tempSum >= currentSum) {
+            if (tempSum > currentSum) {
                 currentSum = tempSum;
                 leftWindow = nextI;
-                nextI = nextLeftWindow(leftWindow, rightWindow);
-            } else {
-                break;
             }
+            nextI = nextLeftWindow(nextI, rightWindow);
         }
 
         return sumUp(leftWindow, rightWindow + 1);
@@ -84,7 +82,7 @@ public class MaxSubArraySum {
                 return i + 1;
             }
         }
-        return currentLWIndex;
+        return 0;
     }
 
     // === Helper Function: find next possible right window ===
