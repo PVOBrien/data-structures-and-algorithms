@@ -1,9 +1,6 @@
 package codeChallenges;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -377,8 +374,9 @@ public class CodeWarsTests {
         int[] tAllPlus = {5, 4, 3, 2, 1};
         int[] tRandomOne = {-5, -9, 23, -4, 12, -2, -10, 9, -24, 5, 28, -7, -26, 26, -2, -29, -20, -2, 9, 26, -22, -5, 25, 22, 15, 0, -23, 21, -6, -28, 8, -17, -29, -26, 7, -26, 19, -26, -12, 20, 9, -15, 17, 10, -26, -18, 5, 2, 3, 0, -20, -26, 15, 7, -1};
         int[] tRandomTwo = {7, 4, 11, -11, 39, 36, 10, -6, 37, -10, -32, 44, -26, -34, 43, 43};
-
-        @Test
+        int[] tRandomThree = {9, -7, 29, -26, -3, -25, 1, 8, 0, -19, 21, -23, -14, -19, 4, -26, -12, -28, 23, -29, -24, 5, -10, 12, 5, -1, -29, -7, -8, 26, -12, -7, 25, 29, 20, 0, -23, 15, -4, 27, 23, -12, 2, 0, -25, 12, -26, -13, -29, -14, -29, -17, 18, 2, -21, -10, 26};
+        int[] tRandomThreeFlat = {9, -7, 29, -54, 9, -19, 21, -56, 4, -66, 23, -53, 5, -10, 17, -45, 26, -19, 74, -23, 15, -4, 50, -12, 2, 0, -25, 12, -131, 20, -31, 26};
+   @Test
         @DisplayName("Empty Arr")
         public void mSastOne() {
             assertEquals(0, MaxSubArraySum.sequence(tEmptyArr));
@@ -418,6 +416,19 @@ public class CodeWarsTests {
         @DisplayName("rT2")
         public void mTestRandomTwo(){
             assertEquals(155, MaxSubArraySum.sequence(tRandomTwo));
+        }
+
+        @Test
+        @DisplayName("rT3")
+        public void mTestRandomThree(){
+            assertEquals(119, MaxSubArraySum.sequence(tRandomThree));
+        }
+
+        @Test
+        @DisplayName("rT3flat")
+        @Disabled
+        public void mTestRandomThreeFlat(){
+            assertEquals(119, MaxSubArraySum.sequence(tRandomThreeFlat));
         }
     }
 }
