@@ -372,9 +372,7 @@ public class CodeWarsTests {
 
         int[] tRealCase = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
         int[] tEmptyArr = new int[]{};
-        int[] testCaseThree = {-2, 1, 0, -1, 2, 3, -5, 4};
         int[] tAllNegative = {-2, -1, -5};
-        int[] textCaseSingleMinusASC = {1, 2, -3, 4, 5};
         int[] tSingleMinusDESC = {5, 4, -3, 2, 0};
         int[] tAllPlus = {5, 4, 3, 2, 1};
         int[] tRandomOne = {-5, -9, 23, -4, 12, -2, -10, 9, -24, 5, 28, -7, -26, 26, -2, -29, -20, -2, 9, 26, -22, -5, 25, 22, 15, 0, -23, 21, -6, -28, 8, -17, -29, -26, 7, -26, 19, -26, -12, 20, 9, -15, 17, 10, -26, -18, 5, 2, 3, 0, -20, -26, 15, 7, -1};
