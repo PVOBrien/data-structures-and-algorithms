@@ -376,8 +376,9 @@ public class CodeWarsTests {
         int[] tAllNegative = {-2, -1, -5};
         int[] textCaseSingleMinusASC = {1, 2, -3, 4, 5};
         int[] tSingleMinusDESC = {5, 4, -3, 2, 0};
-        int[] allPlus = {5, 4, 3, 2, 1};
-        int[] randomOne = {-5, -9, 23, -4, 12, -2, -10, 9, -24, 5, 28, -7, -26, 26, -2, -29, -20, -2, 9, 26, -22, -5, 25, 22, 15, 0, -23, 21, -6, -28, 8, -17, -29, -26, 7, -26, 19, -26, -12, 20, 9, -15, 17, 10, -26, -18, 5, 2, 3, 0, -20, -26, 15, 7, -1};
+        int[] tAllPlus = {5, 4, 3, 2, 1};
+        int[] tRandomOne = {-5, -9, 23, -4, 12, -2, -10, 9, -24, 5, 28, -7, -26, 26, -2, -29, -20, -2, 9, 26, -22, -5, 25, 22, 15, 0, -23, 21, -6, -28, 8, -17, -29, -26, 7, -26, 19, -26, -12, 20, 9, -15, 17, 10, -26, -18, 5, 2, 3, 0, -20, -26, 15, 7, -1};
+        int[] tRandomTwo = {7, 4, 11, -11, 39, 36, 10, -6, 37, -10, -32, 44, -26, -34, 43, 43};
 
         @Test
         @DisplayName("Empty Arr")
@@ -394,7 +395,7 @@ public class CodeWarsTests {
         @Test
         @DisplayName("Add all the Numbers")
         public void mSasAllPlus() {
-            assertEquals(15, MaxSubArraySum.sequence(allPlus));
+            assertEquals(15, MaxSubArraySum.sequence(tAllPlus));
         }
 
         @Test
@@ -412,7 +413,13 @@ public class CodeWarsTests {
         @Test
         @DisplayName("random test 1")
         public void mTestRandomOne() {
-            assertEquals(70, MaxSubArraySum.sequence(randomOne));
+            assertEquals(70, MaxSubArraySum.sequence(tRandomOne));
+        }
+
+        @Test
+        @DisplayName("rT2")
+        public void mTestRandomTwo(){
+            assertEquals(155, MaxSubArraySum.sequence(tRandomTwo));
         }
     }
 }

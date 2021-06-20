@@ -31,7 +31,7 @@ public class MaxSubArraySum {
         // sliding door to find greatest string.
         int rightWindow = arr.length - 1;                          // setup the starting far pointer/right window.
         int leftWindow = 0;
-        int currentSum = sumUp(0, rightWindow);               // starting the count.
+        int currentSum = sumUp(0, rightWindow+1);               // starting the count.
 
         int nextJ = nextRightWindow(rightWindow, leftWindow); // next rightWBlock = "next" positive number preceding a negative integer.
         while (nextJ != 0) {
