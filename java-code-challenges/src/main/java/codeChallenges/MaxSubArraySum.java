@@ -19,41 +19,62 @@ public class MaxSubArraySum {
     public static int sequence(int[] arr) {
         System.out.println(Arrays.toString(arr)); // sanity check.
 
-        // declare end int variable, initialize as 0.
-        int result = 0;
         presentArr = arr;
 
         // deal w simple edge cases - empty arr and all negatives.
-        if (arr.length == 0) return result; // empty Array return.
-        if (!positiveIsPresent(arr)) return result; // if there isn't a positive number, return result
+        if (arr.length == 0) return 0; // empty Array return.
+        if (!positiveIsPresent(arr)) return 0; // if there isn't a positive number, return result
 
 //===== the real work begins! ===================================
         // sliding door to find greatest string.
-        int rightWindow = arr.length - 1;                           // setup the starting far pointer/right window.
-        int leftWindow = 0;
-        int currentSum = sumUp(0, rightWindow+1);                   // starting the count.
-        int nextJ = nextRightWindow(rightWindow, leftWindow);       // next rightWBlock = "next" positive number preceding a negative integer.
-        int nextI = nextLeftWindow(leftWindow, rightWindow);
+        int currentSum = sumUp(0, arr.length);        // starting the count.
 
-        while (nextI != presentArr.length) {
-            int tempSum = sumUp(nextI, rightWindow);
-            if (tempSum > currentSum) {
-                currentSum = tempSum;
-                leftWindow = nextI;
+        int nextWindow = nextWindowForward(0);
+        int rightW = nextWindowForward(nextWindow);   // setup the starting far pointer/right window.
+
+        int windowIndexL = 0;                         // defining variable, starting instantiation. for the left window
+        int nextRWindowIndex = nextWindowForward(nextWindow); // defining variable, starting instantiation. for the right
+
+        while (windowIndexL != presentArr.length) {
+            int sumL = sumToNextNegative(windowIndexL);
+            if (sumL > currentSum) {
+                currentSum = sumL;
             }
-            nextI = nextLeftWindow(nextI, rightWindow);
+
+            int currentNegative = nextNegative(windowIndexL);
+            if (currentNegative == presentArr.length) return currentSum;
+            int tempSumL = sumToNextNegative(currentNegative);
+
+            while (tempSumL + sumL > sumL) {
+                if (tempSumL + sumL > currentSum) currentSum = tempSumL + sumL;
+
+                sumL += tempSumL;
+                currentNegative = nextNegative(currentNegative+1);
+                if (currentNegative == presentArr.length) return currentSum;
+                tempSumL = sumToNextNegative(currentNegative);
+            }
+
+            windowIndexL = currentNegative+1;
+
+
+//            if (tempSumL);
+//
+//            while (nextRWindowIndex > windowIndexL) { //
+//                int tempSumR = sumUp(nextWindow, nextRWindowIndex);
+//                if (tempSumR > currentSum) {
+//                    currentSum = tempSumR;
+//                    rightW = nextRWindowIndex;
+//                }
+//                nextRWindowIndex = nextRightWindow(nextWindow, rightW);
+//            }
+
+            windowIndexL = nextWindowForward(windowIndexL);
+
+//            nextRWindowIndex = arr.length - 1;
+
         }
 
-        while (nextJ != 0) {
-            int tempSum = sumUp(leftWindow, nextJ + 1);
-            if (tempSum > currentSum) {
-                currentSum = tempSum;
-                rightWindow = nextJ;
-            }
-            nextJ = nextRightWindow(nextJ, leftWindow);
-        }
-
-        return sumUp(leftWindow, rightWindow + 1);
+        return currentSum;
     }
 
     // === Helper Function: Sum the Array ===
@@ -76,9 +97,9 @@ public class MaxSubArraySum {
     }
 
     // === Helper Function: find next possible left window ===
-    private static int nextLeftWindow(int currentLWIndex, int rWindow) {
-        for (int i = currentLWIndex; i < rWindow; i++) {
-            if (i+1 == presentArr.length) return presentArr.length;
+    private static int nextWindowForward(int currentLWIndex) {
+        for (int i = currentLWIndex; i < presentArr.length; i++) {
+            if (i + 1 == presentArr.length) return presentArr.length;
             if (presentArr[i] < 0 && presentArr[i + 1] > -1) {
                 return i + 1;
             }
@@ -95,5 +116,21 @@ public class MaxSubArraySum {
             }
         }
         return 0;
+    }
+
+    private static int sumToNextNegative(int leftWindow) {
+        int sum = presentArr[leftWindow];
+        for (int i = leftWindow + 1; i < presentArr.length; i++) {
+            if (presentArr[i] < 0) break;
+            sum += presentArr[i];
+        }
+        return sum;
+    }
+
+    private static int nextNegative(int leftWindow) {
+        for (int i = leftWindow; i < presentArr.length; i++) {
+            if (presentArr[i] < 0) return i;
+        }
+        return presentArr.length;
     }
 }
