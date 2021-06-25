@@ -376,7 +376,8 @@ public class CodeWarsTests {
         int[] tRandomTwo = {7, 4, 11, -11, 39, 36, 10, -6, 37, -10, -32, 44, -26, -34, 43, 43};
         int[] tRandomThree = {9, -7, 29, -26, -3, -25, 1, 8, 0, -19, 21, -23, -14, -19, 4, -26, -12, -28, 23, -29, -24, 5, -10, 12, 5, -1, -29, -7, -8, 26, -12, -7, 25, 29, 20, 0, -23, 15, -4, 27, 23, -12, 2, 0, -25, 12, -26, -13, -29, -14, -29, -17, 18, 2, -21, -10, 26};
         int[] tRandomThreeFlat = {9, -7, 29, -54, 9, -19, 21, -56, 4, -66, 23, -53, 5, -10, 17, -45, 26, -19, 74, -23, 15, -4, 50, -12, 2, 0, -25, 12, -131, 20, -31, 26};
-                                                                                                  // 26,  7   81   68  83  79  119.
+//                                                    *5                  *10                   *15  26,  7   81   68  83  79  119. *23
+        int[] tRandomThreeOnlyRelevant = {-45, 26, -19, 74, -23, 15, -4, 50, -12, 2, 0};
    @Test
         @DisplayName("Empty Arr")
         public void mSastOne() {
@@ -429,7 +430,7 @@ public class CodeWarsTests {
         @Test
         @DisplayName("rT3flat")
         public void mTestRandomThreeFlat(){
-            assertEquals(119, MaxSubArraySum.sequence(tRandomThreeFlat));
+            assertEquals(119, MaxSubArraySum.sequence(tRandomThreeOnlyRelevant));
         }
     }
 }
