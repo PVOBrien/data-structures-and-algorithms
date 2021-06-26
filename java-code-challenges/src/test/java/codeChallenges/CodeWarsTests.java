@@ -376,9 +376,12 @@ public class CodeWarsTests {
         int[] tRandomTwo = {7, 4, 11, -11, 39, 36, 10, -6, 37, -10, -32, 44, -26, -34, 43, 43};
         int[] tRandomThree = {9, -7, 29, -26, -3, -25, 1, 8, 0, -19, 21, -23, -14, -19, 4, -26, -12, -28, 23, -29, -24, 5, -10, 12, 5, -1, -29, -7, -8, 26, -12, -7, 25, 29, 20, 0, -23, 15, -4, 27, 23, -12, 2, 0, -25, 12, -26, -13, -29, -14, -29, -17, 18, 2, -21, -10, 26};
         int[] tRandomThreeFlat = {9, -7, 29, -54, 9, -19, 21, -56, 4, -66, 23, -53, 5, -10, 17, -45, 26, -19, 74, -23, 15, -4, 50, -12, 2, 0, -25, 12, -131, 20, -31, 26};
-//                                                    *5                  *10                   *15  26,  7   81   68  83  79  119. *23
+        //                                                    *5                  *10                   *15  26,  7   81   68  83  79  119. *23
+        int[] tRandomThreeShort = {-17, 18, 2, -21, -10, 26};
         int[] tRandomThreeOnlyRelevant = {-10, 17, -45, 26, -19, 74, -23, 15, -4, 50, -12, 2, 0};
-   @Test
+        int[] tRandomFourShort = {-17, 18, 2, -21, -10, 26};
+
+        @Test
         @DisplayName("Empty Arr")
         public void mSastOne() {
             assertEquals(0, MaxSubArraySum.sequence(tEmptyArr));
@@ -390,59 +393,104 @@ public class CodeWarsTests {
             assertEquals(0, MaxSubArraySum.sequence(tAllNegative));
         }
 
-        @Test
-        @DisplayName("Add all the Numbers")
-        public void mSasAllPlus() {
-            assertEquals(15, MaxSubArraySum.sequence(tAllPlus));
-        }
-
-        @Test
-        @DisplayName("one negative")
-        public void mBabyStepDown() {
-             assertEquals(9, MaxSubArraySum.sequence(tSingleMinusDESC));
-        }
-
-        @Test
-        @DisplayName("test of the wild...")
-        public void mTestReal() {
-            assertEquals(6, MaxSubArraySum.sequence(tRealCase));
-        }
-
-        @Test
-        @DisplayName("random test 1")
-        public void mTestRandomOne() {
-            assertEquals(70, MaxSubArraySum.sequence(tRandomOne));
-        }
-
-        @Test
-        @DisplayName("rT2")
-        public void mTestRandomTwo(){
-            assertEquals(155, MaxSubArraySum.sequence(tRandomTwo));
-        }
-
-        @Test
+        @Nested
         @Disabled
-        @DisplayName("rT3")
-        public void mTestRandomThree(){
-            assertEquals(119, MaxSubArraySum.sequence(tRandomThree));
+        @DisplayName("attempted smarter algos")
+        class toughMSA {
+
+            @Test
+            @DisplayName("Add all the Numbers")
+            public void mSasAllPlus() {
+                assertEquals(15, MaxSubArraySum.sequence(tAllPlus));
+            }
+
+            @Test
+            @DisplayName("one negative")
+            public void mBabyStepDown() {
+                assertEquals(9, MaxSubArraySum.sequence(tSingleMinusDESC));
+            }
+
+            @Test
+            @DisplayName("test of the wild...")
+            public void mTestReal() {
+                assertEquals(6, MaxSubArraySum.sequence(tRealCase));
+            }
+
+            @Test
+            @DisplayName("random test 1")
+            public void mTestRandomOne() {
+                assertEquals(70, MaxSubArraySum.sequence(tRandomOne));
+            }
+
+            @Test
+            @DisplayName("rT2")
+            public void mTestRandomTwo() {
+                assertEquals(155, MaxSubArraySum.sequence(tRandomTwo));
+            }
+
+            @Test
+            @Disabled
+            @DisplayName("rT3")
+            public void mTestRandomThree() {
+                assertEquals(119, MaxSubArraySum.sequence(tRandomThree));
+            }
+
+            @Test
+            @DisplayName("rT3flat")
+            public void mTestRandomThreeFlat() {
+                assertEquals(119, MaxSubArraySum.sequence(tRandomThreeOnlyRelevant));
+            }
+
+            @Test
+            @DisplayName("rT3flat")
+            public void mTestRandomFour() {
+                assertEquals(26, MaxSubArraySum.sequence(tRandomFourShort));
+            }
         }
 
-        @Test
-        @DisplayName("rT3flat")
-        public void mTestRandomThreeFlat(){
-            assertEquals(119, MaxSubArraySum.sequence(tRandomThreeOnlyRelevant));
+
+        @Nested
+        @DisplayName("Integer Grouping")
+        class plusMinusGrouping {
+            @Test
+            @DisplayName("add the numbers")
+            public void addThem() {
+                int[] resultArr = {-17, 20, -31, 26};
+                assertEquals(Arrays.toString(resultArr), Arrays.toString(MaxSubArraySumNew.positiveNegativeGrouping(tRandomThreeShort)));
+            }
+
+            @Test
+            @DisplayName("a bigger array")
+            public void addThem2() {
+                int[] resultArr = {9, -7, 29, -54, 9, -19, 21, -56, 4, -66, 23, -53, 5, -10, 17, -45, 26, -19, 74, -23, 15, -4, 50, -12, 2, -25, 12, -128, 20, -31, 26};;
+                assertEquals(Arrays.toString(resultArr), Arrays.toString(MaxSubArraySumNew.positiveNegativeGrouping(tRandomThree)));
+            }
+        }
+
+        @Nested
+        @DisplayName("brute force")
+        class maxSASN {
+
+            @Test
+            @DisplayName("bruteforce")
+            public void test1() {
+                assertEquals(26, MaxSubArraySumNew.sequence(tRandomThreeShort));
+            }
+
+            @Test
+            @DisplayName("rT3flat")
+            public void mTestRandomThreeFlat() {
+                assertEquals(119, MaxSubArraySumNew.sequence(tRandomThree));
+            }
+
+            @Test
+            @DisplayName("random test 1")
+            public void mTestRandomOne() {
+                assertEquals(70, MaxSubArraySumNew.sequence(tRandomOne));
+            }
+
         }
     }
 
-    @Nested
-    @DisplayName("Integer Grouping")
-    class plusMinusGrouping {
-        @Test
-        @DisplayName("add the numbers")
-        public void addThem() {
-            int[] tRandomThree = {9, -7, 29, -26, -3, -25, 1, 8, 0, -19, 21, -23, -14, -19, 4, -26, -12, -28, 23, -29, -24, 5, -10, 12, 5, -1, -29, -7, -8, 26, -12, -7, 25, 29, 20, 0, -23, 15, -4, 27, 23, -12, 2, 0, -25, 12, -26, -13, -29, -14, -29, -17, 18, 2, -21, -10, 26};
-            int[] tRandomThreeShort = {-17, 18, 2, -21, -10, 26};
-            System.out.println(MaxSubArraySumNew.positiveNegativeGrouping(tRandomThree));
-        }
-    }
+
 }
