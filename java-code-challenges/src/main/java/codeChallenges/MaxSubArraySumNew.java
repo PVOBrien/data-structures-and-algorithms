@@ -1,7 +1,6 @@
 package codeChallenges;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -16,42 +15,57 @@ import java.util.List;
  * Empty list is considered to have zero greatest sum. Note that the empty list or array is also a valid sublist/subarray.
  */
 public class MaxSubArraySumNew {
-    public static int[] presentArr; // globalize incoming arr;
+//    public static int[] presentArr; // globalize incoming arr;
 
     public static int sequence(int[] arr) {
-        presentArr = arr;
-        int currentSum = sumUp(0, presentArr.length);
-        int firstPositive = 0;
-
-        for (int i = 0; i < presentArr.length; i++) {
-            if (presentArr[i] > 0) {
-                firstPositive = i;
-                break;
-            }
+        int currentValue = 0, highestSum = 0, sum = 0;
+        for (int e : arr) {
+            sum += e;
+            currentValue = Math.min(sum, currentValue);
+            highestSum = Math.max(highestSum, sum - currentValue);
         }
-
-        for (int i = firstPositive; i < presentArr.length; i++) {
-            for (int j = i; j < presentArr.length; j++) {
-//                int tempSum = sumUp(i, j);
-                currentSum = Math.max(currentSum, sumUp(i,j));
-//                if (tempSum > currentSum) currentSum = tempSum; // todo: use Math.max(num1, num2) in refactor
-            }
-        }
-
-        return currentSum;
+        return highestSum;
     }
 
-    // === Helper Function: Sum the Array ===
-    private static int sumUp(int start, int end) {
-        int sum = presentArr[start];
 
-        for (int i = start; i < end; i++) {
-            if (i + 1 == presentArr.length) return sum;
-            sum += presentArr[i + 1];
-        }
-        return sum;
-    }
-
+    //    public static int sequence(int[] arr) {
+//        presentArr = arr;
+//
+//        if (arr.length == 0) return 0; // empty Array return.
+//        if (!positiveIsPresent(arr)) return 0; // if there isn't a positive number, return result
+//
+//        int currentSum = sumUp(0, presentArr.length);
+//        int firstPositive = 0;
+//
+//        for (int i = 0; i < presentArr.length; i++) {
+//            if (presentArr[i] > 0) {
+//                firstPositive = i;
+//                break;
+//            }
+//        }
+//
+//        for (int i = firstPositive; i < presentArr.length; i++) {
+//            for (int j = i; j < presentArr.length; j++) {
+////                int tempSum = sumUp(i, j);
+//                currentSum = Math.max(currentSum, sumUp(i,j));
+////                if (tempSum > currentSum) currentSum = tempSum; // todo: use Math.max(num1, num2) in refactor
+//            }
+//        }
+//
+//        return currentSum;
+//    }
+//
+//    // === Helper Function: Sum the Array ===
+//    private static int sumUp(int start, int end) {
+//        int sum = presentArr[start];
+//
+//        for (int i = start; i < end; i++) {
+//            if (i + 1 == presentArr.length) return sum;
+//            sum += presentArr[i + 1];
+//        }
+//        return sum;
+//    }
+//
     public static int[] positiveNegativeGrouping(int[] arr) {
         List<Integer> middleArr = new ArrayList<>();
         int currentGrouping = arr[0];
@@ -64,13 +78,24 @@ public class MaxSubArraySumNew {
                 middleArr.add(currentGrouping);
                 currentGrouping = arr[i];
             }
+
             i++;
 
             if (i == arr.length) {
                 middleArr.add(arr[i - 1]);
-                i++;
+                i++; // OR could break
             }
         }
         return middleArr.stream().mapToInt(i -> i).toArray(); // https://www.geeksforgeeks.org/arraylist-array-conversion-java-toarray-methods/
+    }
+
+    // === Helper Function: if there's any positive Numbers ===
+    private static boolean positiveIsPresent(int[] arrToCheck) {
+        boolean positives = false;
+        for (int number : arrToCheck) {
+            positives = number > 0;
+            if (positives) break;
+        }
+        return positives;
     }
 }

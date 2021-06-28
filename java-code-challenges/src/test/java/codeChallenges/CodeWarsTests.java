@@ -375,8 +375,6 @@ public class CodeWarsTests {
         int[] tRandomOne = {-5, -9, 23, -4, 12, -2, -10, 9, -24, 5, 28, -7, -26, 26, -2, -29, -20, -2, 9, 26, -22, -5, 25, 22, 15, 0, -23, 21, -6, -28, 8, -17, -29, -26, 7, -26, 19, -26, -12, 20, 9, -15, 17, 10, -26, -18, 5, 2, 3, 0, -20, -26, 15, 7, -1};
         int[] tRandomTwo = {7, 4, 11, -11, 39, 36, 10, -6, 37, -10, -32, 44, -26, -34, 43, 43};
         int[] tRandomThree = {9, -7, 29, -26, -3, -25, 1, 8, 0, -19, 21, -23, -14, -19, 4, -26, -12, -28, 23, -29, -24, 5, -10, 12, 5, -1, -29, -7, -8, 26, -12, -7, 25, 29, 20, 0, -23, 15, -4, 27, 23, -12, 2, 0, -25, 12, -26, -13, -29, -14, -29, -17, 18, 2, -21, -10, 26};
-        int[] tRandomThreeFlat = {9, -7, 29, -54, 9, -19, 21, -56, 4, -66, 23, -53, 5, -10, 17, -45, 26, -19, 74, -23, 15, -4, 50, -12, 2, 0, -25, 12, -131, 20, -31, 26};
-        //                                                    *5                  *10                   *15  26,  7   81   68  83  79  119. *23
         int[] tRandomThreeShort = {-17, 18, 2, -21, -10, 26};
         int[] tRandomThreeOnlyRelevant = {-10, 17, -45, 26, -19, 74, -23, 15, -4, 50, -12, 2, 0};
         int[] tRandomFourShort = {-17, 18, 2, -21, -10, 26};
@@ -394,57 +392,57 @@ public class CodeWarsTests {
         }
 
         @Nested
-        @Disabled
+//        @Disabled
         @DisplayName("attempted smarter algos")
         class toughMSA {
 
             @Test
             @DisplayName("Add all the Numbers")
             public void mSasAllPlus() {
-                assertEquals(15, MaxSubArraySum.sequence(tAllPlus));
+                assertEquals(15, MaxSubArraySumNew.sequence(tAllPlus));
             }
 
             @Test
             @DisplayName("one negative")
             public void mBabyStepDown() {
-                assertEquals(9, MaxSubArraySum.sequence(tSingleMinusDESC));
+                assertEquals(9, MaxSubArraySumNew.sequence(tSingleMinusDESC));
             }
 
             @Test
             @DisplayName("test of the wild...")
             public void mTestReal() {
-                assertEquals(6, MaxSubArraySum.sequence(tRealCase));
+                assertEquals(6, MaxSubArraySumNew.sequence(tRealCase));
             }
 
             @Test
             @DisplayName("random test 1")
             public void mTestRandomOne() {
-                assertEquals(70, MaxSubArraySum.sequence(tRandomOne));
+                assertEquals(70, MaxSubArraySumNew.sequence(tRandomOne));
             }
 
             @Test
             @DisplayName("rT2")
             public void mTestRandomTwo() {
-                assertEquals(155, MaxSubArraySum.sequence(tRandomTwo));
+                assertEquals(155, MaxSubArraySumNew.sequence(tRandomTwo));
             }
 
             @Test
             @Disabled
             @DisplayName("rT3")
             public void mTestRandomThree() {
-                assertEquals(119, MaxSubArraySum.sequence(tRandomThree));
+                assertEquals(119, MaxSubArraySumNew.sequence(tRandomThree));
             }
 
             @Test
             @DisplayName("rT3flat")
             public void mTestRandomThreeFlat() {
-                assertEquals(119, MaxSubArraySum.sequence(tRandomThreeOnlyRelevant));
+                assertEquals(119, MaxSubArraySumNew.sequence(tRandomThreeOnlyRelevant));
             }
 
             @Test
             @DisplayName("rT3flat")
             public void mTestRandomFour() {
-                assertEquals(26, MaxSubArraySum.sequence(tRandomFourShort));
+                assertEquals(26, MaxSubArraySumNew.sequence(tRandomFourShort));
             }
         }
 
