@@ -6,8 +6,8 @@ class Node {
   private Node next;
 
   public Node(int number) {
-    this.setValue(number);
-    this.setNext(null);
+    setValue(number);
+    setNext(null);
   }
 
   public int getValue() { return value; }

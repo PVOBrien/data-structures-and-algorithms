@@ -41,7 +41,7 @@ public class HackerRankChallenges {
 
         @Test
         @DisplayName("SOCKS!")
-        public void socksOne(){
+        public void socksOne() {
             List<Integer> socks = Arrays.asList(10, 20, 20, 10, 10, 30, 50, 10, 20);
 //            socks = Arrays.asList(1, 1);
             // 4 tens
@@ -57,7 +57,7 @@ public class HackerRankChallenges {
     class ValleyCountTest {
         @Test
         @DisplayName("Valleys, up and down")
-        public void valley1(){
+        public void valley1() {
 
             String elevation = "UDDDUDUU";
             System.out.println(ValleyCount.valleyCount(elevation.length(), elevation));
@@ -66,13 +66,13 @@ public class HackerRankChallenges {
 
     @Nested
     @DisplayName("Clouds be jumped!")
-    class CloudJumpsTest{
+    class CloudJumpsTest {
         @Test
         @DisplayName("lil cloud jumping")
-        public void jump1Test(){
+        public void jump1Test() {
 
             List<Integer> theClouds = new ArrayList<>();
-            Integer[] clouds = {0,0, 1, 0, 0, 1, 0};
+            Integer[] clouds = {0, 0, 1, 0, 0, 1, 0};
             Collections.addAll(theClouds, clouds);
 
             System.out.println(CloudJumps.jumpingOnClouds(theClouds));
@@ -152,7 +152,7 @@ public class HackerRankChallenges {
         public void abaTest() {
             System.out.println("Modulo: " + (9 % 10));
 
-            assertEquals(7,RepeatLetterStringNthTimes.repeatedString("aba", 10));
+            assertEquals(7, RepeatLetterStringNthTimes.repeatedString("aba", 10));
         }
 
         @Test
@@ -166,5 +166,43 @@ public class HackerRankChallenges {
         public void realTestSeven() {
             assertEquals(51574523448L, RepeatLetterStringNthTimes.repeatedString("kmretasscityylpdhuwjirnqimlkcgxubxmsxpypgzxtenweirknjtasxtvxemtwxuarabssvqdnktqadhyktagjxoanknhgilnm", 736778906400L));
         }
+    }
+
+    @Nested
+    @DisplayName("SubArrayDivision")
+    class SubArrayTest {
+
+        int[] testArr = new int[]{1, 1, 2, 3, 4, 1, 1}; // count to 5.
+
+        @Test
+        @DisplayName("just a test")
+        public void sadTestwArr() {
+            assertEquals(2, SubArrayDivision.howMany(testArr, 2, 5));
+        }
+
+        @Test
+        @DisplayName("test w List 1")
+        public void sadTestwList() {
+            List<Integer> testList = new ArrayList<>();
+            Collections.addAll(testList, 1, 1, 2, 3, 4, 1, 1);
+            assertEquals(2, SubArrayDivision.howMany(testList, 2, 5));
+        }
+
+        @Test
+        @DisplayName("test w List 1")
+        public void sadTestwList2() {
+            List<Integer> testList = new ArrayList<>();
+            Collections.addAll(testList, 1, 2, 1, 3, 2);
+            assertEquals(2, SubArrayDivision.howMany(testList, 2, 3));
+        }
+
+        @Test
+        @DisplayName("test w List 1")
+        public void sadTestwList3() {
+            List<Integer> testList = new ArrayList<>();
+            Collections.addAll(testList, 4, 1);
+            assertEquals(1, SubArrayDivision.howMany(testList, 1, 4));
+        }
+
     }
 }
