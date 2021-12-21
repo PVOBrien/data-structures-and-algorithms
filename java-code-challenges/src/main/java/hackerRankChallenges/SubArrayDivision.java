@@ -19,9 +19,11 @@ public class SubArrayDivision {
     public static int howMany(List<Integer> arr, int stretch, int sum) {
         System.out.println("Size of arr/list: " + arr.size());
         System.out.println("Content of list: " + arr);
+        System.out.println("SUM: " + sum);
+        System.out.println("stretch: " + stretch);
         int endTotal = 0; // initialize return value
         if (stretch > arr.size()) return 0; // edge case that there aren't enough values in the array to satisfy the run of numbers
-        for (int i = stretch; i < arr.size(); i++) { // find the sum of the stretch. This can be improved
+        for (int i = stretch; i < arr.size()+1; i++) { // find the sum of the stretch. This can be improved
             int total = 0;
             for (int j = stretch; j > 0; j--) { // actually find the sum. off by 1?
                 total += arr.get(i-j); // off by one. Somewhere.

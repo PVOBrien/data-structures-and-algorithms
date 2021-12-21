@@ -200,9 +200,8 @@ public class HackerRankChallenges {
         @DisplayName("test w List 1")
         public void sadTestwList3() {
             List<Integer> testList = new ArrayList<>();
-            Collections.addAll(testList, 4, 1);
+            Collections.addAll(testList, 1, 4);
             assertEquals(1, SubArrayDivision.howMany(testList, 1, 4));
         }
-
     }
 }
