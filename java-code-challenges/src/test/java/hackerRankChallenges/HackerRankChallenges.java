@@ -1,6 +1,7 @@
 package hackerRankChallenges;
 
 import org.checkerframework.checker.signature.qual.DotSeparatedIdentifiers;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -202,6 +203,26 @@ public class HackerRankChallenges {
             List<Integer> testList = new ArrayList<>();
             Collections.addAll(testList, 1, 4);
             assertEquals(1, SubArrayDivision.howMany(testList, 1, 4));
+        }
+    }
+
+    @Nested
+    @DisplayName("dynamiArrayHm")
+    class DynamicArrayHmTest{ // this test fails due to many reasons. Left in place to waggle finger at hackerrank
+
+        @Test
+        @DisplayName("test 1")
+        public void boughtTest1(){
+            ArrayList<Integer> setupDetails = new ArrayList<>();
+            setupDetails.add(1);
+            setupDetails.add(1);
+            List<List<Integer>> queries = new ArrayList<>();
+            ArrayList<Integer> testQuery = new ArrayList<>();
+            testQuery.add(2);
+            testQuery.add(736380701);
+            testQuery.add(402184046);
+            queries.add(testQuery);
+            assertNotEquals(855677723, dynamicArrayHm.dynamicArray(100, queries));
         }
     }
 }

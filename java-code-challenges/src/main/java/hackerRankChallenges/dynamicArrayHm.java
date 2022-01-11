@@ -5,7 +5,7 @@ import java.util.List;
 
 public class dynamicArrayHm {
 
-    public static List<Integer> dynamicArray(int n, List<List<Integer>> queries) {
+    public static int  dynamicArray(int n, List<List<Integer>> queries) { //List<Integer>
         // https://www.hackerrank.com/challenges/dynamic-array/problem
         // answer modelled from this https://www.hackerrank.com/challenges/dynamic-array/forum/comments/255447
         int lastAns = 0;
@@ -13,26 +13,31 @@ public class dynamicArrayHm {
 
         /* Create 2-D ArrayList */
         ArrayList<ArrayList<Integer>> lists = new ArrayList<>();
-        for (int i = 0; i < queries.size(); i++) {
+        for (int i = 0; i < n; i++) {
             lists.add(new ArrayList<>());
         }
 
+        System.out.println("Lists: " + lists);
         /* Perform Q Queries */
         for (List<Integer> query : queries) {
-            int q = query.get(0);
-            int x = query.get(1);
-            int y = query.get(2);
-            ArrayList<Integer> seq = lists.get((x ^ lastAns) % n);
-            if (q == 1) {
-                seq.add(y);
-            } else if (q == 2) {
-                lastAns = seq.get(y % seq.size());
-                System.out.println(lastAns);
+            int queryType = query.get(0);
+            System.out.println("queryType: " + queryType);
+            int qNumOne = query.get(1);
+            System.out.println("qNumOne: " + qNumOne);
+            int qNumTwo = query.get(2);
+            System.out.println("qNumTwo: " + qNumTwo);
+            ArrayList<Integer> targetSeq = lists.get((qNumOne ^ lastAns) % n);
+            System.out.println("targetSeq: " + targetSeq);
+            if (queryType == 1) {
+                targetSeq.add(qNumTwo);
+            } else if (queryType == 2) {
+                lastAns = targetSeq.get(qNumTwo % targetSeq.size());
+                System.out.println("lastAns: " + lastAns);
                 lastAnsAL.add(lastAns);
             }
         }
 
-    return lastAnsAL;
+    return lastAnsAL.get(0);
 
     }
 }
