@@ -6,14 +6,9 @@ public class GtreeNode<T> {
     GtreeNode<T> left;
     GtreeNode<T> right;
 
-    public GtreeNode(T value) {
-        this.value = value;
-    }
-
-    public GtreeNode() {
-        this.value = null;
-    }
-
+    public GtreeNode() { this.value = null; }
+    public GtreeNode(T value) { this.value = value; }
+    
     public T getValue() { return value; }
     public void setValue(T value) { this.value = value; }
 
